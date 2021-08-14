@@ -1,0 +1,71 @@
+---
+const {title} = Astro.props;
+import CustomDropdown from '../components/Dropdown.jsx';
+---
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width">
+    <title>{title}</title>
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+ <link rel="stylesheet" type="text/css" href="/global.css">
+    <style>
+      .as {
+    background: conic-gradient(
+            from 106.75deg at 49.98% 50.65%,
+            #000d26dd 0deg,
+            rgba(0, 18, 53, 0.69) 187.5deg,
+            #000d26dd 360deg
+        ),
+        url('/assets/homeBackgroudPic.jpg');
+    background-size: cover;
+}
+.bg-cover {
+    background-size: cover;
+}
+
+    </style>
+</head>
+  <body>
+    <!-- navigation bar + Background-->
+      <section class="as">
+        <header class="h-24 p-4 flex place-content-between items-center">
+          <div
+              class="
+                  gap-2
+                  logo
+                  flex
+                  items-center
+                  rounded-lg
+                  hover:scale-[.99]
+                  transition-transform
+              "
+          >
+              <div>
+                  <img class="w-10 h-10 object-cover" src="/assets/Logo.svg" />
+              </div>
+              <div class="flex w-max items-center">
+                  <h1
+                      class="
+                          text-xl
+                          font-round
+                          select-none
+                          font-semibold
+                          bg-gradient-to-br
+                          from-cyan-200
+                          to-purple-400
+                          text-transparent
+                          bg-clip-text
+                      "
+                  >
+                      Divyamrit
+                  </h1>
+              </div>
+          </div>
+          <CustomDropdown client:visible ></CustomDropdown>
+          </header>
+        <slot />
+      </section>
+    <!-- slot: your page content will be injected here. -->
+  </body>
+</html>

@@ -1,0 +1,120 @@
+---
+import Accordion from "../components/Accordion.vue"
+import BaseLayout from "../layouts/home.astro"
+---
+<BaseLayout title="Homepage">
+        <section class="w-full py-28 flex flex-col items-center justify-center">
+            <article
+                id="background-circle"
+                class="
+                    rounded-full
+                    h-64
+                    z-0
+                    relative
+                    w-64
+                    flex
+                    items-center
+                    justify-center
+                "
+                style="
+                    background: radial-gradient(
+                        circle,
+                        hsla(231, 100%, 50%, 1) 0%,
+                        hsla(196, 100%, 50%, 1) 100%
+                    );
+                "
+            >
+                <!-- <div class="z-10 blur-[2px] text-black  absolute flex h-full w-full items-center justify-center text-5xl">Anshu</div> -->
+                <div
+                    id="photo"
+                    class="
+                        w-56
+                        relative
+                        z-20
+                        opacity-80
+                        h-56
+                        rounded-full
+                    "
+                    style="
+                        box-shadow: 0px 0px 60px 1px hsla(210, 100%, 70%, 1);
+                        background-position: center center;
+                        background-image: url('');
+                    "
+                ></div>
+            </article>
+            <article class="max-w-xl text-center text-white text-xl py-10">
+                <strong>"</strong>I love designing and programming things that
+                works totally fine and smooth for any person out their in world
+                and Still learning to become better by each passing day, I love
+                to play basketball, Brawl Star, Coding and meditation.
+            </article>
+            <ul
+                class="
+                    text-white text-opacity-40
+                    mt-10
+                    font-jetMono font-semibold
+                "
+            >
+                <h1 class="text-xl ml-8">I like !</h1>
+                <section
+                    class="
+                        w-full
+                        h-full
+                        flex flex-col
+                        justify-center
+                        items-center
+                    "
+                >
+                    <article
+                        class="
+                            p-4
+                            max-w-xl
+                            grid grid-flow-col grid-cols-2 grid-rows-3
+                            sm:grid-cols-3 sm:grid-rows-2
+                            place-items-center
+                            gap-4
+                        "
+                    >
+                        <a class="flex items-center h-12 w-auto" href="#">
+                            <img src="/assets/StackLogo/nuxtLogo.svg" />
+                        </a>
+                        <a class="flex items-center h-12 w-auto" href="#">
+                            <img src="/assets/StackLogo/viteLogo.svg" class="w-10" />
+                            <h1 class="text-white text-4xl">&nbsp;Vite</h1>
+                        </a>
+                        <a class="flex items-center h-12 w-auto" href="#">
+                            <img
+                                class="w-10"
+                                id="vueLogo"
+                                src="https://camo.githubusercontent.com/c8f91d18976e27123643a926a2588b8d931a0292fd0b6532c3155379e8591629/68747470733a2f2f7675656a732e6f72672f696d616765732f6c6f676f2e706e67"
+                            />
+                            <h1 class="text-white text-4xl">&nbsp;Vue</h1>
+                        </a>
+                        <a class="flex items-center h-12 w-auto" href="#">
+                            <img src="/assets/StackLogo/tailwindLogo.svg" class="h-12 w-auto" />
+                        </a>
+                        <a class="flex items-center h-12 w-auto" href="#">
+                            <img src="/assets/StackLogo/headlessUiLogo.svg" class="h-24 w-auto" />
+                        </a>
+                        <a class="flex items-center h-12 w-auto" href="#">
+                            <img src="/assets/StackLogo/heroIconsLogo.svg" class="h-24 w-auto" />
+                        </a>
+                    </article>
+                </section>
+            </ul>
+            <div
+                class="
+                    mt-10
+                    w-full
+                    h-full
+                    flex flex-col
+                    items-center
+                    justify-center
+                    px-10
+                "
+            >
+                <p class="text-xl text-white">See some Awesome works!,</p>
+                <Accordion client:load />
+            </div>
+        </section>
+</BaseLayout>

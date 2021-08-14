@@ -1,0 +1,9 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@layer components {
+  .btn {
+    @apply flex items-center cursor-pointer rounded-lg px-3 py-1 ring-4 ring-opacity-0 focus-visible:outline-none focus:outline-none hover:scale-[.99] transition-color-shadow;
+    -webkit-tap-highlight-color: transparent;
+  }
+}
