@@ -1,6 +1,7 @@
 ---
 import Accordion from "../components/Accordion.vue"
 import BaseLayout from "../layouts/home.astro"
+import List from "../components/backdrop.svelte"
 // zindex-0
 // photo zindex-10
 ---
@@ -106,17 +107,36 @@ import BaseLayout from "../layouts/home.astro"
             </ul>
             <div
                 class="
-                    mt-10
-                    w-full
+                    mt-44
+                    max-w-2xl
                     h-full
                     flex flex-col
-                    items-center
-                    justify-center
-                    px-10
+                    items-start
+                    justify-start
+                    px-5
                 "
             >
-                <p class="text-xl text-white">See some Awesome works!,</p>
-                <Accordion client:load />
+                <h1 class="text-white font-sans text-7xl text-left">
+                    Projects
+                </h1>
+                <ul class="mt-10 max-w-3xl text-left">
+                    <List client:visible>
+                            <p> Designed a website for Sri Sri Ravi Shankar <br> (A World Spiritual Leader) </p>
+                            <a class="underBg text-lg "> Read About it ! </a>
+                    </List>
+                    <List client:visible>
+                            <p> Worked with a client to make a flutter app <br> (Quiz App for Teacher) </p>
+                            <a class="underBg text-lg "> Read About it ! </a>
+                    </List>
+                    <List client:visible>
+                            <p> Make Another website with svelteKit <br> (To know about svelte ) </p>
+                            <a class="underBg text-lg "> Read About it ! </a>
+                    </List>
+                    <List client:visible>
+                            <p> My previous portfolio hated by others <br> ( Learned a lot  ) </p>
+                            <a class="underBg text-lg "> Read About it ! </a>
+                    </List>
+                </ul>
             </div>
         </section>
 </BaseLayout>

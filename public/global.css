@@ -9,4 +9,14 @@
   .tab-hightlight-none{
     -webkit-tap-highlight-color: transparent;
   }
+  .underBg{
+    background-image:linear-gradient(90deg,#521D99,#AB7CEA);
+    background-size:0% 3px;
+    background-repeat:no-repeat;
+    background-position:left bottom;
+    transition: background-size 300ms ease;
+  }
+  .underBg:hover{
+    background-size:100% 3px;
+  }
 }
