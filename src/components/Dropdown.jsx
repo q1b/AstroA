@@ -27,7 +27,7 @@ export default function Example() {
      },
   ];
   return (
-    <div className="relative">
+    <div className="relative z-50">
       <Menu as="div" className="relative inline-block text-left" >
       {({ open }) => (
         <Fragment>
@@ -92,7 +92,7 @@ export default function Example() {
                   <button
                     className={`${
                       active ? 'bg-violet-500 text-white' : 'text-white'
-                    } group flex rounded-md transition-colors items-center w-full px-2 py-2 text-sm`}
+                    } z-50 tab-hightlight-none group flex rounded-md transition-colors items-center w-full px-2 py-2 text-sm`}
                     >
                     {active ? (
                       <item.activeIcon
