@@ -27,7 +27,7 @@ export default function Example() {
      },
   ];
   return (
-    <div className="relative z-50">
+    <div className="sm:hidden relative z-50">
       <Menu as="div" className="relative inline-block text-left" >
       {({ open }) => (
         <Fragment>

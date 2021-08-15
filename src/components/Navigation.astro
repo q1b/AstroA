@@ -1,0 +1,70 @@
+---
+import Dropdown from './Dropdown.jsx';
+import BackdropButton from "./backdrop.svelte"
+let items = [
+   {
+      name: 'Portfolio',
+      activeIcon:"SolidUserCircleIcon",
+      inactiveIcon:"OutlineUserCircleIcon",
+   },
+   {
+      name:'Blog',
+      activeIcon:"PaperClipSolidIcon",
+      inactiveIcon:"PaperClipOutlineIcon",
+   },
+   {
+      name: 'My Art',
+      activeIcon:"PencilAltSolidIcon",
+      inactiveIcon:"OutlinePencilAltIcon",
+   },
+   {
+      name: 'Get in touch',
+      activeIcon:"PaperAirplaneSolidIcon",
+      inactiveIcon:"PaperAirplaneOutlineIcon",
+   },
+];
+
+---
+<header class="h-24 p-4  flex place-content-start items-center">
+  <div
+      class="
+          gap-2
+          logo
+          flex
+          items-center
+          rounded-lg
+          hover:scale-[.99]
+          transition-transform
+      "
+  >
+      <div>
+          <img class="w-10 h-10 object-cover" src="/assets/Logo.svg" />
+      </div>
+      <div class="flex w-max items-center">
+          <h1
+              class="
+                  text-xl
+                  font-round
+                  select-none
+                  font-semibold
+                  bg-gradient-to-br
+                  from-cyan-200
+                  to-purple-400
+                  text-transparent
+                  bg-clip-text
+              "
+          >
+              Divyamrit
+          </h1>
+      </div>
+  </div>
+
+    <nav class="sm:flex ml-10 hidden ">
+      {items.map((item)=>{
+        return <BackdropButton link="#" client:visible>
+          {item.name}
+        </BackdropButton>
+      })}
+    </nav>
+  <Dropdown client:visible ></Dropdown>
+</header>
