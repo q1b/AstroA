@@ -1,0 +1,19 @@
+---
+import { Markdown } from 'astro/components';
+import BaseHead from '../components/BaseHead.astro';
+const {content} = Astro.props;
+const {title, subTitle, publishDate} = content;
+---
+<html lang={ content.lang || 'en' }>
+  <head>
+    <BaseHead title={title} description={subTitle} permalink='www.example.com' />
+    <link rel="stylesheet" type="text/css" href="/code.css">
+    <link rel="stylesheet" type="text/css" href="/global.css">
+  </head>
+  <body class="w-full flex flex-col justify.center items-center">
+    <div class="prose prose-indigo">
+      <slot/>
+    </div>
+  </body>
+</html>
+

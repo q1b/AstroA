@@ -1,31 +1,29 @@
 ---
-const {title} = Astro.props;
+const {title,description,permalink} = Astro.props;
 import CustomDropdown from '../components/Dropdown.jsx';
+import BaseHead from '../components/BaseHead.astro';
+
 ---
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width">
-    <title>{title}</title>
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
- <link rel="stylesheet" type="text/css" href="/global.css">
+  <head>
+    <BaseHead title={title} description={description} permalink={permalink} />
+    <link rel="stylesheet" type="text/css" href="/global.css">
     <style>
       .as {
-    background: conic-gradient(
+        background: conic-gradient(
             from 106.75deg at 49.98% 50.65%,
             #000d26dd 0deg,
             rgba(0, 18, 53, 0.69) 187.5deg,
             #000d26dd 360deg
         ),
         url('/assets/homeBackgroudPic.jpg');
-    background-size: cover;
-}
-.bg-cover {
-    background-size: cover;
-}
-
+      background-size: cover;
+    }
+    .bg-cover {
+      background-size: cover;
+    }
     </style>
-</head>
+  </head>
   <body>
     <!-- navigation bar + Background-->
       <section class="as">
@@ -64,8 +62,8 @@ import CustomDropdown from '../components/Dropdown.jsx';
           </div>
           <CustomDropdown client:visible ></CustomDropdown>
           </header>
+        <!-- slot: your page content will be injected here. -->
         <slot />
       </section>
-    <!-- slot: your page content will be injected here. -->
   </body>
 </html>

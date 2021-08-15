@@ -1,0 +1,10 @@
+---
+import List from "../../components/backdrop.svelte"
+const { title = 'Card Title', subTitle = "Card Sub Title" , link = "#" } = Astro.props;
+---
+<List client:visible>
+        <a href={link}>
+                <p> {title} <br> {subTitle} </p>
+                <a href={link} class="underBg text-lg"> Read About it ! </a>
+        </a>
+</List>

@@ -1,11 +1,15 @@
 ---
-import Accordion from "../components/Accordion.vue"
 import BaseLayout from "../layouts/home.astro"
-import List from "../components/backdrop.svelte"
+import ProjectCards from "../components/index/projectCards.astro"
 // zindex-0
 // photo zindex-10
+
+// Data Fetching: List all Markdown projects in the repo .
+let allProjects = Astro.fetchContent('./Projects/*.md');
+// allPosts = allPosts.sort((a, b) => new Date(b.publishDate) - new Date(a.publishDate));
+
 ---
-<BaseLayout title="Homepage">
+<BaseLayout title="Homepage" description="HomePage" permalink = 'https://example.com/'>
         <section class="w-full py-28 flex flex-col items-center justify-center">
             <article
                 id="background-circle"
@@ -120,22 +124,7 @@ import List from "../components/backdrop.svelte"
                     Projects
                 </h1>
                 <ul class="mt-10 max-w-3xl text-left">
-                    <List client:visible>
-                            <p> Designed a website for Sri Sri Ravi Shankar <br> (A World Spiritual Leader) </p>
-                            <a class="underBg text-lg "> Read About it ! </a>
-                    </List>
-                    <List client:visible>
-                            <p> Worked with a client to make a flutter app <br> (Quiz App for Teacher) </p>
-                            <a class="underBg text-lg "> Read About it ! </a>
-                    </List>
-                    <List client:visible>
-                            <p> Make Another website with svelteKit <br> (To know about svelte ) </p>
-                            <a class="underBg text-lg "> Read About it ! </a>
-                    </List>
-                    <List client:visible>
-                            <p> My previous portfolio hated by others <br> ( Learned a lot  ) </p>
-                            <a class="underBg text-lg "> Read About it ! </a>
-                    </List>
+                    <ProjectCards allProjects={allProjects}/>
                 </ul>
             </div>
         </section>

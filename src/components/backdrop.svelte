@@ -14,5 +14,5 @@
 </script>
 
 <button id="Projects" on:mouseenter={()=>{progress.set(6)}} on:mouseleave={()=>{progress.set(0)}} style={style} class="mt-2 text-white text-2xl rounded-2xl border-2 border-transparent px-10 py-5 text-left">
-  <slot></slot>
+    <slot></slot>
 </button>

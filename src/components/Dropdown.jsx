@@ -38,7 +38,7 @@ export default function Example() {
               ring-indigo-500
               !p-1
               hover:shadow-btn-blueGray
-						focus:text-blueGray-900
+						  focus:text-blueGray-900
               group
       `}>
           <svg

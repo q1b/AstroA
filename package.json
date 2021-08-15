@@ -11,13 +11,12 @@
     "@astrojs/renderer-solid": "^0.1.0",
     "@astrojs/renderer-svelte": "^0.1.1",
     "@astrojs/renderer-vue": "^0.1.7",
+    "@tailwindcss/typography": "^0.4.1",
     "astro": "^0.18.12"
   },
   "dependencies": {
     "@headlessui/react": "^1.4.0",
-    "@headlessui/vue": "^1.4.0",
     "@heroicons/react": "^1.0.3",
-    "@heroicons/vue": "^1.0.3",
     "heroicons": "^1.0.2",
     "tailwindcss": "^2.2.7"
   }

@@ -1,0 +1,14 @@
+---
+
+import ProjectCard from './projectCard.astro';
+
+const { allProjects } = Astro.props;
+console.log(allProjects);
+---
+{allProjects.map(p => 
+  <ProjectCard
+    title={p.title} 
+    subTitle={p.subTitle}
+    link={p.url}
+  />
+)}
