@@ -87,6 +87,9 @@ let allProjects = Astro.fetchContent('./Projects/*.md');
                     <ProjectCards allProjects={allProjects}/>
                 </ul>
             </div>
+            <div class="px-2 py-1 bg-white/20 ">
+                Photo by <a href="https://unsplash.com/@williamdaigneault?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">William Daigneault</a> on <a href="https://unsplash.com/@williamdaigneault?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>
+            </div>
             <!-- <ul
                 class="
                     text-white text-opacity-40
@@ -142,4 +145,5 @@ let allProjects = Astro.fetchContent('./Projects/*.md');
                 </section>
             </ul> -->
         </section>
+
 </BaseLayout>
