@@ -1,6 +1,7 @@
 <script>
 import { onMount } from 'svelte';
 import { annotate,annotationGroup } from 'rough-notation';
+
 let ele1;
 // Element of my Name
 let ele2;
@@ -33,9 +34,7 @@ onMount(()=>{
   const ConnetAnnotation = annotate(c1, generateAnnotationObject('underline','#FFF',2));
   const ag = annotationGroup([a1, a2, Eh1,Eh2,Eh3,Eh4,ConnetAnnotation]);
   ag.show();
-  console.log(h1);
 });
-
 </script>
 <article class="max-w-xl text-white text-xl">
     <h1 class="text-4xl font-black mb-6">Hi there, I'm <span bind:this={ele1}>Sukhpreet</span>.</h1>
@@ -50,7 +49,7 @@ onMount(()=>{
     <p class="mb-3">
       Take a look at stuff that I can be helpful for developer,
       I love to make new friends and hear about the stuff they are doing,
-    </p> 
+    </p>
     <span bind:this={c1} class="" >
       Connect !
     </span>
