@@ -1,12 +1,12 @@
 ---
-const {title,description,permalink} = Astro.props;
 import CustomNavigation from '../components/Navigation.astro';
-import BaseHead from '../components/BaseHead.astro';
+import HeadSEO from '../components/HeadSEO.astro';
+import HeadCommon from '../components/HeadCommon.astro'
 ---
 <html lang="en">
   <head>
-    <BaseHead title={title} description={description} permalink={permalink} />
-    <link rel="stylesheet" type="text/css" href="/global.css">
+    <HeadCommon />
+    <HeadSEO /> 
   </head>
   <body>
     <!-- navigation bar + Background-->

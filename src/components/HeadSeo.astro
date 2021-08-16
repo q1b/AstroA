@@ -1,0 +1,33 @@
+---
+// import {SITE, OPEN_GRAPH} from '../config.ts';
+// export interface Props {
+//   content: any,
+//   site: any,
+//   canonicalURL: URL | string,
+// };
+const canonicalURL  = 'https://zcz.netlify.app/' ;
+const formattedContentTitle = ' Sukhpreet Singh Portfolio ';
+const imageSrc = '/pic.jpeg?v=1';
+const canonicalImageSrc = 'https://zcz.netlify.app/pic.jpeg?v=1';
+const imageAlt = 'Divyamrit Img';
+---
+<!-- Page Metadata -->
+<link rel="canonical" href={canonicalURL}/>
+
+<!-- OpenGraph Tags -->
+<meta property="og:title" content={formattedContentTitle}/>
+<meta property="og:type" content="article"/>
+<meta property="og:url" content={canonicalURL}/>
+<meta property="og:locale" content='en_US'/>
+<meta property="og:image" content={canonicalImageSrc}/>
+<meta property="og:image:alt" content={imageAlt}/>
+<meta property="og:description" content='Javascipt developer helper making things that world will like'/>
+<meta property="og:site_name" content={formattedContentTitle}/>
+
+<!-- Twitter Tags -->
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:site" content='XSukhpreet'/>
+<meta name="twitter:title" content={formattedContentTitle}/>
+<meta name="twitter:description" content='Javascipt developer helper making things that world will like'/>
+<meta name="twitter:image" content={canonicalImageSrc}/>
+<meta name="twitter:image:alt" content={imageAlt}/>
