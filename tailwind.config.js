@@ -94,6 +94,7 @@ module.exports = {
         // },
         DEFAULT: {
           css: {
+            maxWidth:'none',
             color: theme('colors.gray.500'),
             '> :first-child': { marginTop: null },
             '> :last-child': { marginBottom: null },
