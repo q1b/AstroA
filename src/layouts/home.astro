@@ -1,12 +1,12 @@
 ---
 import CustomNavigation from '../components/Navigation.astro';
-import HeadSEO from '../components/HeadSEO.astro';
+import SEO from "../components/SEO.astro";
 import HeadCommon from '../components/HeadCommon.astro'
 ---
 <html lang="en">
   <head>
     <HeadCommon />
-    <HeadSEO /> 
+    <SEO canonicalURL={Astro.request.canonicalURL} />
   </head>
   <body>
     <!-- navigation bar + Background-->
