@@ -54,6 +54,8 @@ module.exports = {
 				'btn-blueGray' : `inset 0px 0px 10px 1px #ffffff,inset 0px 0px 50px 10px ${theme('colors.blueGray.200')},0px 0px 5px 5px ${theme('colors.blueGray.900')}`
 			}),
       screens: {
+        'zss':'350px',
+        'zs':'400px',
         'xss':'450px',
         'xs': '500px',
       },
