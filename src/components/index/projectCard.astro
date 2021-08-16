@@ -3,8 +3,8 @@ import List from "./backdrop.svelte"
 const { title = 'Card Title', subTitle = "Card Sub Title" , link = "#" } = Astro.props;
 ---
 <List client:visible>
-        <a href={link}>
-                <p> {title} <br> {subTitle} </p>
-                <a href={link} class="underBg text-lg"> Read About it ! </a>
+        <a tabindex="-1" href={link}>
+                <p > {title} <br> <span class="text-lg"> {subTitle} </span> </p>
+                <a href={link} tabindex="-1" class="underBg group-hover:underBgSize text-base"> Read About it ! </a>
         </a>
 </List>

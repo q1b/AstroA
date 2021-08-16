@@ -80,15 +80,17 @@ let allProjects = Astro.fetchContent('./Projects/*.md');
                     px-5
                 "
             >
-                <h1 class="text-white font-sans text-7xl text-left">
+                <h1 class="text-white font-sans text-7xl text-left mb-12">
                     Projects
                 </h1>
-                <div class="mt-10 max-w-3xl text-left">
+                <div class="flex flex-col gap-10 text-left">
                     <ProjectCards allProjects={allProjects}/>
                 <div/>
             </div>
-            <div class="px-2 py-1 bg-white/20 ">
-                Photo by <a href="https://unsplash.com/@williamdaigneault?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">William Daigneault</a> on <a href="https://unsplash.com/@williamdaigneault?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>
+            <div class="w-full flex items-center justify-center mt-20">
+                <span class="px-3 py-2 rounded-lg text-xs bg-blueGray-1000 text-blueGray-500">
+                    Background Photo by <a href="https://unsplash.com/@williamdaigneault?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">William Daigneault</a> on <a href="https://unsplash.com/@williamdaigneault?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>
+                </span>
             </div>
             <!-- <ul
                 class="

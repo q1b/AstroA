@@ -1,18 +1,18 @@
 <script>
   import { tweened } from 'svelte/motion';
-	import { cubicOut } from 'svelte/easing';
+	import { sineInOut } from 'svelte/easing';
   const progress = tweened(0, {
-		duration: 1000,
-		easing: cubicOut
+		duration: 500,
+		easing: sineInOut
 	});
 
   $: style =`
     backdrop-filter: blur(${$progress}px);
-    border-color: rgba(15, 23, 42, ${$progress/6});
-    text-shadow: 0px 1px 4px rgba(167, 64, 246, ${$progress/9});
+    background-color:rgba(20, 56, 167, ${$progress/100}); 
+    border-color: rgba(20, 56, 167, ${$progress/12});
   `
 </script>
 
-<button id="Projects" on:mouseenter={()=>{progress.set(6)}} on:mouseleave={()=>{progress.set(0)}} style={style} class="mt-2 text-white text-2xl rounded-2xl border-2 border-transparent px-10 py-5 text-left">
+<button id="Projects" on:mouseenter={()=>{progress.set(6)}} on:mouseleave={()=>{progress.set(0)}} style={style} class="text-white bg-transparent text-2xl rounded-2xl border-2 border-transparent px-5 sm:px-10 py-5 text-left group">
     <slot></slot>
 </button>
