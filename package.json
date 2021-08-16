@@ -20,6 +20,7 @@
     "@heroicons/react": "^1.0.3",
     "@heroicons/vue": "^1.0.3",
     "heroicons": "^1.0.2",
+    "rough-notation": "^0.5.1",
     "tailwindcss": "^2.2.7"
   }
 }

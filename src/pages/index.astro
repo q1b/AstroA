@@ -1,6 +1,8 @@
 ---
 import BaseLayout from "../layouts/home.astro"
 import ProjectCards from "../components/index/projectCards.astro"
+import Intro from "../components/Intro.svelte"
+
 // zindex-0
 // photo zindex-10
 
@@ -10,16 +12,24 @@ let allProjects = Astro.fetchContent('./Projects/*.md');
 
 
 ---
-<BaseLayout title="Homepage" description="HomePage" permalink = 'https://example.com/'>
-        <section class="w-full py-28 flex flex-col items-center justify-center">
+<BaseLayout title="Homepage" description="HomePage" permalink ='https://example.com/'>
+        <section class="w-full pt-16 pb-28 flex flex-col items-center justify-center">
+            <div class=" flex lg:flex-row flex-col gap-16 px-10">
             <article
                 id="background-circle"
                 class="
+                    flex-shrink-0
                     rounded-full
-                    h-64
+                    lg:w-64
+                    md:w-52
+                    sm:w-44
+                    w-32
+                    lg:h-64
+                    md:h-52
+                    sm:h-44
+                    h-32
                     z-0
                     relative
-                    w-64
                     flex
                     items-center
                     justify-center
@@ -36,27 +46,47 @@ let allProjects = Astro.fetchContent('./Projects/*.md');
                 <div
                     id="photo"
                     class="
-                        w-56
+                        lg:w-56
+                        md:w-44
+                        sm:w-36
+                        w-28
                         relative
                         z-10
                         opacity-80
-                        h-56
+                        lg:h-56
+                        md:h-44
+                        sm:h-36
+                        h-28
                         rounded-full
                     "
                     style="
                         box-shadow: 0px 0px 60px 1px hsla(210, 100%, 70%, 1);
                         background-position: center center;
                         background-size: cover;
-                        background-image: url('pic.jpeg');
+                        background-image: url('');
                     "
                 ></div>
             </article>
-            <article class="max-w-xl text-center text-white text-xl py-10">
-                <strong>"</strong>I love designing and programming things that
-                works totally fine and smooth for any person out their in world
-                and Still learning to become better by each passing day, I love
-                to play basketball, Brawl Star, Coding and meditation.
-            </article>
+                <Intro client:visible/>
+            </div>
+            <div
+                class="
+                    mt-44
+                    max-w-2xl
+                    h-full
+                    flex flex-col
+                    items-start
+                    justify-start
+                    px-5
+                "
+            >
+                <h1 class="text-white font-sans text-7xl text-left">
+                    Projects
+                </h1>
+                <ul class="mt-10 max-w-3xl text-left">
+                    <ProjectCards allProjects={allProjects}/>
+                </ul>
+            </div>
             <ul
                 class="
                     text-white text-opacity-40
@@ -111,23 +141,5 @@ let allProjects = Astro.fetchContent('./Projects/*.md');
                     </article>
                 </section>
             </ul>
-            <div
-                class="
-                    mt-44
-                    max-w-2xl
-                    h-full
-                    flex flex-col
-                    items-start
-                    justify-start
-                    px-5
-                "
-            >
-                <h1 class="text-white font-sans text-7xl text-left">
-                    Projects
-                </h1>
-                <ul class="mt-10 max-w-3xl text-left">
-                    <ProjectCards allProjects={allProjects}/>
-                </ul>
-            </div>
         </section>
 </BaseLayout>
