@@ -2,11 +2,15 @@
 import CustomNavigation from '../components/Navigation.astro';
 import SEO from "../components/SEO.astro";
 import HeadCommon from '../components/HeadCommon.astro'
+const { title, description } = Astro.props;
 ---
 <html lang="en">
   <head>
     <HeadCommon />
     <SEO canonicalURL={Astro.request.canonicalURL} />
+    <title>{title}</title>
+    <meta name="title" content={title} />
+    <meta name="description" content={description} />
   </head>
   <body>
     <!-- navigation bar + Background-->
