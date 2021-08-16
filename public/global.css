@@ -19,4 +19,40 @@
   .underBg:hover{
     background-size:100% 3px;
   }
+  .asSmallBg {
+      background: conic-gradient(
+          from 106.75deg at 49.98% 50.65%,
+          #000d26ee 0deg,
+          rgba(0, 10, 29, 0.9) 187.5deg,
+          #000d26ee 360deg
+      ),
+      url('/assets/smallBg.jpg');
+  }
+  .asMediumBg {
+    background: conic-gradient(
+        from 106.75deg at 49.98% 50.65%,
+        #000d26ee 0deg,
+        rgba(0, 10, 29, 0.9) 187.5deg,
+        #000d26ee 360deg
+    ),
+    url('/assets/mediumBg.jpg');
+  }
+  .asLargeBg {
+    background: conic-gradient(
+        from 106.75deg at 49.98% 50.65%,
+        #000d26ee 0deg,
+        rgba(0, 10, 29, 0.9) 187.5deg,
+        #000d26ee 360deg
+    ),
+    url('/assets/largeBg.jpg');
+  }
+  .asLargerBg{
+      background: conic-gradient(
+          from 106.75deg at 49.98% 50.65%,
+          #000d26ee 0deg,
+          rgba(0, 10, 29, 0.9) 187.5deg,
+          #000d26ee 360deg
+      ),
+      url('/assets/largerBg.jpg');
+  }
 }

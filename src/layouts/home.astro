@@ -7,25 +7,10 @@ import BaseHead from '../components/BaseHead.astro';
   <head>
     <BaseHead title={title} description={description} permalink={permalink} />
     <link rel="stylesheet" type="text/css" href="/global.css">
-    <style>
-      .as {
-        background: conic-gradient(
-            from 106.75deg at 49.98% 50.65%,
-            #000d26ee 0deg,
-            rgba(0, 10, 29, 0.9) 187.5deg,
-            #000d26ee 360deg
-        ),
-        url('/assets/homeBackgroudPic.jpg');
-      background-size: cover;
-    }
-    .bg-cover {
-      background-size: cover;
-    }
-    </style>
   </head>
   <body>
     <!-- navigation bar + Background-->
-      <section class="as flex items-center flex-col">
+      <section class="asSmallBg md:asMediumBg lg:asLargeBg xl:asLargerBg bg-cover flex items-center flex-col">
         <div class=" max-w-[1000px] w-full ">
         <CustomNavigation/>
         <!-- slot: your page content will be injected here. -->
