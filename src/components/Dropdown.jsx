@@ -27,7 +27,7 @@ export default function Example() {
      },
   ];
   return (
-    <div className="sm:hidden relative z-50">
+    <div className="relative z-50 sm:hidden">
       <Menu as="div" className="relative inline-block text-left" >
       {({ open }) => (
         <Fragment>
@@ -73,17 +73,9 @@ export default function Example() {
           leaveTo="translate-y-1 opacity-0"
         >
           <Menu.Items as="div" className="absolute right-0">
-            <article className="backdrop-blur-sm flex items-center justify-center">
+            <article className="flex items-center justify-center backdrop-blur-sm">
             <div
-                                className="
-                                    flex flex-col
-                                    gap-y-4
-                                    items-center
-                                    w-48
-                                    p-4
-                                    rounded-2xl
-                                    ring-1 ring-blueGray-800
-                                "
+                                className="flex flex-col items-center w-48 p-4 gap-y-4 rounded-2xl ring-1 ring-blueGray-800"
                             >
               {items.map((item,index)=>{
                 return (

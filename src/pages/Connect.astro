@@ -11,10 +11,10 @@ import Underline from "../components/Underline.svelte"
       <section class="flex selection:bg-lightBlue-500/10 selection:text-lightBlue-600 items-center flex-col bg-blueGray-1000 min-h-[100vh]">
         <div class=" max-w-[1000px] w-full">
           <Navigation/>
-          <section id="Contact-section" class="pt-20 px-10 flex">
-            <article id="Content" class="w-full hidden md:flex items-center justify-center">
+          <section id="Contact-section" class="flex px-10 pt-20">
+            <article id="Content" class="items-center justify-center hidden w-full md:flex">
               <div class="w-max">
-              <h1 class="text-6xl text-white font-sans font-bold mb-10 ">
+              <h1 class="mb-10 font-sans text-6xl font-bold text-white ">
                 <Underline client:visible color="#FF0060">Get&nbsp;in&nbsp;touch.</Underline>
               </h1>
                 <p class="text-xl text-blueGray-400">
@@ -31,9 +31,9 @@ import Underline from "../components/Underline.svelte"
                 </p>
                 </div>
             </article>
-            <article class="w-full flex items-center justify-center">
-              <form id="FORM" class="max-w-sm w-72 relative top-10">
-                  <div class="mb-10 relative">
+            <article class="flex items-center justify-center w-full">
+              <form id="FORM" class="relative max-w-sm w-72 top-10">
+                  <div class="relative mb-10">
                     <h1 id="alertEmail" class="absolute -top-6 right-2 text-rose-500 font-round"></h1>
                     <input
                         id="email"
@@ -41,45 +41,15 @@ import Underline from "../components/Underline.svelte"
                         type="email"
                         placeholder="Email"
                         autocomplete="off"
-                        class="
-                            z-10
-                            relative
-                            bg-transparent
-                            h-10
-                            peer
-                            border-2
-                            rounded-lg
-                            p-2
-                            box-border
-                            text-base
-                            border-gray-300
-                            text-blueGray-300
-                            placeholder-transparent
-                            focus:outline-none focus:border-indigo-600
-                            w-full
-                        "
+                        class="box-border relative z-10 w-full h-10 p-2 text-base placeholder-transparent bg-transparent border-2 border-gray-300 rounded-lg  peer text-blueGray-300 focus:outline-none focus:border-indigo-600"
                     />
                     <label
-                        class="
-                            z-0
-                            text-sm
-                            transition-all
-                            absolute
-                            text-gray-600
-                            left-2
-                            -top-6
-                            peer-placeholder-shown:text-gray-300
-                            peer-placeholder-shown:text-base
-                            peer-placeholder-shown:top-2
-                            peer-focus:-top-6
-                            peer-focus:text-gray-600
-                            peer-focus:text-sm
-                        "
+                        class="absolute z-0 text-sm text-gray-600 transition-all  left-2 -top-6 peer-placeholder-shown:text-gray-300 peer-placeholder-shown:text-base peer-placeholder-shown:top-2 peer-focus:-top-6 peer-focus:text-gray-600 peer-focus:text-sm"
                         for="usernameField"
                         >Email Address</label
                     >
                 </div>
-                <div class="mb-10 relative">
+                <div class="relative mb-10">
                     <h1 id="alertMsg" class="absolute -top-6 right-2 text-rose-500 font-round"></h1>
                     <textarea
                         type="text"
@@ -88,43 +58,15 @@ import Underline from "../components/Underline.svelte"
                         placeholder="Message"
                         autocomplete="off"
                         rows="3"
-                        class="
-                            z-10
-                            text-base
-                            border-2
-                            bg-transparent
-                            relative
-                            p-2
-                            peer
-                            rounded-lg
-                            border-gray-300
-                            text-blueGray-300
-                            placeholder-transparent
-                            focus:outline-none focus:border-indigo-600
-                            w-full
-                        "
+                        class="relative z-10 w-full p-2 text-base placeholder-transparent bg-transparent border-2 border-gray-300 rounded-lg  peer text-blueGray-300 focus:outline-none focus:border-indigo-600"
                     />
                     <label
-                        class="
-                            z-0
-                            text-sm
-                            transition-all
-                            absolute
-                            text-gray-600
-                            left-2
-                            -top-6
-                            peer-placeholder-shown:text-gray-300
-                            peer-placeholder-shown:text-base
-                            peer-placeholder-shown:top-2
-                            peer-focus:-top-6
-                            peer-focus:text-gray-600
-                            peer-focus:text-sm
-                        "
+                        class="absolute z-0 text-sm text-gray-600 transition-all  left-2 -top-6 peer-placeholder-shown:text-gray-300 peer-placeholder-shown:text-base peer-placeholder-shown:top-2 peer-focus:-top-6 peer-focus:text-gray-600 peer-focus:text-sm"
                         for="Message"
                         >Message</label
                     >
                 </div>
-                <button id="sumbitButton" type="submit" class="focus:ring-2 focus:ring-offset-4 ring-offset-blue-500 px-2 py-1 bg-white text-blueGray-700 hover:text-black tab-hightlight-none rounded-lg text-lg">Send</button>
+                <button id="sumbitButton" type="submit" class="px-2 py-1 text-lg bg-white rounded-lg focus:ring-2 focus:ring-offset-4 ring-offset-blue-500 text-blueGray-700 hover:text-black tab-hightlight-none">Send</button>
               </form>
             </article>
           </section> 

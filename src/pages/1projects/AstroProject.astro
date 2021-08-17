@@ -77,6 +77,84 @@ console.log()
         iAmUnderlined word
     </MakeItUnderlineAnimate>
     ```
-    But still astro is in it's starting stage So, bug are there But to make Astro best by each day you can make issue at there [github repo](https://github.com/snowpackjs/astro/).
+    ### Making it a Reuseable component
+    > Reuseable components are great only if they are flexible 
+    Let's make our component ***Reuseable***  
+    Let's see what we can change in our previous 
   </Markdown>
+    <details>
+  <Markdown>
+    ```html
+      <script>
+        import { onMount } from 'svelte';
+        import { annotate } from 'rough-notation';
+        let e;
+        onMount(()=>{
+          // a for annotation
+          const a = annotate( e, {
+            type:'underline',
+            color: '#FFF',
+            rtl:false,
+            animate:true,
+            padding:10,
+            animationDuration:500,
+            iterations:2,
+          });
+          a.show();
+        });
+      </script>
+      <button bind:this={e}>
+        <slot/>
+      </button>
+    ```
+  </Markdown>
+</details>
+   <Markdown>
+    #### I think we can use svelte props to make it reuseable 
+    we can accept values like color, from our component As,
+     ```jsx
+    ---
+      import MakeItUnderlineAnimate from "./yourSvelteFile.svelte" 
+    ---
+    <MakeItUnderlineAnimate color="#FF0060" client:visible >
+        iAmUnderlined word
+    </MakeItUnderlineAnimate>
+    ```
+    And Now use it in our svelte file Like,
+    ```html
+      <script>
+        import { onMount } from 'svelte';
+        import { annotate } from 'rough-notation';
+        export let color;
+        let e;
+        onMount(()=>{
+          // a for annotation
+          const a = annotate( e, {
+            type:'underline',
+            color: color,
+            rtl:false,
+            animate:true,
+            padding:10,
+            animationDuration:500,
+            iterations:2,
+          });
+          a.show();
+        });
+      </script>
+      <button bind:this={e}>
+        <slot/>
+      </button>
+    ```
+    #### This will work perfectly fine .
+    #### So, it's bit longer but You might learn something new from this example .  
+  </Markdown>
+    <div class="pl-4 text-indigo-600 bg-indigo-100 border-l-2 border-indigo-600 rounded-lg">
+      <Markdown>
+        But still astro is in it's starting stage So, bug are there But to 
+        make Astro best by each day you can make issue about there bugs at there [github repo](https://github.com/snowpackjs/astro/).
+      </Markdown>
+    </div>
+    <Markdown>
+      [Home](/) | Follow on [twitter](https://twitter.com/XSukhpreet)
+    </Markdown>
 </BaseLayout>

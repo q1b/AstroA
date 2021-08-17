@@ -13,27 +13,11 @@ let allProjects = Astro.fetchContent('./Projects/*.md');
 
 ---
 <BaseLayout title="Sukhpreet Singh Web developer" description="My personel portfolio to show recuriter how able I am to do stuff ." permalink ='https://example.com/'>
-        <section class="w-full pt-16 pb-28 flex flex-col items-center justify-center">
-            <div class=" flex lg:flex-row flex-col gap-16 px-10">
+        <section class="flex flex-col items-center justify-center w-full pt-16 pb-28">
+            <div class="flex flex-col gap-16 px-10 lg:flex-row">
             <article
                 id="background-circle"
-                class="
-                    flex-shrink-0
-                    rounded-full
-                    lg:w-64
-                    md:w-52
-                    sm:w-44
-                    w-32
-                    lg:h-64
-                    md:h-52
-                    sm:h-44
-                    h-32
-                    z-0
-                    relative
-                    flex
-                    items-center
-                    justify-center
-                "
+                class="relative z-0 flex items-center justify-center flex-shrink-0 w-32 h-32 rounded-full lg:w-64 md:w-52 sm:w-44 lg:h-64 md:h-52 sm:h-44"
                 style="
                     background: radial-gradient(
                         circle,
@@ -45,20 +29,7 @@ let allProjects = Astro.fetchContent('./Projects/*.md');
                 <!-- <div class="z-10 blur-[2px] text-black  absolute flex h-full w-full items-center justify-center text-5xl">Anshu</div> -->
                 <div
                     id="photo"
-                    class="
-                        lg:w-56
-                        md:w-44
-                        sm:w-36
-                        w-28
-                        relative
-                        z-10
-                        opacity-80
-                        lg:h-56
-                        md:h-44
-                        sm:h-36
-                        h-28
-                        rounded-full
-                    "
+                    class="relative z-10 rounded-full lg:w-56 md:w-44 sm:w-36 w-28 opacity-80 lg:h-56 md:h-44 sm:h-36 h-28"
                     style="
                         box-shadow: 0px 0px 60px 1px hsla(210, 100%, 70%, 1);
                         background-position: center center;
@@ -70,82 +41,56 @@ let allProjects = Astro.fetchContent('./Projects/*.md');
                 <Intro client:idle/>
             </div>
             <div
-                class="
-                    mt-44
-                    max-w-2xl
-                    h-full
-                    flex flex-col
-                    items-start
-                    justify-start
-                    px-5
-                "
+                class="flex flex-col items-start justify-start h-full max-w-2xl px-5 mt-44"
             >
-                <h1 class="text-white font-sans text-7xl text-left mb-12">
+                <h1 class="mb-12 font-sans text-left text-white text-7xl">
                     Projects
                 </h1>
                 <div class="flex flex-col gap-10 text-left">
                     <ProjectCards allProjects={allProjects}/>
                 <div/>
             </div>
-            <div class="w-full flex items-center justify-center mt-20">
-                <span class="px-3 py-2 rounded-lg text-xs bg-blueGray-1000 text-blueGray-500">
+            <div class="flex items-center justify-center w-full mt-20">
+                <span class="px-3 py-2 text-xs rounded-lg bg-blueGray-1000 text-blueGray-500">
                     Background Photo by <a href="https://unsplash.com/@williamdaigneault?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">William Daigneault</a> on <a href="https://unsplash.com/@williamdaigneault?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>
                 </span>
             </div>
             <!-- <ul
-                class="
-                    text-white text-opacity-40
-                    mt-10
-                    font-jetMono font-semibold
-                "
+                class="mt-10 font-semibold text-white text-opacity-40 font-jetMono"
             >
-                <h1 class="text-xl ml-8">I like !</h1>
+                <h1 class="ml-8 text-xl">I like !</h1>
                 <section
-                    class="
-                        w-full
-                        h-full
-                        flex flex-col
-                        justify-center
-                        items-center
-                    "
+                    class="flex flex-col items-center justify-center w-full h-full "
                 >
                     <article
-                        class="
-                            p-4
-                            max-w-xl
-                            grid grid-flow-col grid-cols-2 grid-rows-3
-                            sm:grid-cols-3 sm:grid-rows-2
-                            place-items-center
-                            gap-4
-                        "
+                        class="grid max-w-xl grid-flow-col grid-cols-2 grid-rows-3 gap-4 p-4 sm:grid-cols-3 sm:grid-rows-2 place-items-center"
                     >
-                        <a class="flex items-center h-12 w-auto" href="#">
+                        <a class="flex items-center w-auto h-12" href="#">
                             <img src="/assets/StackLogo/nuxtLogo.svg" />
                         </a>
-                        <a class="flex items-center h-12 w-auto" href="#">
+                        <a class="flex items-center w-auto h-12" href="#">
                             <img src="/assets/StackLogo/viteLogo.svg" class="w-10" />
-                            <h1 class="text-white text-4xl">&nbsp;Vite</h1>
+                            <h1 class="text-4xl text-white">&nbsp;Vite</h1>
                         </a>
-                        <a class="flex items-center h-12 w-auto" href="#">
+                        <a class="flex items-center w-auto h-12" href="#">
                             <img
                                 class="w-10"
                                 id="vueLogo"
                                 src="https://camo.githubusercontent.com/c8f91d18976e27123643a926a2588b8d931a0292fd0b6532c3155379e8591629/68747470733a2f2f7675656a732e6f72672f696d616765732f6c6f676f2e706e67"
                             />
-                            <h1 class="text-white text-4xl">&nbsp;Vue</h1>
+                            <h1 class="text-4xl text-white">&nbsp;Vue</h1>
                         </a>
-                        <a class="flex items-center h-12 w-auto" href="#">
-                            <img src="/assets/StackLogo/tailwindLogo.svg" class="h-12 w-auto" />
+                        <a class="flex items-center w-auto h-12" href="#">
+                            <img src="/assets/StackLogo/tailwindLogo.svg" class="w-auto h-12" />
                         </a>
-                        <a class="flex items-center h-12 w-auto" href="#">
-                            <img src="/assets/StackLogo/headlessUiLogo.svg" class="h-24 w-auto" />
+                        <a class="flex items-center w-auto h-12" href="#">
+                            <img src="/assets/StackLogo/headlessUiLogo.svg" class="w-auto h-24" />
                         </a>
-                        <a class="flex items-center h-12 w-auto" href="#">
-                            <img src="/assets/StackLogo/heroIconsLogo.svg" class="h-24 w-auto" />
+                        <a class="flex items-center w-auto h-12" href="#">
+                            <img src="/assets/StackLogo/heroIconsLogo.svg" class="w-auto h-24" />
                         </a>
                     </article>
                 </section>
             </ul> -->
         </section>
-
 </BaseLayout>
