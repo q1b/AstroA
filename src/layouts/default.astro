@@ -1,54 +1,23 @@
 ---
-// src/layouts/BaseLayout.astro
-const {title} = Astro.props;
-import CustomDropdown from '../components/CustomDropdown.vue';
+import BaseHead from '../components/BaseHead.astro';
+const { title, description } = Astro.props;
 ---
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width">
-    <title>{title}</title>
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
- <link rel="stylesheet" type="text/css" href="/global.css">
-</head>
-  <body>
-    <!-- Adds a navigation bar to every page. -->
-      <header class="h-24 p-4 flex place-content-between items-center">
-        <div
-            class="
-                gap-2
-                logo
-                flex
-                items-center
-                rounded-lg
-                hover:scale-[.99]
-                transition-transform
-            "
-        >
-            <div>
-                <img class="w-10 h-10 object-cover" src="/assets/Logo.svg" />
-            </div>
-            <div class="flex w-max items-center">
-                <h1
-                    class="
-                        text-xl
-                        font-round
-                        select-none
-                        font-semibold
-                        bg-gradient-to-br
-                        from-cyan-200
-                        to-purple-400
-                        text-transparent
-                        bg-clip-text
-                    "
-                >
-                    Divyamrit
-                </h1>
-            </div>
-        </div>
-        <CustomDropdown client:visible ></CustomDropdown>
-    </header>
-    <!-- slot: your page content will be injected here. -->
-    <slot />
+<html lang={'en' }>
+  <head>
+    <BaseHead title={title} description={description} permalink='www.example.com' />
+  </head>
+  <body class="w-full flex flex-col p-10 sm:p-0  items-center">
+      <slot/>
+      <script type="modules" >
+        import { createClient } from '@supabase/supabase-js'
+        const supabaseUrl = 'https://npvpjoqnzsilxgrmxqjv.supabase.co'
+        const supabaseKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoiYW5vbiIsImlhdCI6MTYyOTE4MjIwNiwiZXhwIjoxOTQ0NzU4MjA2fQ._SakuJ44a6RS4Nzj-DqoyqmU9OWWPYogsQz1fWffRt4';
+        const supabase = createClient(supabaseUrl, supabaseKey)
+        function reciveData() async {
+            const { data, error } = await supabase.from('Msg').select()
+            console.log(data);
+        }
+        reciveData();
+      </script>
   </body>
 </html>

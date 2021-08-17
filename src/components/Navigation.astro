@@ -20,7 +20,8 @@ let items = [
 ];
 ---
 <header class="h-24 p-2 sm:p-4 flex place-content-between items-center">
-  <div
+  <a
+    href="/"
       class="
           gap-2
           logo
@@ -29,6 +30,7 @@ let items = [
           rounded-lg
           hover:scale-[.99]
           transition-transform
+          cursor-pointer
       "
   >
       <div>
@@ -51,7 +53,7 @@ let items = [
               Divyamrit
           </h1>
       </div>
-  </div>
+  </a>
     <nav class="flex place-content-around xs:w-72">
       {items.map((item)=>{
             switch(item.name) {
