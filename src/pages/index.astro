@@ -1,18 +1,29 @@
 ---
 import BaseLayout from "../layouts/home.astro"
 import ProjectCards from "../components/index/projectCards.astro"
-import Intro from "../components/Intro.svelte"
+import Intro from "../components/index/Intro.svelte"
 
 // zindex-0
 // photo zindex-10
 
 // Data Fetching: List all Markdown projects in the repo .
 let allProjects = Astro.fetchContent('./Projects/*.md');
-// allPosts = allPosts.sort((a, b) => new Date(b.publishDate) - new Date(a.publishDate));
-console.log(allProjects);
+const allPosts = allProjects.sort((a, b) => new Date(b.publishDate) - new Date(a.publishDate));
+// console.log(allPosts);
 
 ---
 <BaseLayout title="Sukhpreet Singh Web developer" description="My personel portfolio to show recuriter how able I am to do stuff ." permalink ='https://example.com/'>
+    <script slot="topScript">
+        (async function() {
+        if (CSS["paintWorklet"] === undefined)
+          await import(
+            "https://unpkg.com/css-paint-polyfill@next/dist/css-paint-polyfill.js"
+          );
+        CSS.paintWorklet.addModule(
+          "https://unpkg.com/curved-line@1.0.0/curved-line.js"
+        );
+      })();
+    </script>
         <section class="flex flex-col items-center justify-center w-full pt-16 pb-28">
             <div class="flex flex-col gap-16 px-10 lg:flex-row">
             <article
@@ -43,7 +54,7 @@ console.log(allProjects);
             <div
                 class="flex flex-col items-start justify-start h-full max-w-2xl px-5 mt-44"
             >
-                <h1 class="mb-12 font-sans text-left text-white text-7xl">
+                <h1 intersect="!opacity-100" class="mt-10 mb-12 font-sans text-left text-white transition-opacity duration-1000 opacity-50 text-7xl" >
                     Projects
                 </h1>
                 <div class="flex flex-col gap-10 text-left">
@@ -93,4 +104,61 @@ console.log(allProjects);
                 </section>
             </ul> -->
         </section>
+    <script slot="bottomScript">
+      let ele;
+      let ale = {} ;
+      document.querySelectorAll('#backdrop').forEach((ele,i)=>{
+        ele.addEventListener('pointerenter',()=>{
+          if( ale[i] === undefined ){
+            ale[i] = ele.animate([
+              {
+                backdropFilter: 'blur(0px)',
+                      backgroundColor: 'rgba(20, 56, 167, 0', 
+                      borderColor: 'rgba(20, 56, 167, 0)',
+                    },
+                    {
+                      backdropFilter: 'blur(6px)',
+                      backgroundColor: 'rgba(20, 56, 167, 0.1', 
+                      borderColor: 'rgba(20, 56, 167, 0.5)',
+                    },],
+                  {
+                    direction: 'normal',
+                    fill: 'forwards',
+                    duration: 1000,
+                  })
+            }
+          ale[i].playbackRate = +1;
+            ale[i].play();
+        },false);
+        ele.addEventListener('pointerleave',()=>{      
+          ale[i].playbackRate = -1;
+          ale[i].play();
+        })
+      });
+    function intersect() {
+        let observer = new IntersectionObserver((entries, observer)=>{
+          entries.forEach((entry) => {
+            const animation = entry.target.getAttribute("intersect");
+            if (animation === null) {
+              return
+            }
+            if (entry.isIntersecting) {
+              entry.target.classList.add(animation);
+            } else {
+              entry.target.classList.remove(animation);
+            }
+          });
+        }, 
+        {
+          root: null,
+          // Want to animate late after intersecting use see example
+          // rootMargin: "-50px 0px -50px 0px",
+          rootMargin: '0px',
+          threshold: 1.0,
+        });
+        const elements = [...document.querySelectorAll('h1[intersect]')];
+        elements.forEach((element) => observer.observe(element));
+      }
+      intersect();
+    </script>
 </BaseLayout>

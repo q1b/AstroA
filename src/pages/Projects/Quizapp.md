@@ -1,7 +1,7 @@
 ---
-title: 'Working with WEB ANIMATION API'
-subTitle: "( Making vue-petite-transition )"
-publishDate: 'Tuesday, June 8 2021'
+title: 'Flutter App'
+subTitle: "Making vue-petite-transition Library"
+publishDate: 'Thursday, July 15 2021'
 layout: '../../layouts/project.astro'
 ---
 

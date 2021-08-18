@@ -1,8 +1,8 @@
 ---
-import CustomNavigation from '../components/Navigation.astro';
-import SEO from "../components/SEO.astro";
-import HeadCommon from '../components/HeadCommon.astro'
-const { title, description } = Astro.props;
+import Navigation from '../components/SEO&PAGES/Forever_Component/Navigation.astro';
+import SEO from "../components/SEO&PAGES/SEO/SEO.astro";
+import HeadCommon from '../components/SEO&PAGES/SEO/HeadCommon.astro'
+const { title, description, classes1 = 'flex selection:bg-lightBlue-500/10 selection:text-lightBlue-600 items-center flex-col bg-blueGray-1000 min-h-[100vh]', classes2 = " max-w-[1000px] w-full " } = Astro.props;
 ---
 <html lang="en">
   <head>
@@ -11,15 +11,17 @@ const { title, description } = Astro.props;
     <title>{title}</title>
     <meta name="title" content={title} />
     <meta name="description" content={description} />
+    <slot name="topScript" />
   </head>
   <body>
     <!-- navigation bar + Background-->
-      <section class="asSmallBg md:asMediumBg lg:asLargeBg xl:asLargerBg bg-cover flex items-center flex-col">
-        <div class=" max-w-[1000px] w-full ">
-        <CustomNavigation/>
+      <section class={classes1}>
+        <div class={classes2}>
+        <Navigation/>
         <!-- slot: your page content will be injected here. -->
-        <slot />
+          <slot />
         </div>
       </section>
+      <slot name="bottomScript"/>
   </body>
 </html>

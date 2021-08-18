@@ -10,7 +10,7 @@
     -webkit-tap-highlight-color: transparent;
   }
   .underBg{
-    background-image:linear-gradient(90deg,#521D99,#AB7CEA);
+    background-image:linear-gradient(-90deg,#6A59F7,#B4ABFB);
     background-size:0% 3px;
     background-repeat:no-repeat;
     background-position:left bottom;
