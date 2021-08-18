@@ -107,37 +107,71 @@ const allPosts = allProjects.sort((a, b) => new Date(b.publishDate) - new Date(a
                 </section>
             </ul> -->
         </section>
-    <script slot="bottomScript">
+    <script slot="bottomScript" >
       let ele;
       let ale = {} ;
-      document.querySelectorAll('#backdrop').forEach((ele,i)=>{
-        ele.addEventListener('pointerenter',()=>{
-          if( ale[i] === undefined ){
-            ale[i] = ele.animate([
-              {
-                backdropFilter: 'blur(0px)',
-                      backgroundColor: 'rgba(20, 56, 167, 0', 
-                      borderColor: 'rgba(20, 56, 167, 0)',
-                    },
+      var isTouchDevice =    (('ontouchstart' in window) ||    (navigator.maxTouchPoints > 0) ||    (navigator.msMaxTouchPoints > 0));
+      if(!isTouchDevice){
+          /* Code For Touch device */ 
+        document.querySelectorAll('#backdrop').forEach((ele,i)=>{
+          ele.addEventListener('touchstart',()=>{
+            if( ale[i] === undefined ){
+              ale[i] = ele.animate([
+                {
+                  backdropFilter: 'blur(0px)',
+                        backgroundColor: 'rgba(20, 56, 167, 0', 
+                        borderColor: 'rgba(20, 56, 167, 0)',
+                      },
+                      {
+                        backdropFilter: 'blur(6px)',
+                        backgroundColor: 'rgba(20, 56, 167, 0.1', 
+                        borderColor: 'rgba(20, 56, 167, 0.5)',
+                      },],
                     {
-                      backdropFilter: 'blur(6px)',
-                      backgroundColor: 'rgba(20, 56, 167, 0.1', 
-                      borderColor: 'rgba(20, 56, 167, 0.5)',
-                    },],
-                  {
-                    direction: 'normal',
-                    fill: 'forwards',
-                    duration: 1000,
-                  })
-            }
-          ale[i].playbackRate = +1;
+                      direction: 'normal',
+                      fill: 'forwards',
+                      duration: 1000,
+                    })
+              }
+            ale[i].playbackRate = +1;
+              ale[i].play();
+          },false);
+          ele.addEventListener('touchend',()=>{      
+            ale[i].playbackRate = -1;
             ale[i].play();
-        },false);
-        ele.addEventListener('pointerleave',()=>{      
-          ale[i].playbackRate = -1;
-          ale[i].play();
-        })
-      });
+          })
+        });
+      }else{
+        /* Non-Code For Touch device */           
+        document.querySelectorAll('#backdrop').forEach((ele,i)=>{
+          ele.addEventListener('mouseenter',()=>{
+            if( ale[i] === undefined ){
+              ale[i] = ele.animate([
+                {
+                  backdropFilter: 'blur(0px)',
+                        backgroundColor: 'rgba(20, 56, 167, 0', 
+                        borderColor: 'rgba(20, 56, 167, 0)',
+                      },
+                      {
+                        backdropFilter: 'blur(6px)',
+                        backgroundColor: 'rgba(20, 56, 167, 0.1', 
+                        borderColor: 'rgba(20, 56, 167, 0.5)',
+                      },],
+                    {
+                      direction: 'normal',
+                      fill: 'forwards',
+                      duration: 1000,
+                    })
+              }
+            ale[i].playbackRate = +1;
+              ale[i].play();
+          },false);
+          ele.addEventListener('mouseleave',()=>{      
+            ale[i].playbackRate = -1;
+            ale[i].play();
+          })
+        });
+      }
     function intersect() {
         let observer = new IntersectionObserver((entries, observer)=>{
           entries.forEach((entry) => {
