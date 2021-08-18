@@ -9,7 +9,7 @@ import Intro from "../components/Intro.svelte"
 // Data Fetching: List all Markdown projects in the repo .
 let allProjects = Astro.fetchContent('./Projects/*.md');
 // allPosts = allPosts.sort((a, b) => new Date(b.publishDate) - new Date(a.publishDate));
-
+console.log(allProjects);
 
 ---
 <BaseLayout title="Sukhpreet Singh Web developer" description="My personel portfolio to show recuriter how able I am to do stuff ." permalink ='https://example.com/'>

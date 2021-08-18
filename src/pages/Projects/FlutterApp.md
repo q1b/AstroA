@@ -1,6 +1,6 @@
 ---
-title: 'Worked with a client to make a flutter app'
-subTitle: "(Quiz App for Teacher)"
+title: 'Working with WEB ANIMATION API'
+subTitle: "( Making vue-petite-transition )"
 publishDate: 'Tuesday, June 8 2021'
 layout: '../../layouts/project.astro'
 ---
