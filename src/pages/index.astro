@@ -12,7 +12,10 @@ const allPosts = allProjects.sort((a, b) => new Date(b.publishDate) - new Date(a
 // console.log(allPosts);
 
 ---
-<BaseLayout title="Sukhpreet Singh Web developer" description="My personel portfolio to show recuriter how able I am to do stuff ." permalink ='https://example.com/'>
+<BaseLayout 
+    title="Sukhpreet Singh Web developer" 
+    description="My personel portfolio to show recuriter how able I am to do stuff ." 
+  >
     <script slot="topScript">
         (async function() {
         if (CSS["paintWorklet"] === undefined)

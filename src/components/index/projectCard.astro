@@ -1,13 +1,16 @@
 ---
 const { title = 'Card Title', subTitle = "Card Sub Title" , link = "#" } = Astro.props;
+import Ex from '../FUN/backdrop&intersection.svelte'
 ---
-<button id="backdrop" class="px-5 py-5 text-2xl text-left text-white bg-transparent border-2 border-transparent rounded-2xl sm:px-10 group">
+<!-- <button id="backdrop" class="px-5 py-5 text-2xl text-left text-white bg-transparent border-2 border-transparent rounded-2xl sm:px-10 group"> -->
+<Ex client:visible >
         <a id="" tabindex="-1" href={link}>
                 <p> {title} <br> <span class="text-lg text-blueGray-100"> {subTitle} </span> </p>
                 <a href={link} tabindex="-1" class="pb-0.5 text-base underBg group-hover:underBgSize text-blueGray-200"> Read About it ! </a>
                 <hr class="relative -top-1.5 group-hover:w-[105px]"/>
         </a>
-</button>
+</Ex>
+<!-- </button> -->
 
 <style>
 hr {
