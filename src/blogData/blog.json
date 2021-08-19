@@ -1,0 +1,34 @@
+[
+  {
+    "title" : "Svelte Animations",
+    "language" : "native web api",
+    "subTitle" : "Svelte Animations for svelte beginners",
+    "publishDate" : "Thursday, August 12 2021",
+    "astro" : "{ headers: [], source: '', html: '' }",
+    "url" : "/Blogs/svelteAnimation"
+  },
+  {
+    "title": "HeadlessUI",
+    "language": "react | vue",
+    "subTitle": "Why HeadlessUI great ? because it give us fully accessible UI components, managing ARIA attributes and Fully Customisable .",
+    "publishDate": "Thursday, August 12 2021",
+    "astro": { "headers": [], "source": "", "html": "" },
+    "url": "/Blogs/headlessUI"
+  },
+  {
+    "title": "Web Animation API",
+    "language": "native web api",
+    "subTitle": "How to use web animation api in real website ?",
+    "publishDate": "Thursday, August 12 2021",
+    "astro": { "headers": [], "source": "", "html": "" },
+    "url": "/Blogs/AnimationApi"
+  },
+  {
+    "title": "Intersection Observer API",
+    "language": "native web apis",
+    "subTitle": "How to use web intersection api in real website ?",
+    "publishDate": "Thursday, August 12 2021",
+    "astro": { "headers": [], "source": "", "html": "" },
+    "url": "/Blogs/IntersectionObserver"
+  }
+]

@@ -1,15 +1,40 @@
 ---
 import BaseLayout from "../../layouts/home.astro"
 import BlogCards from "../../components/blog/BlogCards.astro"
+import blogData from '../../blogData/blog.json';
 
-// zindex-0
-// photo zindex-10
-// console.log(Astro.request.url.pathname) 
+let allBlogs = blogData;
+// const allPosts = allBlogs.sort((a, b) => new Date(b.publishDate) - new Date(a.publishDate));
+let checkLocal = 0;
+let arr1 = [];
+let arr2 = [];
+let arr3 = [];
+allBlogs.forEach((item,i)=>{
+  checkLocal = checkLocal + 1;
+  if(checkLocal===1) {
+    arr1 = [item,...arr1];
+  } else if (checkLocal===2) {
+    arr2 = [item,...arr2];
+  } else {
+    arr3 = [item,...arr3];
+    checkLocal = 0;
+  }
+});
 
-// Data Fetching: List all Markdown projects in the repo .
+checkLocal = 0;
+let barr1 = [];
+let barr2 = [];
 
-let allBlogs = Astro.fetchContent('./*.md')
-const allPosts = allBlogs.sort((a, b) => new Date(b.publishDate) - new Date(a.publishDate));
+allBlogs.forEach((item,i)=>{
+  checkLocal = checkLocal + 1;
+  if(checkLocal===1) {
+    barr1 = [item,...arr1];
+  } else {
+    barr2 = [item,...arr3];
+    checkLocal = 2;
+  }
+});
+
 ---
 <BaseLayout 
     title="Sukhpreet Singh Web developer" 
@@ -19,21 +44,22 @@ const allPosts = allBlogs.sort((a, b) => new Date(b.publishDate) - new Date(a.pu
     <section class="py-20 px-10">
       <article>
         <div class="text-4xl font-black text-white"> What to read !</div>
-        <div class="flex gap-x-4 flex-row mt-6 mx-10">
+        <!-- Future Feauture Giving options to person who visit this website -->
+        <!-- <div class="flex gap-x-4 flex-row mt-6 mx-10">
           <button class="px-2 py-1 border-2 border-transparent bg-orange-500/10 hover:border-orange-500 text-orange-500 rounded-xl transition-colors">svelte</button>
           <button class="px-2 py-1 border-2 border-transparent bg-lightBlue-500/10 hover:border-lightBlue-500 text-lightBlue-500 rounded-xl transition-colors">react</button>
           <button class="px-2 py-1 border-2 border-transparent bg-lime-500/10 hover:border-lime-500 text-lime-500 rounded-xl transition-colors">vue</button>
-        </div>
+        </div> -->
       </article>
-      <article id="Blogs-Grid" class="flex justify-center flex-wrap">
+      <article id="Blogs-Grid" class="flex select-none justify-center flex-wrap">
         <div id="col-1" class="flex flex-col gap-10 mx-6 text-left mt-10">
-          <BlogCards allProjects={allPosts}/>
+          <BlogCards allProjects={arr1}/>
         </div>
         <div id="col-2" class="flex flex-col gap-10 mx-6 text-left mt-10">
-          <BlogCards allProjects={allPosts}/>
+          <BlogCards allProjects={arr2}/>
         </div>
         <div id="col-1" class="flex flex-col gap-10 mx-6 text-left mt-10">
-          <BlogCards allProjects={allPosts}/>
+          <BlogCards allProjects={arr3}/>
         </div>
       <article/>
     </section>
@@ -66,7 +92,7 @@ const allPosts = allBlogs.sort((a, b) => new Date(b.publishDate) - new Date(a.pu
                 paddingBottom:'0'
               },
               {
-                maxHeight: '100px',
+                maxHeight: '600px',
                 opacity:'1',
                 paddingTop:'12px',
                 paddingBottom:'12px'
