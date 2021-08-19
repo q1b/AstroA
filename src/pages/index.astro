@@ -6,6 +6,8 @@ import Intro from "../components/index/Intro.svelte"
 // zindex-0
 // photo zindex-10
 
+// let allBlogs = Astro.fetchContent('./Blogs/*.md');
+// const allBlogsPost = allBlogs.sort((a, b) => new Date(b.publishDate) - new Date(a.publishDate));
 // Data Fetching: List all Markdown projects in the repo .
 let allProjects = Astro.fetchContent('./Projects/*.md');
 const allPosts = allProjects.sort((a, b) => new Date(b.publishDate) - new Date(a.publishDate));
@@ -60,8 +62,8 @@ const allPosts = allProjects.sort((a, b) => new Date(b.publishDate) - new Date(a
                 <h1 intersect="!opacity-100" class="mt-10 mb-12 font-sans text-left text-white transition-opacity duration-1000 opacity-50 text-7xl" >
                     Projects
                 </h1>
-                <div class="flex flex-col gap-10 text-left">
-                    <ProjectCards allProjects={allProjects}/>
+                <div id="Projects" class="flex flex-col gap-10 text-left">
+                    <ProjectCards allProjects={allPosts}/>
                 <div/>
             </div>
             <div class="flex items-center justify-center w-full mt-20">
@@ -110,39 +112,6 @@ const allPosts = allProjects.sort((a, b) => new Date(b.publishDate) - new Date(a
     <script slot="bottomScript" >
       let ele;
       let ale = {} ;
-      var isTouchDevice =    (('ontouchstart' in window) ||    (navigator.maxTouchPoints > 0) ||    (navigator.msMaxTouchPoints > 0));
-      if(!isTouchDevice){
-          /* Code For Touch device */ 
-        document.querySelectorAll('#backdrop').forEach((ele,i)=>{
-          ele.addEventListener('touchstart',()=>{
-            if( ale[i] === undefined ){
-              ale[i] = ele.animate([
-                {
-                  backdropFilter: 'blur(0px)',
-                        backgroundColor: 'rgba(20, 56, 167, 0', 
-                        borderColor: 'rgba(20, 56, 167, 0)',
-                      },
-                      {
-                        backdropFilter: 'blur(6px)',
-                        backgroundColor: 'rgba(20, 56, 167, 0.1', 
-                        borderColor: 'rgba(20, 56, 167, 0.5)',
-                      },],
-                    {
-                      direction: 'normal',
-                      fill: 'forwards',
-                      duration: 1000,
-                    })
-              }
-            ale[i].playbackRate = +1;
-              ale[i].play();
-          },false);
-          ele.addEventListener('touchend',()=>{      
-            ale[i].playbackRate = -1;
-            ale[i].play();
-          })
-        });
-      }else{
-        /* Non-Code For Touch device */           
         document.querySelectorAll('#backdrop').forEach((ele,i)=>{
           ele.addEventListener('mouseenter',()=>{
             if( ale[i] === undefined ){
@@ -154,13 +123,14 @@ const allPosts = allProjects.sort((a, b) => new Date(b.publishDate) - new Date(a
                       },
                       {
                         backdropFilter: 'blur(6px)',
-                        backgroundColor: 'rgba(20, 56, 167, 0.1', 
-                        borderColor: 'rgba(20, 56, 167, 0.5)',
+                        backgroundColor: 'rgba(20, 56, 167, 0.01', 
+                        borderColor: 'rgba(20, 56, 167, 0.1)',
                       },],
                     {
                       direction: 'normal',
                       fill: 'forwards',
-                      duration: 1000,
+                      duration: 500,
+                      easing:'cubic-bezier(0.52, 0.16, 0.24, 1)'
                     })
               }
             ale[i].playbackRate = +1;
@@ -171,8 +141,7 @@ const allPosts = allProjects.sort((a, b) => new Date(b.publishDate) - new Date(a
             ale[i].play();
           })
         });
-      }
-    function intersect() {
+      function intersect() {
         let observer = new IntersectionObserver((entries, observer)=>{
           entries.forEach((entry) => {
             const animation = entry.target.getAttribute("intersect");

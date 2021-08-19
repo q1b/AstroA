@@ -1,0 +1,126 @@
+---
+import BaseLayout from "../../layouts/home.astro"
+import BlogCards from "../../components/blog/BlogCards.astro"
+
+// zindex-0
+// photo zindex-10
+// console.log(Astro.request.url.pathname) 
+
+// Data Fetching: List all Markdown projects in the repo .
+
+let allBlogs = Astro.fetchContent('./*.md')
+const allPosts = allBlogs.sort((a, b) => new Date(b.publishDate) - new Date(a.publishDate));
+---
+<BaseLayout 
+    title="Sukhpreet Singh Web developer" 
+    description="My personel portfolio to show recuriter how able I am to do stuff ." 
+    classes1="flex selection:bg-lightBlue-500/10 selection:text-lightBlue-600 items-center flex-col bg-blueGray-1000 min-h-[100vh] font-jetMono"
+  >
+    <section class="py-20 px-10">
+      <article>
+        <div class="text-4xl font-black text-white"> What to read !</div>
+        <div class="flex gap-x-4 flex-row mt-6 mx-10">
+          <button class="px-2 py-1 border-2 border-transparent bg-orange-500/10 hover:border-orange-500 text-orange-500 rounded-xl transition-colors">svelte</button>
+          <button class="px-2 py-1 border-2 border-transparent bg-lightBlue-500/10 hover:border-lightBlue-500 text-lightBlue-500 rounded-xl transition-colors">react</button>
+          <button class="px-2 py-1 border-2 border-transparent bg-lime-500/10 hover:border-lime-500 text-lime-500 rounded-xl transition-colors">vue</button>
+        </div>
+      </article>
+      <article id="Blogs-Grid" class="flex justify-center flex-wrap">
+        <div id="col-1" class="flex flex-col gap-10 mx-6 text-left mt-10">
+          <BlogCards allProjects={allPosts}/>
+        </div>
+        <div id="col-2" class="flex flex-col gap-10 mx-6 text-left mt-10">
+          <BlogCards allProjects={allPosts}/>
+        </div>
+        <div id="col-1" class="flex flex-col gap-10 mx-6 text-left mt-10">
+          <BlogCards allProjects={allPosts}/>
+        </div>
+      <article/>
+    </section>
+  <script slot="bottomScript" >
+    let element;
+    let textAle = {} ;
+    let buttonAle = {};
+    let textAleElements = {};
+    let buttonAleElements = {};
+    document.querySelectorAll('#BlogCardButton').forEach((element,i)=>{
+      buttonAleElements[i] = element;
+      element.classList.add('hidden');
+    });
+    document.querySelectorAll('#BlogCardText').forEach((element,i)=>{
+      textAleElements[i] = element;
+      element.classList.add('hidden');
+    });
+    document.querySelectorAll('#BlogCard').forEach((element,i)=>{
+      element.addEventListener('mouseenter',()=>{
+        textAleElements[i].classList.remove('hidden');
+        buttonAleElements[i].classList.remove('hidden');
+        // If textAle is undefined then button ALe is also undefined 
+        if( textAle[i] === undefined ){
+          textAle[i] = textAleElements[i].animate(
+            [
+              {
+                maxHeight: '0px',
+                opacity:'0',
+                paddingTop:'0',
+                paddingBottom:'0'
+              },
+              {
+                maxHeight: '100px',
+                opacity:'1',
+                paddingTop:'12px',
+                paddingBottom:'12px'
+              },
+            ],
+            {
+              direction: 'normal',
+              fill: 'both',
+              duration: 500,
+              easing:'cubic-bezier(0.52, 0.16, 0.24, 1)'
+            });
+            buttonAle[i] = buttonAleElements[i].animate(
+            [
+              {
+                maxHeight: '0px',
+                opacity:'0',
+                paddingTop:'0',
+                paddingBottom:'0'
+              },
+              {
+                maxHeight: '100px',
+                opacity:'1',
+                paddingTop:'8px',
+                paddingBottom:'8px'
+              },
+            ],
+            {
+              direction: 'normal',
+              fill: 'both',
+              duration: 500,
+              easing:'cubic-bezier(0.52, 0.16, 0.24, 1)'
+            });
+          }
+        textAle[i].playbackRate = +1;
+        buttonAle[i].playbackRate = +1;
+        textAle[i].ready.then(()=>{
+          textAle[i].play();
+        })
+        buttonAle[i].ready.then(()=>{
+          buttonAle[i].play();
+        })
+      },false);
+      element.addEventListener('mouseleave',()=>{      
+        textAle[i].playbackRate = -1;
+        buttonAle[i].playbackRate = -1;
+        textAle[i].play();
+        buttonAle[i].play();
+        textAle[i].onfinish = function() {
+          if(textAle[i].playbackRate===-1){
+            textAleElements[i].classList.add('hidden');
+            buttonAleElements[i].classList.add('hidden');
+          }
+        }
+      });
+    });
+  </script>
+</BaseLayout>
