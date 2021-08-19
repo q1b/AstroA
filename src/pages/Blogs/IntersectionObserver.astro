@@ -1,7 +1,7 @@
 ---
 import { Markdown } from 'astro/components';
 import BaseLayout from '../../layouts/project.astro';
-import blogData from '../../blogData/blog.json';
+import blogData from '../../data/blog.json';
 
 let thisPage =  blogData.filter( ( a ) => a.url === Astro.request.url.pathname );
  
