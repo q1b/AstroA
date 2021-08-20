@@ -51,6 +51,12 @@ const allPosts = allProjects.sort((a, b) => new Date(b.publishDate) - new Date(a
                 <Intro client:idle/>
             </div>
             <div
+                class="font-semibold text-white text-opacity-40 font-jetMono mt-24"
+            >
+                <h1 class="ml-8 text-xl">I used these technologies at some point of time and Loved them . </h1>
+                <Carousel/>
+            </div>
+            <div
                 class="flex flex-col items-start justify-start h-full max-w-2xl px-5 mt-44"
             >
                 <h1 intersect="!opacity-100" class="mt-10 mb-12 font-sans text-left text-white transition-opacity duration-1000 opacity-50 text-7xl" >
@@ -60,12 +66,6 @@ const allPosts = allProjects.sort((a, b) => new Date(b.publishDate) - new Date(a
                     <ProjectCards allProjects={allPosts}/>
                 <div/>
             </div>
-            <div
-                class="mt-10 font-semibold text-white text-opacity-40 font-jetMono"
-            >
-                <h1 class="ml-8 text-xl">I like !</h1>
-                <Carousel/>
-            </div>
       <div class="flex items-center justify-center w-full mt-20">
           <span class="px-3 py-2 text-xs rounded-lg bg-blueGray-1000 text-white">
               Background Photo by <a href="https://unsplash.com/@williamdaigneault?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">William Daigneault</a> on <a href="https://unsplash.com/@williamdaigneault?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>
@@ -74,21 +74,41 @@ const allPosts = allProjects.sort((a, b) => new Date(b.publishDate) - new Date(a
         </section>
     <script type="text/javascript" slot="bottomScript" >
     let scrollElement = document.querySelector('#scroll');
-    // let scrollWidth = ;
-    let playBackRate = 1;
-    window.setInterval(function() {
-      if(playBackRate===1){
-          scrollElement.scrollLeft = scrollElement.scrollLeft + 1
-          if((scrollElement.scrollLeft)===(scrollElement.scrollWidth-scrollElement.offsetWidth)){
-            playBackRate = -1;
-          }
-        } else {
-          scrollElement.scrollLeft = scrollElement.scrollLeft - 1;
-          if((scrollElement.scrollLeft)<10){
-            playBackRate = 1;
-          }
+    let scrollItems = document.querySelectorAll('#scroll-item');
+
+    scrollItems.forEach((ele,i)=>{
+      ele.animate(
+        [
+          {
+            left: `0px`,
+          },
+          {
+            left: `-${window.innerWidth > 768 ?  1878-window.innerWidth : (window.innerWidth > 640 ? 1726.9-window.innerWidth : 1208.8-window.innerWidth )}px`
+          },
+        ],
+        {
+          direction: 'normal',
+          fill: 'forwards',
+          duration: 20000,
+          easing:'linear'
         }
-      },10);
+      );
+    });
+    // let scrollWidth = ;
+    // let playBackRate = 1;
+    // window.setInterval(function() {
+    //   if(playBackRate===1){
+    //       scrollElement.scrollLeft = scrollElement.scrollLeft + 1
+    //       if((scrollElement.scrollLeft)===(scrollElement.scrollWidth-scrollElement.offsetWidth)){
+    //         playBackRate = -1;
+    //       }
+    //     } else {
+    //       scrollElement.scrollLeft = scrollElement.scrollLeft - 1;
+    //       if((scrollElement.scrollLeft)<10){
+    //         playBackRate = 1;
+    //       }
+    //     }
+    //   },10);
 
       let ele;
       let ale = {} ;
