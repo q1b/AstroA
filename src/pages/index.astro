@@ -2,16 +2,9 @@
 import BaseLayout from "../layouts/home.astro"
 import ProjectCards from "../components/index/projectCards.astro"
 import Intro from "../components/index/Intro.svelte"
+import allProjects from '../data/project.json';
 
-// zindex-0
-// photo zindex-10
-
-// let allBlogs = Astro.fetchContent('./Blogs/*.md');
-// const allBlogsPost = allBlogs.sort((a, b) => new Date(b.publishDate) - new Date(a.publishDate));
-// Data Fetching: List all Markdown projects in the repo .
-let allProjects = Astro.fetchContent('./Projects/*.md');
 const allPosts = allProjects.sort((a, b) => new Date(b.publishDate) - new Date(a.publishDate));
-// console.log(allPosts);
 
 ---
 <BaseLayout 
@@ -118,7 +111,7 @@ const allPosts = allProjects.sort((a, b) => new Date(b.publishDate) - new Date(a
         } else {
           scrollElement.scrollLeft = scrollElement.scrollLeft - 1;
           if((scrollElement.scrollLeft)<10){
-            playBackRate = -1;
+            playBackRate = 1;
           }
         }
       },10);

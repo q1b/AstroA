@@ -1,19 +1,10 @@
 ---
 import { Markdown } from 'astro/components';
 import BaseLayout from '../../layouts/project.astro';
-let allProjects = Astro.fetchContent('../Projects/*.md');
+import projectData from '../../data/project.json';
 
-function classNames(...classes) {
-  return classes.filter(Boolean).join(' ')
-}
+let thisPage =  projectData.filter( ( a ) => a.url === Astro.request.url.pathname );
 
-let thisPage = {};
-
-allProjects.forEach((p)=>{
-  if(p.url===Astro.request.canonicalURL.pathname.replace('1p','P').slice(0, -1)){
-    thisPage = p;
-  }
-})
 ---
 <BaseLayout content={{
   title: thisPage.title,
