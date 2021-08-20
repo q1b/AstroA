@@ -1,20 +1,8 @@
 [
   {
-    "title": "Most potential framework for future",
-    "subTitle": "Astro Static Site generator",
+    "title": "What is Coolest thing about this website.",
+    "subTitle": "My personel website, Journey",
     "publishDate": "Thursday, August 12 2021",
-    "url":"/Projects/AstroProject"
-  },
-  {
-    "title": "Flutter App",
-    "subTitle": "Making vue-petite-transition Library",
-    "publishDate": "Thursday, July 15 2021",
-    "url": "/Projects/Quizapp"
-  },
-  {
-    "title": "Working with WEB ANIMATION API",
-    "subTitle": "Making transition Library for petite-vue",
-    "publishDate": "Thursday, August 10 2021",
-    "url": "/Projects/Transition"
+    "url":"/Projects/this"
   }
 ]

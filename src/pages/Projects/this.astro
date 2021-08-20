@@ -1,0 +1,105 @@
+---
+import { Markdown } from 'astro/components';
+import BaseLayout from '../../layouts/project.astro';
+import projectData from '../../data/project.json';
+
+let thisPage =  projectData.filter( ( a ) => a.url === Astro.request.url.pathname );
+
+---
+<BaseLayout content={{
+  title: thisPage.title,
+  subTitle: thisPage.subTitle,
+  publishDate: thisPage.publishDate,
+}}>
+  <Markdown>
+    # 🚀 website to moon .
+    > I started building this website, but before building this website ?
+    1. #### 🤩  I see websites from other developers
+    1. #### 🤔  Think a lot before applying the design that feels right 
+    1. #### 🤗  Since developer are very friendly, I ask my friend to give me suggestion over my website.
+
+    I used **astro as my base framework** but astro comes with some of cool features like enabling developers to use any framework they like,
+    Astro provide ways to prerender components on need .
+
+    # Stack I used 
+    1. Astro
+    1. Svelte 
+    1. Tailwindcss ( CSS-FRAMEWORK )
+    1. Supabase
+    
+    ## Main aim for this website is to make it 
+    1. #### Performance
+    1. #### User friendly design
+    1. #### Fully responsive
+    1. #### SEO Friendly
+    1. #### Scaleable
+    1. #### Proper File structure
+    <!-- 1. #### Use least Frameworks  -->
+    # Performance 
+    ### For performance I had taken some pretty staright forward approach,
+    1. #### Make bundle size small, So I used least frameworks like react,vue,svelte or solidjs . Even sometimes I apply the User Effect using these framework but then later, I like to write manually better solution which are 10 times more performat then those frameworks solution but I have to use them if I can't get expected result from my soltution .
+    1. #### write optimized code for more performance
+    1. #### take help from web animtion api over normal css transition To do complex animations .
+
+    # User friendly design
+    1. #### Things that I learned from past helped a lot to design things beautiful
+    1. #### Using figma and taking help from other for reviewing my website design
+    1. #### The Logo is not a hard work but come out of experimenting with circle in late night .
+
+    # Fully responsive
+    1. #### I used tailwindcss as it give a easier solution for writing media query
+    1. #### Testing that UI looks great on every device 
+    1. #### Used flexbox .
+
+    # SEO Friendly 
+    1. #### For this I used robots.txt file learned about it .
+    1. #### Learning about how google's search engine work helped a lot .
+
+    # Scalable 
+    1. #### I write two portfolio but problem with them is that they become very problematic to use further .
+    1. #### I making this portfolio and blog system keeping in mind that I am going to use them for next comming years or atleast months .
+
+    # Structuring my Project Files
+    1. #### In this current project There was a time when Whole file system become a mess, I don't know when, but to improve that I redesigned whole project file system And Now I am happy about that .
+    ### My project structure
+      ```
+      /
+      ├── public/
+      │   ├── assets/
+      │   ├── favicon.svg
+      │   └── global.css
+      ├── src/
+      │   ├── components/
+      │   │   ├── index/
+      │   │   │   └── [Home components].astro
+      │   │   ├── blog/
+      │   │   │   └── [Blog Pages components].astro
+      │   │   ├── FUN/
+      │   │   │   └── [Components that are no longer used].astro
+      │   │   └── FUNEXAMPLES/
+      │   │   │   └── [Examples].astro
+      │   │   └── SEO&PAGES/
+      │   │       ├── Forever_Components/
+      │   │       │   └── Navigation.astro
+      │   │       └── SEO/
+      │   │           └── [...].astro SEO related components
+      │   ├── data/
+      │   │   ├── project.json
+      │   │   └── blog.json
+      │   ├── layouts/
+      │   │   ├── home.astro
+      │   │   └── project.astro
+      │   ├── pages/
+      │   │   └── index.astro 
+      │   └── service/
+      │       ├── helper.js
+      │       └── main.js
+      └── tailwind.config.js
+      ```
+    Yes! it is powerful 🦄 for a person who has experience with the framework that he is going to use 
+    but still For Example knowing that __svelte framework__ is very good at animating stuff is pretty powerful to use it with other stuff who have to make your website .
+    You can use many libraries at the same time in your website from different frameworks, But still use things which you are going to use most of time don't install 
+    4 to 5 UI libraries from different frameworks, If you do then you can't use one of them to it's capacity .
+    And more libraries will create more confusion So, make a mind map before installing libraries .
+  </Markdown>
+</BaseLayout>

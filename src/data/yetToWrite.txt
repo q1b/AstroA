@@ -1,0 +1,43 @@
+Projects
+{
+  "title": "Flutter App",
+  "subTitle": "Making vue-petite-transition Library",
+  "publishDate": "Thursday, July 15 2021",
+  "url": "/Projects/Quizapp"
+},
+{
+  "title": "Working with WEB ANIMATION API",
+  "subTitle": "Making transition Library for petite-vue",
+  "publishDate": "Thursday, August 10 2021",
+  "url": "/Projects/Transition"
+}
+
+>_- Blogs
+{
+  "title" : "Svelte Animations",
+  "language" : "native web api",
+  "subTitle" : "Svelte Animations for svelte beginners",
+  "publishDate" : "Thursday, August 12 2021",
+  "url" : "/Blogs/svelteAnimation"
+},
+{
+  "title": "HeadlessUI",
+  "language": "react | vue",
+  "subTitle": "Why HeadlessUI great ? because it give us fully accessible UI components, managing ARIA attributes and Fully Customisable .",
+  "publishDate": "Thursday, August 12 2021",
+  "url": "/Blogs/headlessUI"
+},
+{
+  "title": "Web Animation API",
+  "language": "native web api",
+  "subTitle": "How to use web animation api in real website ?",
+  "publishDate": "Thursday, August 12 2021",
+  "url": "/Blogs/AnimationApi"
+},
+{
+  "title": "Intersection Observer API",
+  "language": "native web apis",
+  "subTitle": "How to use web intersection api in real website ?",
+  "publishDate": "Thursday, August 12 2021",
+  "url": "/Blogs/IntersectionObserver"
+}

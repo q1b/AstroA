@@ -73,10 +73,15 @@ allBlogs.forEach((item,i)=>{
     </section>
   <script slot="bottomScript" >
     let element;
-    let textAle = {} ;
+    let cardAle = {};
+    let textAle = {};
     let buttonAle = {};
+    let cardAleElements = {};
     let textAleElements = {};
     let buttonAleElements = {};
+    document.querySelectorAll('#BlogCard').forEach((element,i)=>{
+      cardAleElements[i] = element;
+    });
     document.querySelectorAll('#BlogCardButton').forEach((element,i)=>{
       buttonAleElements[i] = element;
       element.classList.add('hidden');
@@ -91,6 +96,21 @@ allBlogs.forEach((item,i)=>{
         buttonAleElements[i].classList.remove('hidden');
         // If textAle is undefined then button ALe is also undefined 
         if( textAle[i] === undefined ){
+          cardAle[i] = cardAleElements[i].animate(
+            [
+              {
+                backgroundColor: '#0f172a',
+              },
+              {
+                backgroundColor: '#620698',
+              },
+            ],
+            {
+              direction: 'normal',
+              fill: 'both',
+              duration: 500,
+              easing:'cubic-bezier(0.52, 0.16, 0.24, 1)'
+            });
           textAle[i] = textAleElements[i].animate(
             [
               {
@@ -136,6 +156,10 @@ allBlogs.forEach((item,i)=>{
           }
         textAle[i].playbackRate = +1;
         buttonAle[i].playbackRate = +1;
+        cardAle[i].playbackRate = +1;
+        cardAle[i].ready.then(()=>{
+          cardAle[i].play();
+        })
         textAle[i].ready.then(()=>{
           textAle[i].play();
         })
@@ -146,6 +170,8 @@ allBlogs.forEach((item,i)=>{
       element.addEventListener('mouseleave',()=>{      
         textAle[i].playbackRate = -1;
         buttonAle[i].playbackRate = -1;
+        cardAle[i].playbackRate = -1;
+        cardAle[i].play();
         textAle[i].play();
         buttonAle[i].play();
         textAle[i].onfinish = function() {
