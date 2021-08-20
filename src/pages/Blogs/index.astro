@@ -21,19 +21,19 @@ allBlogs.forEach((item,i)=>{
   }
 });
 
-checkLocal = 0;
-let barr1 = [];
-let barr2 = [];
+// checkLocal = 0;
+// let barr1 = [];
+// let barr2 = [];
 
-allBlogs.forEach((item,i)=>{
-  checkLocal = checkLocal + 1;
-  if(checkLocal===1) {
-    barr1 = [item,...arr1];
-  } else {
-    barr2 = [item,...arr3];
-    checkLocal = 2;
-  }
-});
+// allBlogs.forEach((item,i)=>{
+//   checkLocal = checkLocal + 1;
+//   if(checkLocal===1) {
+//     barr1 = [item,...arr1];
+//   } else {
+//     barr2 = [item,...arr3];
+//     checkLocal = 2;
+//   }
+// });
 
 ---
 <BaseLayout 
@@ -43,7 +43,15 @@ allBlogs.forEach((item,i)=>{
   >
     <section class="py-20 px-10">
       <article>
-        <div class="text-4xl font-black text-white"> What to read !</div>
+        <div class="text-4xl flex place-content-between font-black text-white">
+          <h1> What to read ! </h1>
+            <button class="relative hover:bg-white group hover:text-lightBlue-500 flex items-center justify-center w-8 h-8 focus:ring focus:ring-offset-2 rounded-xl transition-colors ease-in-out">
+                <p class="top-0 text-white text-left opacity-0 group-focus:opacity-100 group-hover:opacity-100 -left-24 w-max absolute text-base transition-opacity">l:line<br>e:example</p>
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 inline" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                </svg>
+            </button>
+        </div>
         <!-- Future Feauture Giving options to person who visit this website -->
         <!-- <div class="flex gap-x-4 flex-row mt-6 mx-10">
           <button class="px-2 py-1 border-2 border-transparent bg-orange-500/10 hover:border-orange-500 text-orange-500 rounded-xl transition-colors">svelte</button>

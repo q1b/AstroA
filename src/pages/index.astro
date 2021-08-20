@@ -66,50 +66,63 @@ const allPosts = allProjects.sort((a, b) => new Date(b.publishDate) - new Date(a
                     <ProjectCards allProjects={allPosts}/>
                 <div/>
             </div>
-            <div class="flex items-center justify-center w-full mt-20">
-                <span class="px-3 py-2 text-xs rounded-lg bg-blueGray-1000 text-blueGray-500">
-                    Background Photo by <a href="https://unsplash.com/@williamdaigneault?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">William Daigneault</a> on <a href="https://unsplash.com/@williamdaigneault?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>
-                </span>
-            </div>
-            <!-- <ul
+            <ul
                 class="mt-10 font-semibold text-white text-opacity-40 font-jetMono"
             >
                 <h1 class="ml-8 text-xl">I like !</h1>
                 <section
-                    class="flex flex-col items-center justify-center w-full h-full "
+                    id="scroll" class="inline-flex gap-2 overflow-y-hidden w-full h-20 mt-10"
                 >
-                    <article
-                        class="grid max-w-xl grid-flow-col grid-cols-2 grid-rows-3 gap-4 p-4 sm:grid-cols-3 sm:grid-rows-2 place-items-center"
-                    >
-                        <a class="flex items-center w-auto h-12" href="#">
-                            <img src="/assets/StackLogo/nuxtLogo.svg" />
+                        <a id="scroll-item" class="flex flex-shrink-0 items-center w-auto h-12" href="#">
+                            <img src="/assets/StackLogo/nuxtLogo.svg" class="w-auto h-20" />
                         </a>
-                        <a class="flex items-center w-auto h-12" href="#">
-                            <img src="/assets/StackLogo/viteLogo.svg" class="w-10" />
-                            <h1 class="text-4xl text-white">&nbsp;Vite</h1>
+                        <a id="scroll-item" class="flex flex-shrink-0 items-center w-max h-12" href="#">
+                            <img src="/assets/StackLogo/viteLogo.svg" class="w-auto h-12" />
+                            <h1 class="text-5xl text-white">Vite</h1>
                         </a>
-                        <a class="flex items-center w-auto h-12" href="#">
+                        <a id="scroll-item" class="flex flex-shrink-0 items-center w-max h-12" href="#">
                             <img
-                                class="w-10"
+                                class="w-12"
                                 id="vueLogo"
                                 src="https://camo.githubusercontent.com/c8f91d18976e27123643a926a2588b8d931a0292fd0b6532c3155379e8591629/68747470733a2f2f7675656a732e6f72672f696d616765732f6c6f676f2e706e67"
                             />
-                            <h1 class="text-4xl text-white">&nbsp;Vue</h1>
+                            <h1 class="text-5xl text-white">Vue</h1>
                         </a>
-                        <a class="flex items-center w-auto h-12" href="#">
+                        <a id="scroll-item" class="flex flex-shrink-0 items-center w-auto h-12" href="#">
                             <img src="/assets/StackLogo/tailwindLogo.svg" class="w-auto h-12" />
                         </a>
-                        <a class="flex items-center w-auto h-12" href="#">
-                            <img src="/assets/StackLogo/headlessUiLogo.svg" class="w-auto h-24" />
+                        <a id="scroll-item" class="flex flex-shrink-0 items-center w-auto h-12" href="#">
+                            <img src="/assets/StackLogo/headlessUiLogo.svg" class="w-auto h-20" />
                         </a>
-                        <a class="flex items-center w-auto h-12" href="#">
-                            <img src="/assets/StackLogo/heroIconsLogo.svg" class="w-auto h-24" />
+                        <a id="scroll-item" class="flex flex-shrink-0 items-center w-auto h-12" href="#">
+                            <img src="/assets/StackLogo/heroIconsLogo.svg" class="w-auto h-20" />
                         </a>
-                    </article>
                 </section>
-            </ul> -->
+            </ul>
+      <div class="flex items-center justify-center w-full mt-20">
+          <span class="px-3 py-2 text-xs rounded-lg bg-blueGray-1000 text-white">
+              Background Photo by <a href="https://unsplash.com/@williamdaigneault?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">William Daigneault</a> on <a href="https://unsplash.com/@williamdaigneault?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>
+          </span>
+      </div>
         </section>
     <script slot="bottomScript" >
+    let scrollElement = document.querySelector('#scroll');
+    // let scrollWidth = ;
+    let playBackRate = 1;
+    window.setInterval(function() {
+      if(playBackRate===1){
+          scrollElement.scrollLeft = scrollElement.scrollLeft + 1
+          if((scrollElement.scrollLeft)===(scrollElement.scrollWidth-scrollElement.offsetWidth)){
+            playBackRate = -1;
+          }
+        } else {
+          scrollElement.scrollLeft = scrollElement.scrollLeft - 1;
+          if((scrollElement.scrollLeft)<10){
+            playBackRate = -1;
+          }
+        }
+      },10);
+
       let ele;
       let ale = {} ;
         document.querySelectorAll('#backdrop').forEach((ele,i)=>{
