@@ -3,10 +3,6 @@ import { Markdown } from 'astro/components';
 import BaseLayout from '../../layouts/project.astro';
 let allProjects = Astro.fetchContent('../Projects/*.md');
 
-function classNames(...classes) {
-  return classes.filter(Boolean).join(' ')
-}
-
 let thisPage = {};
 
 allProjects.forEach((p)=>{
