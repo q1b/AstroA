@@ -1,4 +1,4 @@
-User-agent: *
-Allow: /
+user-agent: *
+allow: /
 
-Sitemap: https://zcz.netlify.app/sitemap.xml
+sitemap: https://zcz.netlify.app/sitemap.xml
