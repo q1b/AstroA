@@ -4,4 +4,4 @@ disallow:
 user-agent: *
 allow: /
 
-sitemap: https://zcz.netlify.app/sitemap.xml
+sitemap: http://zcz.netlify.app/sitemap.xml
