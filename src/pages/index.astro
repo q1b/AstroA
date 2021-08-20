@@ -12,7 +12,7 @@ const allPosts = allProjects.sort((a, b) => new Date(b.publishDate) - new Date(a
     title="Sukhpreet Singh Web developer" 
     description="My personel portfolio to show recuriter how able I am to do stuff ." 
   >
-    <script slot="topScript">
+    <script type="text/javascript" slot="topScript">
         (async function() {
         if (CSS["paintWorklet"] === undefined)
           await import(
@@ -64,7 +64,7 @@ const allPosts = allProjects.sort((a, b) => new Date(b.publishDate) - new Date(a
                 class="mt-10 font-semibold text-white text-opacity-40 font-jetMono"
             >
                 <h1 class="ml-8 text-xl">I like !</h1>
-                <Carousel client:visible />
+                <Carousel/>
             </div>
       <div class="flex items-center justify-center w-full mt-20">
           <span class="px-3 py-2 text-xs rounded-lg bg-blueGray-1000 text-white">
@@ -72,7 +72,7 @@ const allPosts = allProjects.sort((a, b) => new Date(b.publishDate) - new Date(a
           </span>
       </div>
         </section>
-    <script slot="bottomScript" >
+    <script type="text/javascript" slot="bottomScript" >
     let scrollElement = document.querySelector('#scroll');
     // let scrollWidth = ;
     let playBackRate = 1;
