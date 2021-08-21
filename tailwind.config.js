@@ -58,6 +58,7 @@ module.exports = {
         'zs':'400px',
         'xss':'450px',
         'xs': '500px',
+        'mds':'870px',
       },
 			typography: (theme) => ({
         // '3xl':{

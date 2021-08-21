@@ -2,6 +2,7 @@
 import { Markdown } from 'astro/components';
 import BaseLayout from '../../layouts/project.astro';
 import projectData from '../../data/project.json';
+import Carousel from "../../components/projects/this/carousel.astro"
 
 let thisPage =  projectData.filter( ( a ) => a.url === Astro.request.url.pathname );
 
@@ -20,13 +21,10 @@ let thisPage =  projectData.filter( ( a ) => a.url === Astro.request.url.pathnam
 
     I used **astro as my base framework** but astro comes with some of cool features like enabling developers to use any framework they like,
     Astro provide ways to prerender components on need .
-
-    # Stack I used 
-    1. Astro
-    1. Svelte 
-    1. Tailwindcss ( CSS-FRAMEWORK )
-    1. Supabase
-    
+  </Markdown>
+    <h3 class="hidden md:flex" id="stack-i-used"><strong>Stack I used</strong></h3>
+    <Carousel/>
+  <Markdown>
     ## Main aim for this website is to make it 
     1. #### Performance
     1. #### User friendly design

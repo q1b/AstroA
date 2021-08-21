@@ -1,6 +1,7 @@
 ---
 import BaseLayout from "../layouts/home.astro"
 import Underline from "../components/FUN/Underline.svelte"
+import Model from "../components/FUN/Model.jsx"
 ---
 <BaseLayout title="Sukhpreet Singh Web developer" description="My personel portfolio to show recuriter how able I am to do stuff ." classes1="flex selection:bg-lightBlue-500/10 selection:text-lightBlue-600 items-center flex-col bg-blueGray-1000 min-h-[100vh]" >
     <section id="Contact-section" class="flex px-10 pt-20 ">
@@ -57,8 +58,10 @@ import Underline from "../components/FUN/Underline.svelte"
                   for="Message"
                   >Message</label
               >
+              <h1 id="checkMsg" class="absolute -bottom-6 right-9 text-rose-500 font-round opacity-100 transition-color duration-700"></h1>
+              <h1 id="correctMsg" class="absolute -bottom-6 right-2 text-green-500 font-round opacity-100 transition-color duration-700"><span class="text-white">/</span>10</h1>
           </div>
-          <button id="sumbitButton" type="submit" class="px-2 py-1 text-lg bg-white rounded-lg focus:ring-2 focus:ring-offset-4 ring-offset-blue-500 text-blueGray-700 hover:text-black tab-hightlight-none">Send</button>
+          <Model client:load/>
         </form>
       </article>
     </section> 

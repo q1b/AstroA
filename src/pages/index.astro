@@ -50,16 +50,16 @@ const allPosts = allProjects.sort((a, b) => new Date(b.publishDate) - new Date(a
             </article>
                 <Intro client:idle/>
             </div>
-            <div
+            <!-- <div
                 class="font-semibold text-white text-opacity-40 font-jetMono mt-24"
             >
-                <h1 class="ml-8 text-xl">I used these technologies at some point of time and Loved them . </h1>
+                <h1 class="ml-8 text-xl">I used these technologies to build this site .</h1>
                 <Carousel/>
-            </div>
+            </div> -->
             <div
                 class="flex flex-col items-start justify-start h-full max-w-2xl px-5 mt-44"
             >
-                <h1 intersect="!opacity-100" class="mt-10 mb-12 font-sans text-left text-white transition-opacity duration-1000 opacity-50 text-7xl" >
+                <h1 intersect="!opacity-100" class="mt-10 mb-12 font-sans text-left text-white transition-opacity duration-1000 opacity-0 text-7xl" >
                     Projects
                 </h1>
                 <div id="Projects" class="flex flex-col gap-10 text-left">
@@ -73,27 +73,28 @@ const allPosts = allProjects.sort((a, b) => new Date(b.publishDate) - new Date(a
       </div>
         </section>
     <script type="text/javascript" slot="bottomScript" >
-    let scrollElement = document.querySelector('#scroll');
-    let scrollItems = document.querySelectorAll('#scroll-item');
+    // No-delete Can be use in future
+    // let scrollElement = document.querySelector('#scroll');
+    // let scrollItems = document.querySelectorAll('#scroll-item');
 
-    scrollItems.forEach((ele,i)=>{
-      ele.animate(
-        [
-          {
-            left: `0px`,
-          },
-          {
-            left: `-${window.innerWidth > 768 ?  1878-window.innerWidth : (window.innerWidth > 640 ? 1726.9-window.innerWidth : 1208.8-window.innerWidth)}px`
-          },
-        ],
-        {
-          direction: 'normal',
-          fill: 'forwards',
-          duration: 20000,
-          easing:'linear'
-        }
-      );
-    });
+    // scrollItems.forEach((ele,i)=>{
+    //   ele.animate(
+    //     [
+    //       {
+    //         left: `0px`,
+    //       },
+    //       {
+    //         left: `-${window.innerWidth > 768 ?  1878-window.innerWidth : (window.innerWidth > 640 ? 1726.9-window.innerWidth : 1208.8-window.innerWidth)}px`
+    //       },
+    //     ],
+    //     {
+    //       direction: 'normal',
+    //       fill: 'forwards',
+    //       duration: 20000,
+    //       easing:'linear'
+    //     }
+    //   );
+    // });
     // let scrollWidth = ;
     // let playBackRate = 1;
     // window.setInterval(function() {
