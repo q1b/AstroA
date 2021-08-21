@@ -26,7 +26,6 @@ document.querySelector('#sumbitButton').addEventListener('click',(e)=>{
     }
   }
 },false);
-let s;
 let ale = document.querySelector('#checkMsg').animate([
   {
     opacity:'0',
@@ -49,7 +48,7 @@ let isSpaced = true;
 let nextTransition = false;
 
 document.querySelector('#msg').addEventListener('input',(e)=>{
-
+  e.prevletterntDefault();
   words = e.target.value.replace(/(^\s*)|(\s*$)/gi,"").replace(/[ ]{2,}/gi," ").replace(/\n /,"\n").split(' ');
 
   // Forward working solution 1
@@ -72,9 +71,7 @@ document.querySelector('#msg').addEventListener('input',(e)=>{
         ale.play();
       }
     }
-
     if(document.querySelector('#checkMsg').innerText==='10') {
-
       document.querySelector('#checkMsg').classList.replace('text-rose-500','text-green-500');
     }
   } else {
@@ -85,9 +82,8 @@ document.querySelector('#msg').addEventListener('input',(e)=>{
     }
     document.querySelector('#correctMsg').classList.replace('opacity-100','opacity-0');
   }
+
   nextTransition = words[words.length-1].length === 1 && words.length !== 1;
-  
   // Checking for previous value was a space 
   isSpaced = e.data === " " ;
-
 });
