@@ -51,7 +51,6 @@ let nextTransition = false;
 document.querySelector('#msg').addEventListener('input',(e)=>{
 
   e.preventDefault();
-  console.log(e);
 
   words = e.target.value.replace(/(^\s*)|(\s*$)/gi,"").replace(/[ ]{2,}/gi," ").replace(/\n /,"\n").split(' ');
 
