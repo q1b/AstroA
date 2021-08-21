@@ -1,7 +1,7 @@
 import { insertData } from './helper.js';
 
 document.querySelector('#sumbitButton').addEventListener('click',(e)=>{
-  e.prevletterntDefault();
+  e.preventDefault();
   const { email, msg } = Object.fromEntries(new FormData(document.querySelector('#FORM')));
   let alertText = '*' ;
   let s = msg;
@@ -26,6 +26,7 @@ document.querySelector('#sumbitButton').addEventListener('click',(e)=>{
     }
   }
 },false);
+
 let ale = document.querySelector('#checkMsg').animate([
   {
     opacity:'0',
@@ -48,6 +49,10 @@ let isSpaced = true;
 let nextTransition = false;
 
 document.querySelector('#msg').addEventListener('input',(e)=>{
+
+  e.preventDefault();
+  console.log(e);
+
   words = e.target.value.replace(/(^\s*)|(\s*$)/gi,"").replace(/[ ]{2,}/gi," ").replace(/\n /,"\n").split(' ');
 
   // Forward working solution 1
