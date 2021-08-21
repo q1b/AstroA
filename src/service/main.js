@@ -4,15 +4,17 @@ document.querySelector('#sumbitButton').addEventListener('click',(e)=>{
   e.preventDefault();
   const { email, msg } = Object.fromEntries(new FormData(document.querySelector('#FORM')));
   let alertText = '*' ;
-  let s = msg;
+  let s = document.querySelector('#msg').value;
   s = s.replace(/(^\s*)|(\s*$)/gi,"");
   s = s.replace(/[ ]{2,}/gi," ");
   s = s.replace(/\n /,"\n");
   let emailValidationRegex = /[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?/g
   if( !(s.split(' ').length <= 10) && (emailValidationRegex.test(email)) ){
     insertData(email,msg);
-    document.querySelector('#email').innerText = "";
-    document.querySelector('#msg').innerText = "";
+    document.querySelector('#email').value = "";
+    document.querySelector('#msg').value = "";
+    document.querySelector('#alertEmail').innerText = '';
+    document.querySelector('#alertMsg').innerText =  '';
   } else {
     if( (s.split(' ').length <= 10) ){
       document.querySelector('#alertMsg').innerText =  alertText;
