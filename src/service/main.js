@@ -10,6 +10,7 @@ document.querySelector('#sumbitButton').addEventListener('click',(e)=>{
   s = s.replace(/\n /,"\n");
   let emailValidationRegex = /[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?/g
   if( !(s.split(' ').length <= 10) && (emailValidationRegex.test(email)) ){
+    document.querySelector('#FORM').dataset.ismodelopen = 'true';
     insertData(email,msg);
     document.querySelector('#email').value = "";
     document.querySelector('#msg').value = "";

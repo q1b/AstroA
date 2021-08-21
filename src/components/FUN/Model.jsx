@@ -5,6 +5,7 @@ export default function MyModal() {
   let [isOpen, setIsOpen] = useState(false)
 
   function closeModal() {
+    document.querySelector('#FORM').dataset.ismodelopen = 'false'
     setIsOpen(false)
   }
 
@@ -15,7 +16,7 @@ export default function MyModal() {
     s = s.replace(/(^\s*)|(\s*$)/gi,"");
     s = s.replace(/[ ]{2,}/gi," ");
     s = s.replace(/\n /,"\n");
-    if( !(s.split(' ').length <= 10) && (emailValidationRegex.test(email)) ){
+    if( document.querySelector('#FORM').dataset.ismodelopen === 'true' ){
       setIsOpen(true);
     }
   }
