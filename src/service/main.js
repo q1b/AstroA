@@ -48,7 +48,6 @@ let isSpaced = true;
 let nextTransition = false;
 
 document.querySelector('#msg').addEventListener('input',(e)=>{
-  e.prevletterntDefault();
   words = e.target.value.replace(/(^\s*)|(\s*$)/gi,"").replace(/[ ]{2,}/gi," ").replace(/\n /,"\n").split(' ');
 
   // Forward working solution 1
