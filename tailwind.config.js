@@ -1,4 +1,5 @@
 const colors = require('tailwindcss/colors');
+const plugin = require('tailwindcss/plugin');
 
 module.exports = {
 	mode: 'jit',
@@ -214,6 +215,14 @@ module.exports = {
 		},
 	},
 	plugins: [
-		require('@tailwindcss/typography'),
+    plugin(function({ addUtilities }) {
+      const newUtilities = {
+        '.tab-highlight-none': {
+          '-webkit-tap-highlight-color': 'transparent',
+        },
+      }
+      addUtilities(newUtilities)
+    }),
+    require('@tailwindcss/typography'),
 	],
 }

@@ -18,7 +18,7 @@ export default function MyModal() {
         <button
           id="sumbitButton" type="submit"
           onClick={openModal}
-          className="flex group px-2 py-1 text-lg text-left text-white border-2 border-transparent rounded-lg hover:text-blueGray-100 font-jetMono hover:font-semibold  focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75"
+          className="tab-highlight-none flex group px-2 py-1 text-lg text-left text-white border-2 border-transparent rounded-lg hover:text-blueGray-100 font-jetMono hover:font-semibold  focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75"
         >
           <span className="w-6 h-6 inline-flex items-center justify-center">
                         <svg xmlns="http://www.w3.org/2000/svg" className="absolute h-6 w-6 opacity-100 group-hover:opacity-0 transition-opacity" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -78,12 +78,12 @@ export default function MyModal() {
                 >
                   Which do you prefer ?
                 </Dialog.Title>
-                <div className="cursor-pointer w-full mb-4 p-3 xs:p-4 text-lg xs:text-2xl bg-blueGray-800 hover:bg-blueGray-700 group rounded-2xl">
+                <div className="tab-highlight-none cursor-pointer w-full mb-4 p-3 xs:p-4 text-lg xs:text-2xl bg-blueGray-800 hover:bg-blueGray-700 group rounded-2xl">
                   <a href="" className="text-blueGray-500 group-hover:text-blueGray-300">
                     Online resume .
                   </a>
                 </div>
-                <div className="cursor-pointer w-full mb-10 p-3 xs:p-4 text-lg xs:text-2xl bg-blueGray-800 hover:bg-blueGray-700 group rounded-2xl">
+                <div className="tab-highlight-none cursor-pointer w-full mb-10 p-3 xs:p-4 text-lg xs:text-2xl bg-blueGray-800 hover:bg-blueGray-700 group rounded-2xl">
                   <a href="" className="text-blueGray-500 group-hover:text-blueGray-300">
                     PDF Formatted resume .
                   </a>
