@@ -25,7 +25,7 @@ export default function MyModal() {
     <>
       <div className="">
         <button
-          id="sumbitButton" type="submit"
+          id="sumbitButton" type="button"
           onClick={openModal}
           className="px-4 py-2 text-sm font-medium text-blueGray-900 bg-white rounded-md bg-opacity-100 hover:bg-opacity-80 focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75"
         >

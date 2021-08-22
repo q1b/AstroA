@@ -16,7 +16,7 @@ export default function MyModal() {
     <>
       <div className="">
         <button
-          id="sumbitButton" type="submit"
+         type="submit"
           onClick={openModal}
           className="tab-highlight-none flex group px-2 py-1 text-lg text-left text-white border-2 border-transparent rounded-lg hover:text-blueGray-100 font-jetMono hover:font-semibold  focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75"
         >
