@@ -223,6 +223,53 @@ module.exports = {
       }
       addUtilities(newUtilities)
     }),
+    plugin(function({ addComponents }) {
+      const underlines = {
+        '.ul-blueGray': {
+            backgroundImage:'linear-gradient(-90deg, hsl(220,20%,40%) , hsl(220,40%,40%))',
+            backgroundRepeat:'no-repeat',
+            backgroundPosition:'left bottom',
+            transition:'background-size 600ms cubic-bezier(0.785, 0.135, 0.15, 0.86)',
+        },
+        '.ul-purple': {
+            backgroundImage:'linear-gradient(-90deg, hsl(276,100%,70%) , hsl(276,100%,50%))',
+            backgroundRepeat:'no-repeat',
+            backgroundPosition:'left bottom',
+            transition:'background-size 600ms cubic-bezier(0.785, 0.135, 0.15, 0.86)',
+        },
+        '.ul-blue': {
+            backgroundImage:'linear-gradient(-90deg, hsl(210,100%,80%) , hsl(210,100%,50%))',
+            backgroundRepeat:'no-repeat',
+            backgroundPosition:'left bottom',
+            transition:'background-size 600ms cubic-bezier(0.785, 0.135, 0.15, 0.86)',
+        },
+        '.ul-indigo': {
+            backgroundImage:'linear-gradient(-90deg,hsl(256,100%,80%) , hsl(256,100%,50%))',
+            backgroundRepeat:'no-repeat',
+            backgroundPosition:'left bottom',
+            transition:'background-size 600ms cubic-bezier(0.785, 0.135, 0.15, 0.86)',
+        },
+        '.ul-1':{
+          backgroundSize:'0% 1px',
+        },
+        '.full-ul-1':{
+          backgroundSize:'100% 1px',
+        },
+        '.ul-2':{
+          backgroundSize:'0% 2px',
+        },
+        '.full-ul-2':{
+          backgroundSize:'100% 2px',
+        },
+        '.ul-3':{
+          backgroundSize:'0% 3px',
+        },
+        '.full-ul-3':{
+          backgroundSize:'100% 3px',
+        }
+      }
+      addComponents(underlines)
+    }),
     require('@tailwindcss/typography'),
 	],
 }

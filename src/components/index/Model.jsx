@@ -47,7 +47,7 @@ export default function MyModal() {
               leaveFrom="opacity-100"
               leaveTo="opacity-0"
             >
-              <Dialog.Overlay className="fixed inset-0 bg-black opacity-30" />
+              <Dialog.Overlay className="fixed inset-0 bg-blueGray-1000 opacity-80" />
             </Transition.Child>
 
             {/* This element is to trick the browser into centering the modal contents. */}
@@ -69,8 +69,8 @@ export default function MyModal() {
               <div className="
                 inline-block w-full max-w-xs xs:max-w-sm mds:max-w-md 
                 p-6 my-8 overflow-hidden text-left align-middle
-                 bg-blueGray-900/10 shadow-xl rounded-2xl
-                items-center justify-center backdrop-blur-sm border-2
+                 bg-blueGray-1000/20 shadow-xl rounded-2xl
+                items-center justify-center backdrop-blur-sm border-2 border-blueGray-400
               ">
                 <Dialog.Title
                   as="h3"
@@ -78,20 +78,20 @@ export default function MyModal() {
                 >
                   Which do you prefer ?
                 </Dialog.Title>
-                <div className="tab-highlight-none cursor-pointer w-full mb-4 p-3 xs:p-4 text-lg xs:text-2xl bg-blueGray-800 hover:bg-blueGray-700 group rounded-2xl">
-                  <a href="" className="text-blueGray-500 group-hover:text-blueGray-300">
+                <a href="" className="tab-highlight-none cursor-pointer w-full mb-4 p-3 xs:p-4 text-lg xs:text-2xl bg-blueGray-800 hover:bg-blueGray-700 group rounded-xl focus:outline-none  focus:ring-2  focus:ring-white focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 ring-offset-blueGray-900 focus-visible:ring-opacity-75 inline-block shadow-xl">
+                  <span className=" text-blueGray-500 group-hover:text-blueGray-300">
                     Online resume .
-                  </a>
-                </div>
-                <div className="tab-highlight-none cursor-pointer w-full mb-10 p-3 xs:p-4 text-lg xs:text-2xl bg-blueGray-800 hover:bg-blueGray-700 group rounded-2xl">
-                  <a href="" className="text-blueGray-500 group-hover:text-blueGray-300">
-                    PDF Formatted resume .
-                  </a>
-                </div>
+                  </span>
+                </a>
+                <a href="" className="tab-highlight-none cursor-pointer w-full mb-10 p-3 xs:p-4 text-lg xs:text-2xl bg-blueGray-800 hover:bg-blueGray-700 group rounded-xl focus:outline-none  focus:ring-2  focus:ring-white focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 ring-offset-blueGray-900 focus-visible:ring-opacity-75 inline-block shadow-xl">
+                  <span className=" text-blueGray-500 group-hover:text-blueGray-300">
+                    PDF Formatted Resume .
+                  </span>
+                </a>
                 <div className="">
                   <button
                     type="button"
-                    className="inline-flex justify-center px-4 py-2 text-sm font-medium text-blueGray-900 bg-blueGray-100 border border-transparent rounded-md hover:bg-blueGray-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-blueGray-500"
+                    className="inline-flex justify-center px-4 py-2 text-sm font-medium text-blueGray-900 bg-blueGray-100 border border-transparent rounded-md hover:bg-blueGray-200 focus:outline-none focus-visible:ring-2 ring-offset-blueGray-1000 focus-visible:ring-offset-2 focus-visible:ring-blueGray-700"
                     onClick={closeModal}
                   >
                     Close
