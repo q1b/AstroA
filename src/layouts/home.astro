@@ -11,6 +11,12 @@ const { title, description, classes1 = 'flex flex-col items-center bg-cover asSm
     <title>{title}</title>
     <meta name="title" content={title} />
     <meta name="description" content={description} />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/quicklink/2.2.0/quicklink.umd.js"></script>
+    <script>
+      window.addEventListener('load', () => {
+        quicklink.listen();
+      });
+    </script>
     <slot name="topScript" />
   </head>
   <body>
