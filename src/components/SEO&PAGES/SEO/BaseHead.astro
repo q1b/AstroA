@@ -3,9 +3,10 @@ export interface Props {
   title: string;
   description: string;
   permalink: string;
+  imageSrc:string;
 }
 const { title, description, permalink, imageSrc } = Astro.props;
-const imageSrc = imageSrc ?? 'https://divyamrit.netlify.app/assets/OgImage.jpg?v=1' ;
+const imageSrc = ('https://divyamrit.netlify.app/assets' + imageSrc) ?? 'https://divyamrit.netlify.app/assets/OgImage.jpg?v=1' ;
 ---
 
 <meta charset="utf-8" />
