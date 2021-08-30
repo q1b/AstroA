@@ -5,8 +5,9 @@ export interface Props {
   permalink: string;
   imageSrc:string;
 }
-const { title, description, permalink, imageSrc } = Astro.props;
-const imageSrc = ('https://divyamrit.netlify.app/assets' + imageSrc) ?? 'https://divyamrit.netlify.app/assets/OgImage.jpg?v=1' ;
+const { title, description, permalink, imageSrc='https://divyamrit.netlify.app/assets/OgImage.jpg?v=1' } = Astro.props;
+// const imageSrc = ('https://divyamrit.netlify.app/assets' + imageSrc);
+
 ---
 
 <meta charset="utf-8" />
@@ -24,14 +25,14 @@ const imageSrc = ('https://divyamrit.netlify.app/assets' + imageSrc) ?? 'https:/
 <meta property="og:url" content={permalink} />
 <meta property="og:title" content={title} />
 <meta property="og:description" content={description} />
-<meta property="og:image" content={ imageSrc } />
+<meta property="og:image" content= { 'https://divyamrit.netlify.app/assets/' + imageSrc }/>
 
 <!-- Twitter -->
 <meta property="twitter:card" content="summary_large_image" />
 <meta property="twitter:url" content={permalink} />
 <meta property="twitter:title" content={title} />
 <meta property="twitter:description" content={description} />
-<meta property="twitter:image" content={imageSrc} />
+<meta property="twitter:image" content={ 'https://divyamrit.netlify.app/assets/' + imageSrc } />
 
 <!-- Fonts -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
