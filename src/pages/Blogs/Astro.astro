@@ -1,150 +1,145 @@
-  ---
-  import { Markdown } from 'astro/components';
-  import BaseLayout from '../../layouts/project.astro';
-  import projectData from '../../data/project.json';
-
-  let thisPage =  projectData.filter( ( a ) => a.url === Astro.request.url.pathname );
-
-  ---
-  <BaseLayout content={{
-    title: thisPage.title,
-    subTitle: thisPage.subTitle,
-    publishDate: thisPage.publishDate,
-  }}>
-  <Markdown>
-    # Astro 🚀 🚀 🚀 Framework
-    > You can use any framework you want (or none at all)
-    1. #### 🤩  Really Awesome Not!
-    1. #### 🤔  But will it not create a mess
-    1. #### 🤗  But still pretty powerfull
-    
-    Yes! it is powerful 🦄 for a person who has experience with the framework that he is going to use 
-    but still For Example knowing that __svelte framework__ is very good at animating stuff is pretty powerful to use it with other stuff who have to make your website .
-    You can use many libraries at the same time in your website from different frameworks, But still use things which you are going to use most of time don't install 
-    4 to 5 UI libraries from different frameworks, If you do then you can't use one of them to it's capacity .
-    And more libraries will create more confusion So, make a mind map before installing libraries .
-
-    Take a look at frameworks which you are going to use and Where you like to use with Astro .
-    In most scenarios One framework is enough or Two framework . 
-    > In Comming year there are many tools comming, and already we have a ton of tools So, 
-    > The thing that matter is your vesion that how to use them at right place to look and work pretty smooth . 
-
-    > But still these tools are going to make life easier . 
-    ## Let's work with an svelte Example
-
-    > In This example I am going to show you how to make a svelte component
-    > that will animate underline with [rough-notation](https://roughnotation.com/) 
-    > Pure Javascript Library  
-    ```html
-      <script>
-        import { onMount } from 'svelte';
-        import { annotate } from 'rough-notation';
-        let e;
-        onMount(()=>{
-          // a for annotation
-          const a = annotate( e, {
-            type:'underline',
-            color: '#FFF',
-            rtl:false,
-            animate:true,
-            padding:10,
-            animationDuration:500,
-            iterations:2,
-          });
-          a.show();
+---
+import { Markdown } from 'astro/components';
+import BaseLayout from '../../layouts/project.astro';
+import projectData from '../../data/project.json';
+let thisPage =  projectData.filter( ( a ) => a.url === Astro.request.url.pathname );
+---
+<BaseLayout content={{
+  title: thisPage.title,
+  subTitle: thisPage.subTitle,
+  publishDate: thisPage.publishDate,
+}}>
+<Markdown>
+  # Astro 🚀 🚀 🚀 Framework
+  > You can use any framework you want (or none at all)
+  1. #### 🤩  Really Awesome Not!
+  1. #### 🤔  But will it not create a mess
+  1. #### 🤗  But still pretty powerfull
+  
+  Yes! it is powerful 🦄 for a person who has experience with the framework that he is going to use 
+  but still For Example knowing that __svelte framework__ is very good at animating stuff is pretty powerful to use it with other stuff who have to make your website .
+  You can use many libraries at the same time in your website from different frameworks, But still use things which you are going to use most of time don't install 
+  4 to 5 UI libraries from different frameworks, If you do then you can't use one of them to it's capacity .
+  And more libraries will create more confusion So, make a mind map before installing libraries .
+  Take a look at frameworks which you are going to use and Where you like to use with Astro .
+  In most scenarios One framework is enough or Two framework . 
+  > In Comming year there are many tools comming, and already we have a ton of tools So, 
+  > The thing that matter is your vesion that how to use them at right place to look and work pretty smooth . 
+  > But still these tools are going to make life easier . 
+  ## Let's work with an svelte Example
+  > In This example I am going to show you how to make a svelte component
+  > that will animate underline with [rough-notation](https://roughnotation.com/) 
+  > Pure Javascript Library  
+  ```html
+    <script>
+      import { onMount } from 'svelte';
+      import { annotate } from 'rough-notation';
+      let e;
+      onMount(()=>{
+        // a for annotation
+        const a = annotate( e, {
+          type:'underline',
+          color: '#FFF',
+          rtl:false,
+          animate:true,
+          padding:10,
+          animationDuration:500,
+          iterations:2,
         });
-      </script>
-      <button bind:this={e}>
-        <slot/>
-      </button>
-    ```
-    ### Now you can use this component in your Astro file like this 
-    ```jsx
-    ---
-      import MakeItUnderlineAnimate from "./yourSvelteFile.svelte" 
-    ---
-    <MakeItUnderlineAnimate client:visible >
-        iAmUnderlined word
-    </MakeItUnderlineAnimate>
-    ```
-    ### Making it a Reuseable component
-    > Reuseable components are great only if they are flexible 
-    Let's make our component ***Reuseable***  
-    Let's see what we can change in our previous 
-  </Markdown>
-    <details>
-  <Markdown>
-    ```html
-      <script>
-        import { onMount } from 'svelte';
-        import { annotate } from 'rough-notation';
-        let e;
-        onMount(()=>{
-          // a for annotation
-          const a = annotate( e, {
-            type:'underline',
-            color: '#FFF',
-            rtl:false,
-            animate:true,
-            padding:10,
-            animationDuration:500,
-            iterations:2,
-          });
-          a.show();
+        a.show();
+      });
+    </script>
+    <button bind:this={e}>
+      <slot/>
+    </button>
+  ```
+  ### Now you can use this component in your Astro file like this 
+  ```jsx
+  ---
+    import MakeItUnderlineAnimate from "./yourSvelteFile.svelte" 
+  ---
+  <MakeItUnderlineAnimate client:visible >
+      iAmUnderlined word
+  </MakeItUnderlineAnimate>
+  ```
+  ### Making it a Reuseable component
+  > Reuseable components are great only if they are flexible 
+  Let's make our component ***Reuseable***  
+  Let's see what we can change in our previous 
+</Markdown>
+  <details>
+<Markdown>
+  ```html
+    <script>
+      import { onMount } from 'svelte';
+      import { annotate } from 'rough-notation';
+      let e;
+      onMount(()=>{
+        // a for annotation
+        const a = annotate( e, {
+          type:'underline',
+          color: '#FFF',
+          rtl:false,
+          animate:true,
+          padding:10,
+          animationDuration:500,
+          iterations:2,
         });
-      </script>
-      <button bind:this={e}>
-        <slot/>
-      </button>
-    ```
-  </Markdown>
+        a.show();
+      });
+    </script>
+    <button bind:this={e}>
+      <slot/>
+    </button>
+  ```
+</Markdown>
 </details>
-   <Markdown>
-    #### I think we can use svelte props to make it reuseable 
-    we can accept values like color, from our component As,
-     ```jsx
-    ---
-      import MakeItUnderlineAnimate from "./yourSvelteFile.svelte" 
-    ---
-    <MakeItUnderlineAnimate color="#FF0060" client:visible >
-        iAmUnderlined word
-    </MakeItUnderlineAnimate>
-    ```
-    And Now use it in our svelte file Like,
-    ```html
-      <script>
-        import { onMount } from 'svelte';
-        import { annotate } from 'rough-notation';
-        export let color;
-        let e;
-        onMount(()=>{
-          // a for annotation
-          const a = annotate( e, {
-            type:'underline',
-            color: color,
-            rtl:false,
-            animate:true,
-            padding:10,
-            animationDuration:500,
-            iterations:2,
-          });
-          a.show();
-        });
-      </script>
-      <button bind:this={e}>
-        <slot/>
-      </button>
-    ```
+  <Markdown>
+   #### I think we can use svelte props to make it reuseable 
+   we can accept values like color, from our component As,
+    ```jsx
+   ---
+     import MakeItUnderlineAnimate from "./yourSvelteFile.svelte" 
+   ---
+   <MakeItUnderlineAnimate color="#FF0060" client:visible >
+       iAmUnderlined word
+   </MakeItUnderlineAnimate>
+   ```
+   And Now use it in our svelte file Like,
+   ```html
+     <script>
+       import { onMount } from 'svelte';
+       import { annotate } from 'rough-notation';
+       export let color;
+       let e;
+       onMount(()=>{
+         // a for annotation
+         const a = annotate( e, {
+           type:'underline',
+           color: color,
+           rtl:false,
+           animate:true,
+           padding:10,
+           animationDuration:500,
+           iterations:2,
+         });
+         a.show();
+       });
+     </script>
+     <button bind:this={e}>
+       <slot/>
+     </button>
+   ```
     #### This will work perfectly fine .
     #### So, it's bit longer but You might learn something new from this example .  
   </Markdown>
-    <div class="pl-4 text-indigo-600 bg-indigo-100 border-l-2 border-indigo-600 rounded-lg">
-      <Markdown>
-        But still astro is in it's starting stage So, bug are there But to 
-        make Astro best by each day you can make issue about there bugs at there [github repo](https://github.com/snowpackjs/astro/).
-      </Markdown>
-    </div>
+  <div class="pl-4 text-indigo-600 bg-indigo-100 border-l-2 border-indigo-600 rounded-lg">
     <Markdown>
-      [Home](/) | Follow on [twitter](https://twitter.com/XSukhpreet)
+      But still astro is in it's starting stage So, bug are there But to 
+      make Astro best by each day you can make issue about there bugs at there [github repo](https://github.com/snowpackjs/astro/).
     </Markdown>
+  </div>
+  <Markdown>
+    [Home](/) | Follow on [twitter](https://twitter.com/XSukhpreet)
+  </Markdown>
 </BaseLayout>
