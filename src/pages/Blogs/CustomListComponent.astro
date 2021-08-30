@@ -16,7 +16,9 @@ let thisPage =  projectData.filter( ( a ) => a.url === Astro.request.url.pathnam
     # Custom List Component
     ```jsx
     ---
-      let items=['Tulsi','Sugar','Milk','Water']
+    ---
+    import CustomListComponent from 'astro-list-component'
+    let items=['Tulsi','Sugar','Milk','Water']
     ---
     <CustomListComponent title="Tea Ingredients" items={items} />
     ```
@@ -27,4 +29,10 @@ let thisPage =  projectData.filter( ( a ) => a.url === Astro.request.url.pathnam
       <CustomListComponent  title="Tea Ingredients" items={['Tulsi','Sugar','Milk','Water']} width="200" />
     </div>
   </div>
+  <Markdown>
+    ## installation 
+    ```console
+      npm i astro-list-component
+    ```
+  </Markdown>
 </BaseLayout>
