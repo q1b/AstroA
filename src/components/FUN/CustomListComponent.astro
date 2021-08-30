@@ -1,71 +1,76 @@
 ---
-const { title="Title", items = ['Designed UI','Used Flutter dart'] , width = 48} = Astro.props
+const { title="Title", items = ['Designed UI','Used Flutter dart'] , width = 48, priColor="rgba(148, 163, 184, 1)", secColor = "rgba(100, 116, 139,1)" } = Astro.props
 
-function generateMySingleWork(title,items){
+function generateMySingleWork(title,items,priColor,secColor){
   return(
       <div class="">
-        <p class="text-xl font-bold text-blueGray-600 !m-0">{title}</p>
+        <p style={`
+          font-size: 1.25rem;
+          line-height: 1.75rem;
+          color: ${secColor};
+          margin:0px !important;`}
+        >{title}</p>
         <div style={`height:${48+28*(items.length-1)}px;width:${width}px`}>
-          {generateSvg(items)}
+          {generateSvg(items,priColor,secColor)}
         </div>
       </div>
   )
 }
 
-function generateBlocks(items){
+function generateBlocks(items,color){
   let local = 20;
   let tempStorage = [];
   for(const item of items){
     local+=30
-    tempStorage = [generateBlock(local,item),...tempStorage]
+    tempStorage = [generateBlock(local,item,color),...tempStorage]
   }
   return tempStorage
 }
 
-function generateSvg(items){
+function generateSvg(items,priColor,secColor){
   const [firstItem,...otherItems] = items;
   return(
-    <svg viewBox="0 0 12 12" class="w-3 overflow-visible text-blueGray-400">
-      <path id="main-line" stroke-linecap="round" d="M 20 0 V 20" fill="none" stroke-width="4" stroke="currentColor" class="text-blueGray-400" />
+    <svg viewBox="0 0 12 12" style={`overflow: visible; width: 0.75rem;color:${priColor}`}>
+      <path id="main-line" stroke-linecap="round" d="M 20 0 V 20" fill="none" stroke-width="4" stroke="currentColor" />
       {generateCircle(42,30,'double')}
-      {generateText(60,34,firstItem)}
-      {generateBlocks(otherItems)}
+      {generateText(60,34,firstItem,priColor)}
+      {generateBlocks(otherItems,secColor)}
       <path id="curve-line-1" d='M 20,20 Q 20,30 30,30' stroke="currentColor" stroke-width="4" fill="none"/>
     </svg>
   )
 }
 
-function generateBlock(y,text){
+function generateBlock(y,text,color){
   return<>
-      {generateLine(20,y-30,y)}
-      {generateSlope(20,y)}
-      {generateCircle(42,y+10,'single')}
-      {generateText(60,y+15,text)}
+      {generateLine(20,y-30,y,color)}
+      {generateSlope(20,y,color)}
+      {generateCircle(42,y+10,'single',color)}
+      {generateText(60,y+15,text,color)}
   </>
 }
-function generateLine(x,startY,endY){
+function generateLine(x,startY,endY,color){
     return(
-      <path id="side-line-2" d={`M ${x} ${endY} V ${startY}`} stroke="currentColor" class="text-blueGray-500" stroke-width="4" fill="none"/>
+      <path id="side-line-2" d={`M ${x} ${endY} V ${startY}`} stroke={`${color}`} stroke-width="4" fill="none"/>
     )
 }
 
-function generateSlope(x,y){
+function generateSlope(x,y,color) {
   // M 20,50 Q 22,60 32,60
   return(
-    generateCurve(x,y,x+2,y+10,x+12,y+10)
+    generateCurve(x,y,x+2,y+10,x+12,y+10,color)
   );
 }
 
-function generateCurve(startX,startY,curveX,curveY,endX,endY){
+function generateCurve(startX,startY,curveX,curveY,endX,endY,color){
   return(
-    <path id="curve-line-1" d={`M ${startX},${startY} Q ${curveX},${curveY} ${endX},${endY}`} class="text-blueGray-500" stroke="currentColor" stroke-linecap="round" stroke-width="4" fill="none"/>
+    <path id="curve-line-1" d={`M ${startX},${startY} Q ${curveX},${curveY} ${endX},${endY}`} stroke={`${color}`} stroke-linecap="round" stroke-width="4" fill="none" />
   )
 }
 
-function generateCircle(x,y,type='single'){
+function generateCircle(x,y,type='single',color) {
   if(type==='single'){
     return(
-      <circle id="circle-2" cx={`${x}`} cy={`${y}`} r="6" fill="currentColor" class="text-blueGray-500"></circle>
+      <circle id="circle-2" cx={`${x}`} cy={`${y}`} r="6" fill={`${color}`} ></circle>
     )
   } else{
     return(<>
@@ -76,14 +81,15 @@ function generateCircle(x,y,type='single'){
     )
   }
 }
-function generateText(x,y,text){
+
+function generateText(x,y,text,color){
   return(
-    <text x={`${x}`} y={`${y}`} fill="currentColor" class="text-blueGray-500 font-medium">{text}</text>
+    <text x={`${x}`} y={`${y}`} fill={`${color}`} style="font-weight: 500;">{text}</text>
   )
 }
 ---
 
 
-<div class="w-max">
-  {generateMySingleWork(title,items)}
+<div style="width: max-content;">
+  {generateMySingleWork(title,items,priColor,secColor)}
 </div>

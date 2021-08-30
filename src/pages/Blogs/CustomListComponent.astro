@@ -19,13 +19,13 @@ let thisPage =  projectData.filter( ( a ) => a.url === Astro.request.url.pathnam
     import CustomListComponent from 'astro-list-component/List.astro'
     let items=['Tulsi','Sugar','Milk','Water']
     ---
-    <CustomListComponent title="Tea Ingredients" items={items} />
+    <CustomListComponent priColor="#8D1CCB" secColor="#B367DD" title="Tea Ingredients" items={items} />
     ```
     #### will give you 👇🏻
   </Markdown>
   <div class="w-full flex items-center justify-center">
     <div class="bg-white my-4 p-4 rounded-lg w-max">
-      <CustomListComponent  title="Tea Ingredients" items={['Tulsi','Sugar','Milk','Water']} width="200" />
+      <CustomListComponent priColor="#8D1CCB" secColor="#B367DD" title="Tea Ingredients" items={['Tulsi','Sugar','Milk','Water']} width="200" />
     </div>
   </div>
   <Markdown>
