@@ -1,10 +1,10 @@
 ---
 import { Markdown } from 'astro/components';
 import BaseLayout from '../../layouts/project.astro';
-import projectData from '../../data/project.json';
+import blogData from '../../data/blog.json';
 import CustomListComponent from '../../components/FUN/CustomListComponent.astro';
 
-let thisPage =  projectData.filter( ( a ) => a.url === Astro.request.url.pathname );
+let [thisPage] =  blogData.filter( ( a ) => a.url === Astro.request.url.pathname );
 
 ---
 <BaseLayout content={{
