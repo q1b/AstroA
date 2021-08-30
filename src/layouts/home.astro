@@ -2,7 +2,7 @@
 import Navigation from '../components/SEO&PAGES/Forever_Component/Navigation.astro';
 import SEO from "../components/SEO&PAGES/SEO/SEO.astro";
 import HeadCommon from '../components/SEO&PAGES/SEO/HeadCommon.astro'
-const { title, description, classes1 = 'flex flex-col items-center bg-cover asSmallBg md:asMediumBg lg:asLargeBg xl:asLargerBg', classes2 = " max-w-[1000px] w-full " } = Astro.props;
+const { title, description, classes1 = 'flex flex-col items-center bg-cover asSmallBg md:asMediumBg lg:asLargeBg xl:asLargerBg', classes2= " max-w-[1000px] w-full ", navigationBar=true } = Astro.props;
 ---
 <html lang="en">
   <head>
@@ -23,7 +23,7 @@ const { title, description, classes1 = 'flex flex-col items-center bg-cover asSm
     <!-- navigation bar + Background-->
       <section class={classes1}>
         <div class={classes2}>
-        <Navigation/>
+        {navigationBar&&<Navigation/>}
         <!-- slot: your page content will be injected here. -->
           <slot />
         </div>

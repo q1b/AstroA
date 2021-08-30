@@ -1,11 +1,44 @@
 ---
 import BaseLayout from "../layouts/home.astro"
-const allPosts = allProjects.sort((a, b) => new Date(b.publishDate) - new Date(a.publishDate));
-
+import CardLayout from "../components/Resume/CardLayout.astro"
+function header(){
+  return (
+    <article class="">
+      <h1 class="text-4xl sm:text-5xl font-extrabold text-blueGray-900">Sukhpreet Singh</h1>
+      <h1 class="sm:text-xl mt-2 text-blueGray-400">Front-end Developer, UI designer and Future AI Engineer .</h1>
+    </article>
+  )
+}
 ---
-<BaseLayout 
+<BaseLayout
     title="Resume Cover letter Sukhpreet Singh Web designer" 
     description="Fine crafted front-end portfolio, to showcase my work ." 
+    classes1="flex flex-col items-center"
+    classes2=" max-w-[1000px] w-full sm:p-6 p-4"
+    navigationBar={false}
   >
-  
+  {header()}
+  <CardLayout/>
+  <article class="w-full relative mt-14 bg-gradient-to-br from-indigo-500 via-violet-600/70 to-indigo-600/60 rounded-lg px-6 py-4 text-white font-semibold text-xl" style="text-shadow:0px 0px 4px rgba(49, 46, 129, 0.5),0px 0px 6px #FFFFFF77">
+    <h1 class="z-10 relative">Creator of vue-petite-transition</h1>
+    <div class="mt-1">
+      <p class="text-sm text-white/70">~1900 npm downloads </p>
+    </div>
+    <div class="p-2 grid grid-cols-2 place-items-center bg-indigo-900 w-10 h-16 rounded-t-lg opacity-30 absolute bottom-0 right-3 z-0">
+    </div>
+    <div class="bg-indigo-900 w-6 h-12 rounded-t-md opacity-30 absolute bottom-0 right-9 z-0"></div>
+  </article>
+  <article class="flex mt-10 sm:flex-row flex-col sm:space-x-10 sm:space-y-0 space-y-8">
+    <div class="flex flex-col w-full p-2">
+      <h1 class="text-3xl font-sans font-semibold"> Projects </h1>
+      <div class="mt-8 px-4 py-3 bg-gradient-to-tr from-teal-400 to-cyan-500 rounded-lg">
+        <h1 class="text-xl text-white">HeadsONUI</h1>
+        <p class="text-sm mt-1 text-white/70">A UI LIBRARY on top of headlessUI </p>
+      </div>
+      <div class="mt-8 px-4 py-3 bg-gradient-to-tr from-lightBlue-400 to-blue-500 rounded-lg">
+        <h1 class="text-xl text-white">Petite Vue Component</h1>
+        <p class="text-sm mt-1 text-white/70">A small size component for petite vue </p>
+      </div>
+    </div>
+  </article>
 </BaseLayout>

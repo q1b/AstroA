@@ -1,0 +1,106 @@
+---
+const MyWork = [
+  {
+    type:'freelance work',
+    title:'Quiz App',
+    items:[
+      'Designed UI',
+      'Used flutter,dart',
+    ],
+  },
+]
+function generateAllWork(MyWork){
+  let tempStorage = []
+  for(const Work of MyWork){
+    let { type, title, items } = Work;
+    tempStorage = [generateMySingleWork(type, title, items),...tempStorage]
+  }
+  return tempStorage
+}
+function generateMySingleWork(type,title,items){
+
+  return(
+      <div class="my-4">
+        <h1 class="text-sm font-medium font-sans tracking-normal text-blueGray-500">{type}</h1>
+        <p class="text-xl font-bold text-blueGray-600">{title}</p>
+        <div class="w-64" style={`height:${30*items.length}px`}>
+          {generateSvg(items)}
+        </div>
+      </div>
+  )
+}
+
+function generateBlocks(items){
+  let local = 20;
+  let tempStorage = [];
+  for(const item of items){
+    local+=30
+    tempStorage = [generateBlock(local,item),...tempStorage]
+  }
+  return tempStorage
+}
+
+function generateSvg(items){
+  const [firstItem,...otherItems] = items;
+  return(
+    <svg viewBox="0 0 12 12" class="w-3 overflow-visible text-blueGray-400">
+      <path id="main-line" stroke-linecap="round" d="M 20 0 V 20" fill="none" stroke-width="4" stroke="currentColor" class="text-blueGray-400" />
+      {generateCircle(42,30,'double')}
+      {generateText(60,34,firstItem)}
+      {generateBlocks(otherItems)}
+      <path id="curve-line-1" d='M 20,20 Q 20,30 30,30' stroke="currentColor" stroke-width="4" fill="white"/>
+    </svg>
+  )
+}
+
+function generateBlock(y,text){
+  return<>
+      {generateLine(20,y-30,y)}
+      {generateSlope(20,y)}
+      {generateCircle(42,y+10,'single')}
+      {generateText(60,y+15,text)}
+  </>
+}
+function generateLine(x,startY,endY){
+    return(
+      <path id="side-line-2" d={`M ${x} ${endY} V ${startY}`} stroke="currentColor" class="text-blueGray-500" stroke-width="4" fill="white"/>
+    )
+}
+
+function generateSlope(x,y){
+  // M 20,50 Q 22,60 32,60
+  return(
+    generateCurve(x,y,x+2,y+10,x+12,y+10)
+  );
+}
+
+function generateCurve(startX,startY,curveX,curveY,endX,endY){
+  return(
+    <path id="curve-line-1" d={`M ${startX},${startY} Q ${curveX},${curveY} ${endX},${endY}`} class="text-blueGray-500" stroke="currentColor" stroke-linecap="round" stroke-width="4" fill="white"/>
+  )
+}
+
+function generateCircle(x,y,type='single'){
+  if(type==='single'){
+    return(
+      <circle id="circle-2" cx={`${x}`} cy={`${y}`} r="6" fill="currentColor" class="text-blueGray-500"></circle>
+    )
+  } else{
+    return(<>
+            <circle id="circle-1" cx={`${x}`} cy={`${y}`} r="6" fill="currentColor"></circle>
+            <circle id="circle-1" cx={`${x}`} cy={`${y}`} r="11" fill="none" stroke="currentColor" stroke-width="2">
+            </circle>
+            </>
+    )
+  }
+}
+function generateText(x,y,text){
+  return(
+    <text x={`${x}`} y={`${y}`} fill="currentColor" class="text-blueGray-500 font-medium">{text}</text>
+  )
+}
+---
+<div class="flex flex-col bg-white xs:max-w-[320px] w-max xs:px-4 xs:py-5 mt-8 px-2 rounded-lg h-full xs:shadow-edge">
+  <h1 class="font-bold text-2xl text-blueGray-900">Work Profile</h1>
+  {generateAllWork(MyWork)}
+</div>

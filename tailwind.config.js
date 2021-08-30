@@ -53,7 +53,8 @@ module.exports = {
          link: 'inset 0 -0.125em 0 0 #fff, inset 0 -0.375em 0 0 rgba(165, 243, 252, 0.4)',
         'linkIndigo': 'inset 0 -0.125em 0 0 #ffffff, inset 0 -0.375em 0 0 rgba(79, 70, 229, 0.4)',
 				'btn-d-blueGray': `inset 0px 0px 10px 1px #ffffff,inset 0px 0px 50px 10px ${theme('colors.blueGray.900')}`,
-				'btn-blueGray' : `inset 0px 0px 10px 1px #ffffff,inset 0px 0px 50px 10px ${theme('colors.blueGray.200')},0px 0px 5px 5px ${theme('colors.blueGray.900')}`
+				'btn-blueGray' : `inset 0px 0px 10px 1px #ffffff,inset 0px 0px 50px 10px ${theme('colors.blueGray.200')},0px 0px 5px 5px ${theme('colors.blueGray.900')}`,
+        'edge':"0px 0px 20px 2px #00000022",
 			}),
       screens: {
         'zss':'350px',

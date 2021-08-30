@@ -1,0 +1,30 @@
+---
+import { Markdown } from 'astro/components';
+import BaseLayout from '../../layouts/project.astro';
+import projectData from '../../data/project.json';
+import CustomListComponent from '../../components/FUN/CustomListComponent.astro';
+
+let thisPage =  projectData.filter( ( a ) => a.url === Astro.request.url.pathname );
+
+---
+<BaseLayout content={{
+  title: thisPage.title,
+  subTitle: thisPage.subTitle,
+  publishDate: thisPage.publishDate,
+}}>
+  <Markdown>
+    # Custom List Component
+    ```jsx
+    ---
+      let items=['Tulsi','Sugar','Milk','Water']
+    ---
+    <CustomListComponent title="Tea Ingredients" items={items} />
+    ```
+    #### will give you 👇🏻
+  </Markdown>
+  <div class="w-full flex items-center justify-center">
+    <div class="bg-white my-4 p-4 rounded-lg w-max">
+      <CustomListComponent  title="Tea Ingredients" items={['Tulsi','Sugar','Milk','Water']} width="200" />
+    </div>
+  </div>
+</BaseLayout>

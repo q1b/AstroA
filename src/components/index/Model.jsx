@@ -78,7 +78,7 @@ export default function MyModal() {
                 >
                   Which do you prefer ?
                 </Dialog.Title>
-                <a href="" className="tab-highlight-none cursor-pointer w-full mb-4 p-3 xs:p-4 text-lg xs:text-2xl bg-blueGray-800 hover:bg-blueGray-700 group rounded-xl focus:outline-none  focus:ring-2  focus:ring-white focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 ring-offset-blueGray-900 focus-visible:ring-opacity-75 inline-block shadow-xl">
+                <a href="/Resume" className="tab-highlight-none cursor-pointer w-full mb-4 p-3 xs:p-4 text-lg xs:text-2xl bg-blueGray-800 hover:bg-blueGray-700 group rounded-xl focus:outline-none  focus:ring-2  focus:ring-white focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 ring-offset-blueGray-900 focus-visible:ring-opacity-75 inline-block shadow-xl">
                   <span className=" text-blueGray-500 group-hover:text-blueGray-300">
                     Online resume .
                   </span>

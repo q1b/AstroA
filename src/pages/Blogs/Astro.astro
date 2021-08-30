@@ -1,16 +1,16 @@
----
-import { Markdown } from 'astro/components';
-import BaseLayout from '../../layouts/project.astro';
-import projectData from '../../data/project.json';
+  ---
+  import { Markdown } from 'astro/components';
+  import BaseLayout from '../../layouts/project.astro';
+  import projectData from '../../data/project.json';
 
-let thisPage =  projectData.filter( ( a ) => a.url === Astro.request.url.pathname );
+  let thisPage =  projectData.filter( ( a ) => a.url === Astro.request.url.pathname );
 
----
-<BaseLayout content={{
-  title: thisPage.title,
-  subTitle: thisPage.subTitle,
-  publishDate: thisPage.publishDate,
-}}>
+  ---
+  <BaseLayout content={{
+    title: thisPage.title,
+    subTitle: thisPage.subTitle,
+    publishDate: thisPage.publishDate,
+  }}>
   <Markdown>
     # Astro 🚀 🚀 🚀 Framework
     > You can use any framework you want (or none at all)

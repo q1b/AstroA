@@ -4,5 +4,11 @@
     "subTitle": "Astro Static Site generator",
     "publishDate": "Thursday, August 12 2021",
     "url":"/Blogs/Astro"
+  },
+  {
+    "title": "Custom List Component(Astro)",
+    "subTitle": "Documentation for this component",
+    "publishDate": "Thursday, August 29 2021",
+    "url":"/Blogs/CustomListComponent"
   }
 ]
