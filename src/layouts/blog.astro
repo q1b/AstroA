@@ -1,0 +1,37 @@
+---
+import Navigation from '../components/SEO&PAGES/Forever_Component/Navigation.astro';
+import SEO from "../components/SEO&PAGES/SEO/SEO.astro";
+import HeadCommon from '../components/SEO&PAGES/SEO/HeadCommon.astro'
+const { title, description, classes1 = 'bg-blueGray-1000 flex flex-col items-center w-full p-10 sm:p-0', classes2= "max-w-[1000px] w-full", classes3="bg-blueGray-1000 prose-dark-indigo selection:bg-lightBlue-100 selection:text-blue-600 max-w-[300px] zss:max-w-xs zs:max-w-sm xss:max-w-[calc(100vw-96px)] sm:prose-lg md:prose-xl prose md:!max-w-[840px] lg:pt-16 md:pt-10 sm:p-8 font-sans w-full", navigationBar=true } = Astro.props;
+---
+<html lang="en">
+  <head>
+    <HeadCommon />
+    <SEO canonicalURL={Astro.request.canonicalURL} />
+    <title>{title}</title>
+    <meta name="title" content={title} />
+    <meta name="description" content={description} />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/quicklink/2.2.0/quicklink.umd.js"></script>
+    <script>
+      window.addEventListener('load', () => {
+        quicklink.listen();
+      });
+    </script>
+    <slot name="topScript" />
+  </head>
+  <body>
+    <!-- navigation bar + Background-->
+      <section class={classes1}>
+        <div class={classes2}>
+        {navigationBar&&<Navigation/>}
+        <div class="flex flex-col items-center justify-center">
+        <div class={classes3}>
+          <!-- slot: your page content will be injected here. -->
+          <slot />
+        </div>
+        </div>
+        </div>
+      </section>
+      <slot name="bottomScript"/>
+  </body>
+</html>

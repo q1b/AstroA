@@ -10,5 +10,11 @@
     "subTitle": "Documentation for this component",
     "publishDate": "Thursday, August 29 2021",
     "url":"/Blogs/CustomListComponent"
+  },
+  {
+    "title": "Playing with Web Animation APIs",
+    "subTitle": "Creating advance animations with web animation api",
+    "publishDate": "Thursday, August 12 2021",
+    "url":"/Blogs/webAnimation"
   }
 ]

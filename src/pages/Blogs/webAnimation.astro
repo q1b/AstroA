@@ -1,0 +1,231 @@
+---
+import { Markdown } from 'astro/components';
+import BaseLayout from "../../layouts/blog.astro"
+import blogData from '../../data/blog.json';
+
+let [thisPage] =  blogData.filter( ( a ) => a.url === Astro.request.url.pathname );
+
+---
+<BaseLayout 
+  title={thisPage.title}
+  description={thisPage.subTitle}
+  classes1="flex selection:bg-lightBlue-500/10 selection:text-lightBlue-600 items-center flex-col bg-blueGray-1000 min-h-[100vh] font-jetMono"
+  >
+  <Markdown>
+    # How to create this ? 👇🏻
+    ### With Native web animation API Only
+  </Markdown>
+  <section class="flex flex-col items-center justify-center pt-10">
+    <div id="Card" class="flex flex-col w-64 bg-blueGray-900 justify-end rounded-lg p-5" style="text-shadow: 1px 1px 2px #000000;">
+      <h5 class="text-white text-xl">Title</h5>
+      <h5 class="text-white pt-3 text-base">11l 12e </h5>
+      <h5 id="CardText" class="text-white max-h-0 opacity-0 text-base">subTitle Like Yellow is not red anything</h5>
+      <a id="CardButton" href="#" class="max-h-0 opacity-0 w-max border-2 px-3 text-sm inline-block rounded-lg bg-blueGray-900 text-white">Read More!</a>
+    </div>
+  </section>
+  <Markdown>
+  ### Let's see what we have to do to achieve this functionality
+  #### Let's write simple html and tailwindcss 
+  ```html
+    <div id="Card" class="flex flex-col w-64 bg-blueGray-900 justify-end rounded-lg p-5" style="text-shadow: 1px 1px 2px #000000;">
+      <h5 class="text-white text-xl">Title</h5>
+      <h5 class="text-white pt-3 text-base">11l 12e </h5>
+      <h5 id="CardText" class="text-white max-h-0 opacity-0 text-base">subTitle Like Yellow is not red anything</h5>
+      <a id="CardButton" href="#" class="max-h-0 opacity-0 w-max border-2 px-3 text-sm inline-block rounded-lg bg-blueGray-900 text-white">Read More!</a>
+    </div>
+  ```
+  Which Looks like this, and from code you can see two properties `max-height` and `opacity` which is responsible for not hidden but to make animation smooth of Elements,
+  I used `hidden` property Which I am gonna add with Javascript .
+  </Markdown>
+  <section>
+    <div id="Card" class="flex flex-col w-64 bg-blueGray-900 justify-end rounded-lg p-5" style="text-shadow: 1px 1px 2px #000000;">
+        <h5 class="text-white text-xl">Title</h5>
+        <h5 class="text-white pt-3 text-base">11l 12e </h5>
+        <h5 id="CardText" class="text-white max-h-0 opacity-0 text-base">subTitle Like Yellow is not red anything</h5>
+        <a id="CardButton" href="#" class="max-h-0 opacity-0 w-max border-2 px-3 text-sm inline-block rounded-lg bg-blueGray-900 text-white">Read More!</a>
+    </div>
+  </section>
+  <Markdown>
+  ### Selecting the needed element for animation
+  If you take a look I am animating text and a button, and To listen for hover event I am selecting Card Element
+  So, Let's select them, and add use Animation API
+  ```js
+  let cardElement=document.querySelector('#Card');
+  let textElement=document.querySelector('#CardText');
+  textElement.classList.add('hidden');
+  let btnElement=document.querySelector('#CardButton');
+  btnElement.classList.add('hidden');
+  // Element Animation Instance in short Alement for now
+  let textAlement;
+  let btnAlement;
+  // Going to be defined when We need them .
+  cardElement.addEventListener('mouseenter',()=>{
+    textElement.classList.remove('hidden');
+    btnElement.classList.remove('hidden');
+    // If textAlement is undefined then btnAlement is also undefined 
+    // Then we will define the animation
+    if( textAlement === undefined ){
+      textAlement = textElement.animate(
+        [
+          {
+            maxHeight: '0px', // 
+            opacity:'0',
+            paddingTop:'0',
+            paddingBottom:'0'
+          },
+          {
+            maxHeight: '600px',
+            opacity:'1',
+            paddingTop:'12px',
+            paddingBottom:'12px'
+          },
+        ],
+        {
+          direction: 'normal',
+          fill: 'both',
+          duration: 500,
+          easing:'cubic-bezier(0.52, 0.16, 0.24, 1)'
+        }
+      );
+      btnAlement = btnElement.animate(
+        [
+          {
+            maxHeight: '0px',
+            opacity:'0',
+            paddingTop:'0',
+            paddingBottom:'0'
+          },
+          {
+            maxHeight: '100px',
+            opacity:'1',
+            paddingTop:'8px',
+            paddingBottom:'8px'
+          },
+        ],
+        {
+          direction: 'normal',
+          fill: 'both',
+          duration: 500,
+          easing:'cubic-bezier(0.52, 0.16, 0.24, 1)'
+        }
+      );
+    }
+    // Making sure that animation runs in forward direction
+    textAlement.playbackRate = +1;
+    btnAlement.playbackRate = +1;
+    textAle[i].ready.then(()=>{
+      textAle[i].play();
+    })
+    buttonAle[i].ready.then(()=>{
+      buttonAle[i].play();
+    })
+  },false)
+  // Now Reversing the animation when mouseleave Simple 😊
+  cardElement.addEventListener('mouseleave',()=>{      
+    // This will reverse the animation 
+    textAlement.playbackRate = -1;
+    btnAlement.playbackRate = -1;
+    // Then we will play this again
+    textAlement.play();
+    btnAlement.play();
+    textAlement.onfinish = function() {
+      // You might say that It's must be negative as we defined it above 
+      // But it is not, as we want this 👇🏻 code block run only when
+      // We finish our reverse animation not on forward animation .
+      if(textAlement.playbackRate===-1){
+        textElement.classList.add('hidden');
+        btnElement.classList.add('hidden');
+      }
+    }
+  });
+  ``` 
+  </Markdown>
+  <script slot="bottomScript">
+  let cardElement=document.querySelector('#Card');
+  let textElement=document.querySelector('#CardText');
+  textElement.classList.add('hidden');
+  let btnElement=document.querySelector('#CardButton');
+  btnElement.classList.add('hidden');
+  // Element Animation Instance in short Alement for now
+  let textAlement;
+  let btnAlement;
+  // Going to be defined when We need them .
+  cardElement.addEventListener('mouseenter',()=>{
+    textElement.classList.remove('hidden');
+    btnElement.classList.remove('hidden');
+    // If textAlement is undefined then btnAlement is also undefined 
+    // Then we will define the animation
+    if( textAlement === undefined ){
+      textAlement = textElement.animate(
+        [
+          {
+            maxHeight: '0px', // 
+            opacity:'0',
+            paddingTop:'0',
+            paddingBottom:'0'
+          },
+          {
+            maxHeight: '600px',
+            opacity:'1',
+            paddingTop:'12px',
+            paddingBottom:'12px'
+          },
+        ],
+        {
+          direction: 'normal',
+          fill: 'both',
+          duration: 500,
+          easing:'cubic-bezier(0.52, 0.16, 0.24, 1)'
+        }
+      );
+      btnAlement = btnElement.animate(
+        [
+          {
+            maxHeight: '0px',
+            opacity:'0',
+            paddingTop:'0',
+            paddingBottom:'0'
+          },
+          {
+            maxHeight: '100px',
+            opacity:'1',
+            paddingTop:'8px',
+            paddingBottom:'8px'
+          },
+        ],
+        {
+          direction: 'normal',
+          fill: 'both',
+          duration: 500,
+          easing:'cubic-bezier(0.52, 0.16, 0.24, 1)'
+        }
+      );
+    }
+    // Making sure that animation runs in forward direction
+    textAlement.playbackRate = +1;
+    btnAlement.playbackRate = +1;
+    textAle[i].ready.then(()=>{
+      textAle[i].play();
+    })
+    buttonAle[i].ready.then(()=>{
+      buttonAle[i].play();
+    })
+  },false)
+  // Now Reversing the animation when mouseleave Simple 😊
+  cardElement.addEventListener('mouseleave',()=>{      
+    textAlement.playbackRate = -1;
+    btnAlement.playbackRate = -1;
+    textAlement.play();
+    btnAlement.play();
+    textAlement.onfinish = function() {
+      // You might say that It's must be negative as we defined it above 
+      // But it is not, as we want this 👇🏻 code block run only when
+      // We finish our reverse animation not on forward animation 
+      if(textAlement.playbackRate===-1){
+        textElement.classList.add('hidden');
+        btnElement.classList.add('hidden');
+      }
+    }
+  });
+  </script>
+</BaseLayout>
