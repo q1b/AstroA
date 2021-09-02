@@ -4,7 +4,9 @@ a > code:not([class*='language']) {
   background: transparent;
   text-underline-offset: var(--padding-block);
 }
-
+html {
+  scroll-behavior: smooth;
+}
 a > code:not([class*='language'])::before {
   content: '';
   position: absolute;
