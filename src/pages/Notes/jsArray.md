@@ -11,13 +11,13 @@ layout: '../../layouts/project.astro'
 Arrays are important part for any beginner, I am going to divide Array methods or built in Array function into these 4 categories . 
   1. [Investigate array](./jsArray#store)
       1. Length 
-          + [length()](./jsArray#arrayprototypelength)
+          + [length()](./jsArray/#arrayprototypelength)
       1. Position
-          + [at()](./jsArray#arrayprototypeatindex)
-          + [indexOf()](./jsArray#arrayprototypeindexofelement)
-          + [findIndex()](./jsArray#arrayprototypefindindextestingfunction)
+          + [at()](./jsArray/#arrayprototypeatindex)
+          + [indexOf()](./jsArray/#arrayprototypeindexofelement)
+          + [findIndex()](./jsArray/#arrayprototypefindindextestingfunction)
       1. Reading Elements
-          + [slice()](./jsArray#arrayprototypeslicestart-end)
+          + [slice()](./jsArray/#arrayprototypeslicestart-end)
       1. Checking element
           + some()
           + every()
