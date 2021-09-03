@@ -15,13 +15,14 @@ Arrays are important part for any beginner, I am going to divide Array methods o
       1. Position
           + [at()](#arrayprototypeatindex)
           + [indexOf()](#arrayprototypeindexofelement)
-          + [findIndex()](#arrayprototypefindindextestingfunction)
+          + [find()](#arrayprototypefindarrowfunction)
+          + [findIndex()](#arrayprototypefindindexarrowfunction)
       1. Reading Elements
           + [slice()](#arrayprototypeslicestart-end)
       1. Checking element
-          + some()
-          + every()
-          + find()
+          + [some()](#arrayprototypesomearrowfunction)
+          + [every()](#arrayprototypeeveryarrowfunction)
+          + [includes()](#arrayprototypeincludeselementfromindex)
   1. [Edit](#edit)
       1. To adds one or more elements
           + to the end of an array, use [push()](#arrayprototypepush) 
@@ -31,8 +32,8 @@ Arrays are important part for any beginner, I am going to divide Array methods o
           + first element of array, use [shift()](#arrayprototypeshift)
       1. To add remove and update or replace  in a array use
           + [splice()](#arrayprototypesplice-startfromindex-deletecount--itemstoadd-)
-  1. [Make](#make)
-  1. [Produce](#produce)
+  <!-- 1. [Extracting Values](#make) -->
+  <!-- 1. [Produce](#produce) -->
   
 # How to Investigate array
 With Array we can store strings, number, Objects and Functions too,
@@ -67,7 +68,29 @@ let fruits = [ 'orange', 'apple' ]
       console.log(element)
       // 1
     ```
-+ ##### *__Array.prototype.findIndex(testingFunction)__*
++ ##### *__Array.prototype.find(arrowFunction)__*
+    ```javascript
+      //returns the element of the first element in the array
+      //that satisfies the provided testing function . Otherwise, 
+      //it returns -1, indicating no element satisfy the condition .
+
+      // Example 1
+      let fruitEndsWithE = fruits.find(
+        (element) => element.endsWith('e')
+      );
+      console.log(fruitEndsWithE);
+      // 'apple'
+
+      // Example 2
+      let tempArray = [1,2,3,11,50,49,100,110]
+      let numBiggerThan45 = tempArray.find(
+        (element)=>element > 45
+      );
+      console.log(numBiggerThan45)
+      // 50
+
+    ```
++ ##### *__Array.prototype.findIndex(arrowFunction)__*
     ```javascript
       //returns the index of the first element in the array
       //that satisfies the provided testing function . Otherwise, 
@@ -75,7 +98,7 @@ let fruits = [ 'orange', 'apple' ]
 
       // Example 1
       let indexOfElement = fruits.findIndex(
-        (element)=>element==='apple'
+        (element) => element==='apple'
       );
       console.log(indexOfElement);
       // 1
@@ -83,7 +106,7 @@ let fruits = [ 'orange', 'apple' ]
       // Example 2
       let tempArray = [1,2,3,11,50,49,100,110]
       let indexOfElement = tempArray.findIndex(
-        (element)=>element > 45
+        (element) => element > 45
       );
       console.log(indexOfElement)
       // 4
@@ -91,39 +114,84 @@ let fruits = [ 'orange', 'apple' ]
     ```
 + ##### *__Array.prototype.slice(start, end)__*
     ```javascript
-      // here, start and end represent the index of items in that array.
-      /* returns a shallow copy of that array from start to end(end not included) 
-      into a new array object .
-      On changing this copy, the original array will not be modified .
-      */
+    // here, start and end represent the index of items in that array.
+    /* returns a shallow copy of that array from start to end(end not included) 
+    into a new array object .
+    On changing this copy, the original array will not be modified .
+    */
       
-      // Let's first understand ``On changing this copy, the original array will not be modified. ``
-      let sliceArray = fruits.slice();
-      let newFruits = fruits
-      console.log(sliceArray,fruits, newFruits);
-      // Now If change fruits array then automatically newFruits array will change and vice-versa which is not what you expect 
-      newFruits = ['blueberry','banana'];
-      console.log(fruits)
-      // expected [ 'orange', 'apple' ] But we get [ 'blueberry','banana' ] 
-      // You might get it now
-      
-      // Now see slice method
-      
-      // Example
-      let numbers = [ 10,30,50,70 ]
-      // to get first three number
-      let first3Num = numbers.slice(0,3)
-      console.log(first3Num);
-      // [10,30,50]
-      // to get last number
-      let lastNum = numbers.slice(-1)
-      console.log(lastNum)
-      // [70]
-      let last3Num = numbers.slice(1).slice(-3)
-      console.log(last3Num);
-      // [30,50,70] 
+    // Let's first understand ``Onchanging this copy, the originalarray will not be modified. ``
+    let sliceArray = fruits.slice();
+    let newFruits = fruits
+    console.log(sliceArray,fruits,newFruits);
+    // Now If change fruits arraythen automatically newFruitsarray will change and vice-versawhich is not what you expect 
+    newFruits = ['blueberry''banana'];
+    console.log(fruits)
+    // expected [ 'orange', 'apple'] But we get [ 'blueberry''banana' ] 
+    // You might get it now
+    
+    // Now see slice method
+    
+    // Example
+    let numbers = [ 10,30,50,70 ]
+    // to get first three number
+    let first3Num = numbers.slice(03)
+    console.log(first3Num);
+    // [10,30,50]
+    // to get last number
+    let lastNum = numbers.slice(-1)
+    console.log(lastNum)
+    // [70]
+    let last3Num = numbers.slice(1)slice(-3)
+    console.log(last3Num);
+    // [30,50,70] 
     ```
++ ##### *__Array.prototype.some(arrowFunction)__*
+    ```js
+    /* Check whether at least one element in the array,
+    satisfies the condition,
+    that we provided in our function
+    */
+    // Example 1
+    function isLessThan10(element, index, array) {
+      return element > 10;
+    }
+    [10,20,4,30].some(isLessThan10)
+    // true
+    
+    // This function can be written as
+    [10,20,4,30].some((element)=>{
+      return element > 10;
+    })
+    // true
 
+    [10,20,50,30].some(isLessThan10)
+    // false
+    ```
++ ##### *__Array.prototype.every(arrowFunction)__*
+    ```js
+     /*checks whether all elements in the array pass the satisfies 
+     the condition that we provided in our function */
+     // Example 1
+     let isAllNumEven = [1,2,4,5,6].every((currentValue)=>{
+      return currentValue%2===0; 
+     })
+     console.log(isAllNumEven)
+     // false
+    ```
++ ##### *__Array.prototype.includes(element,fromIndex)__*
+    ```js
+    // fromIndex is Optional
+    // checks whether an array includes, 
+    //a certain value among its entries
+    // Example 1
+    let is2 = [2,4,6,8].includes(2)
+    console.log(is2);
+    // true
+    let is2At3rdIndex = [2,4,6,8].includes(2,3)
+    console.log(is2At2ndIndex);
+    //false 
+    ```
 # How to Edit 
 With Array we can store strings, number, Objects and Functions too,
 
