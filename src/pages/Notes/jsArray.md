@@ -11,28 +11,28 @@ layout: '../../layouts/project.astro'
 Arrays are important part for any beginner, I am going to divide Array methods or built in Array function into these 4 categories . 
   1. [Investigate array](./jsArray#store)
       1. Length 
-          + [length()](./jsArray/#arrayprototypelength)
+          + [length()](#arrayprototypelength)
       1. Position
-          + [at()](./jsArray/#arrayprototypeatindex)
-          + [indexOf()](./jsArray/#arrayprototypeindexofelement)
-          + [findIndex()](./jsArray/#arrayprototypefindindextestingfunction)
+          + [at()](#arrayprototypeatindex)
+          + [indexOf()](#arrayprototypeindexofelement)
+          + [findIndex()](#arrayprototypefindindextestingfunction)
       1. Reading Elements
-          + [slice()](./jsArray/#arrayprototypeslicestart-end)
+          + [slice()](#arrayprototypeslicestart-end)
       1. Checking element
           + some()
           + every()
           + find()
-  1. [Edit](./jsArray#edit)
+  1. [Edit](#edit)
       1. To adds one or more elements
-          + to the end of an array, use [push()](./jsArray#arrayprototypepush) 
-          + to the start of an array, use [unshift()](./jsArray#arrayprototypeunshift) in front
+          + to the end of an array, use [push()](#arrayprototypepush) 
+          + to the start of an array, use [unshift()](#arrayprototypeunshift) in front
       1. To remove one or more elements
-          + last element of array, use [pop()](./jsArray#arrayprototypepop)
-          + first element of array, use [shift()](./jsArray#arrayprototypeshift)
+          + last element of array, use [pop()](#arrayprototypepop)
+          + first element of array, use [shift()](#arrayprototypeshift)
       1. To add remove and update or replace  in a array use
-          + [splice()](./jsArray#arrayprototypesplice-startfromindex-deletecount--itemstoadd-)
-  1. [Make](./jsArray#make)
-  1. [Produce](./jsArray#produce)
+          + [splice()](#arrayprototypesplice-startfromindex-deletecount--itemstoadd-)
+  1. [Make](#make)
+  1. [Produce](#produce)
   
 # How to Investigate array
 With Array we can store strings, number, Objects and Functions too,
