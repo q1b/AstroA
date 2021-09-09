@@ -14,7 +14,7 @@
 
 - 📫 How to reach me **sukhpreetben10@gmail.com**
 
-- ⚡ Fun fact **I love to play basketball**
+- ⚡ Other than coding, **I love to play 🏀basketball**
 
 <h2 style="margin:0px 0px 1rem 0px;" align="left">Connect with me:</h2>
 <p style="margin:0px 0px 1rem 0px;" align="left" >
