@@ -5,6 +5,8 @@ publishData: 'q2'
 layout: '../../layouts/project.astro'
 ---
 # Programming Languages
+## Golang
+  1. [Basics](./goLang/variables)
 ## Javascript
   1. [Arrays](./jsArray)
   1. [Objects](./jsObjects)
