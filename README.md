@@ -26,10 +26,12 @@
 </p> -->
 
 ## Languages and Tools:
-<div style="margin:1rem 0 0 0;">
+<div style="height:1rem;"></div>
+<div style="margin-bottom:1rem;">
 <a href="https://www.figma.com/" target="_blank"> <img src="https://www.vectorlogo.zone/logos/figma/figma-icon.svg" alt="figma" width="40" height="40"/> </a>
 <a href="https://www.rive.app/" target="_blank"> <img src="https://avatars.githubusercontent.com/u/58453772?s=200&v=4" alt="Rivejs" width="40" height="40"/> </a>
-<div style="height:1rem;"></div>
+</div>
+<div style="margin-bottom:1rem;">
 <a href="https://www.w3.org/html/" target="_blank"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/html5/html5-original-wordmark.svg" alt="html5" width="40" height="40"/> </a>
 <a href="https://pugjs.org/" target="_blank"> <img src="https://avatars.githubusercontent.com/u/9338635?s=200&v=4" alt="Pugjs" width="40" height="40"/> </a>
 <a href="https://www.w3schools.com/css/" target="_blank"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/css3/css3-original-wordmark.svg" alt="css3" width="40" height="40"/> </a>
@@ -40,17 +42,19 @@
 <a href="https://v3.vuejs.org/" target="_blank"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/vuejs/vuejs-original-wordmark.svg" alt="Vuejs" width="40" height="40"/> </a>
 <a href="https://vitejs.dev/" target="_blank"> <img src="https://camo.githubusercontent.com/61e102d7c605ff91efedb9d7e47c1c4a07cef59d3e1da202fd74f4772122ca4e/68747470733a2f2f766974656a732e6465762f6c6f676f2e737667" alt="Vuejs" width="40" height="40"/> </a>
 <!-- <a href="https://www.typescriptlang.org/" target="_blank"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/typescript/typescript-original.svg" alt="typescript" width="40" height="40"/> </a> -->
-<div style="height:1rem;"></div>
+</div>
+<div style="margin-bottom:1rem;">
 <a href="https://dart.dev/" target="_blank"> <img src="https://avatars.githubusercontent.com/u/1609975?s=200&v=4" alt="typescript" width="40" height="40"/> </a>
 <a href="https://flutter.dev/" target="_blank"> <img src="https://avatars.githubusercontent.com/u/14101776?s=200&v=4https://avatars.githubusercontent.com/u/1609975?s=200&v=4" alt="typescript" width="40" height="40"/> </a>
-<div style="height:1rem;"></div>
-
+</div>
+<div style="margin-bottom:1rem;">
 <a href="https://www.python.org" target="_blank"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/python/python-original.svg" alt="python" width="40" height="40"/> </a>
 <a href="https://go.dev" target="_blank"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/go/go-original.svg" alt="Golang" width="40" height="40"/> </a>
-<div style="height:1rem;"></div>
-
+</div>
+<div style="margin-bottom:1rem;">
 <a href="https://firebase.google.com/" target="_blank"> <img src="https://www.vectorlogo.zone/logos/firebase/firebase-icon.svg" alt="firebase" width="40" height="40"/> </a>
 </div>
+
 <div style="height:1rem;"></div>
 <div style="height:1rem;"></div>
 
