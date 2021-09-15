@@ -20,9 +20,6 @@ a > code:not([class*='language'])::before {
   border-radius: var(--border-radius);
 }
 
-
-
-
 /* Supporting Content */
 code {
   font-family: var(--font-mono);

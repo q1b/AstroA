@@ -1,5 +1,11 @@
 [
   {
+    "title": "Transition Component in Astro",
+    "subTitle": "Custom Transition component in Astro",
+    "publishDate": "Thursday, September 15 2021",
+    "url":"/Blogs/transition"
+  },
+  {
     "title": "Most potential framework for future",
     "subTitle": "Astro Static Site generator",
     "publishDate": "Thursday, August 12 2021",

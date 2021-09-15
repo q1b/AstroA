@@ -1,0 +1,112 @@
+---
+const { $class="", $style="", uid="a",toId="" ,show=false ,easing="ease-in-out" ,direction="" ,enter="", enterFrom="", enterTo="", leave="", leaveFrom="", leaveTo="", event="", enterEvent="", leaveEvent="" } = Astro.props;
+function splitClasses(classes) {
+  return classes.split(' ').filter(className => className.trim().length > 1)
+}
+function cvt(str)  {
+    const propsArray = splitClasses(str)
+    const tempObj = {}
+    propsArray.forEach((a)=>{
+        const property = a.split('-')[0]
+        const value = a.split('-')[1]
+        tempObj[property] = value
+    })
+    return tempObj
+}
+
+function animation(uid,enter,enterFrom,enterTo,direction="alternate"){
+  return (
+      `
+      if( animate${uid} === undefined ){
+        animate${uid} = element${uid}.animate(
+          [${JSON.stringify(cvt(enterFrom))},${JSON.stringify(cvt(enterTo))}],
+		  		{
+            id:"${uid}",
+            direction:"normal",
+            fill:"both",
+		  			duration:${parseInt(cvt(enter).duration)||200},
+		  			delay:${parseInt(cvt(enter).delay)||0},
+            easing:"${easing}",
+		  		}
+		    )
+      } else {
+        ${direction==="forward"? `animate${uid}.playbackRate = +1`: (
+          direction==="backward" ? `animate${uid}.playbackRate = -1` : `
+            animate${uid}.playbackRate === +1 ? animate${uid}.playbackRate = -1 : animate${uid}.playbackRate = +1
+          `
+        )}
+        animate${uid}.ready.then((e)=>{
+          animate${uid}.play();
+      })
+    }`
+  )
+}
+function animationFrom(uid,enter,enterFrom,enterTo){
+  return (
+      `
+      let animateForward${uid};
+      if( animateForward${uid} === undefined ){
+        animateForward${uid} = element${uid}.animate(
+          [${JSON.stringify(cvt(enterFrom))},${JSON.stringify(cvt(enterTo))}],
+		  		{
+            id:"${uid}",
+            direction:"normal",
+            fill:"both",
+		  			duration:${parseInt(cvt(enter).duration)||200},
+		  			delay:${parseInt(cvt(enter).delay)||0},
+            easing:"${easing}",
+		  		}
+		    )
+      } else {
+        animateForward${uid}.playbackRate = +1;
+        animateForward${uid}.ready.then((e)=>{
+          animateForward${uid}.play();
+      })
+    }`
+  )
+}
+function animationTo(uid,enter,enterFrom,enterTo){
+  return (
+      `
+      let animateBackward${uid};
+      if( animateBackward${uid} === undefined ){
+        animateBackward${uid} = element${uid}.animate(
+          [${JSON.stringify(cvt(enterFrom))},${JSON.stringify(cvt(enterTo))}],
+		  		{
+            id:"${uid}",
+            direction:"normal",
+            fill:"both",
+		  			duration:${parseInt(cvt(enter).duration)||200},
+		  			delay:${parseInt(cvt(enter).delay)||0},
+            easing:"${easing}",
+		  		}
+		    )
+      } else {
+        animateBackward${uid}.playbackRate = -1;
+        animateBackward${uid}.play();
+    }`
+  )
+}
+---
+
+<div class={$class} style={$style} id={uid} data-show={`${show}`} >
+  <slot />
+</div>
+{`<script>
+  let element${uid} = document.getElementById('${uid}');
+  ${ leave==="" ? `
+      let animate${uid};
+      document.getElementById('${toId}').addEventListener('${event}',()=>{
+          ${animation( uid, enter, enterFrom, enterTo, direction )}
+      });
+  ` : `
+      document.getElementById('${toId}').addEventListener('${event}',()=>{
+            if(element${uid}.dataset.show==='false') {
+              ${animationFrom( uid, enter, enterFrom, enterTo)}
+            } else {
+              ${animationTo( uid, leave, leaveFrom, leaveTo)}
+            }
+          element${uid}.dataset.show === 'true' ? element${uid}.dataset.show = 'false' : element${uid}.dataset.show = 'true'
+      });
+  ` }
+</script>`}

@@ -3,7 +3,7 @@
   "version": "0.0.1",
   "private": true,
   "scripts": {
-    "start": "astro dev",
+    "dev": "astro dev",
     "build": "astro build"
   },
   "devDependencies": {
@@ -13,7 +13,7 @@
     "@astrojs/renderer-vue": "^0.1.7",
     "@snowpack/plugin-dotenv": "^2.1.0",
     "@tailwindcss/typography": "^0.4.1",
-    "astro": "^0.18.9"
+    "astro": "0.20.6"
   },
   "dependencies": {
     "@headlessui/react": "^1.4.0",
