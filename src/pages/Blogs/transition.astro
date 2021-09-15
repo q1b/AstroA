@@ -4,13 +4,13 @@ import BaseLayout from '../../layouts/project.astro';
 import blogData from '../../data/blog.json';
 import Tr from '../../components/FUN/Tr.astro';
 
-let [thisPage] =  blogData.filter( ( a ) => a.url === Astro.request.url.pathname );
+// let [thisPage] =  blogData.filter( ( a ) => a.url === Astro.request.url.pathname );
 
 ---
 <BaseLayout content={{
-  title: thisPage.title,
-  subTitle: thisPage.subTitle,
-  publishDate: thisPage.publishDate,
+  title: blogData.filter(( a )=> a.url === Astro.request.url.pathname)[0].title,
+  subTitle: blogData.filter(( a )=> a.url === Astro.request.url.pathname)[0].subTitle,
+  publishDate: blogData.filter(( a )=> a.url === Astro.request.url.pathname)[0].publishDate,
   imageSrc:''
 }}>
   <section class="relative w-full h-screen flex flex-col space-y-10  justify-center ">

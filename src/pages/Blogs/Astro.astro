@@ -2,13 +2,13 @@
 import { Markdown } from 'astro/components';
 import BaseLayout from '../../layouts/project.astro';
 import blogData from '../../data/blog.json';
-let [thisPage] =  blogData.filter( ( a ) => a.url === Astro.request.url.pathname );
+// let [thisPage] =  blogData.filter( ( a ) => a.url === Astro.request.url.pathname );
 
 ---
 <BaseLayout content={{
-  title: thisPage.title,
-  subTitle: thisPage.subTitle,
-  publishDate: thisPage.publishDate,
+  title: blogData.filter(( a )=> a.url === Astro.request.url.pathname)[0].title,
+  subTitle: blogData.filter(( a )=> a.url === Astro.request.url.pathname)[0].subTitle,
+  publishDate: blogData.filter(( a )=> a.url === Astro.request.url.pathname)[0].publishDate,
 }}>
 <Markdown>
   # Astro 🚀 🚀 🚀 Framework

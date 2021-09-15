@@ -4,13 +4,13 @@ import BaseLayout from '../../layouts/project.astro';
 import projectData from '../../data/project.json';
 import Carousel from "../../components/projects/this/carousel.astro"
 
-let thisPage =  projectData.filter( ( a ) => a.url === Astro.request.url.pathname );
+// let thisPage =  projectData.filter( ( a ) => a.url === Astro.request.url.pathname );
 
 ---
 <BaseLayout content={{
-  title: thisPage.title,
-  subTitle: thisPage.subTitle,
-  publishDate: thisPage.publishDate,
+  title: projectData.filter( ( a ) => a.url === Astro.request.url.pathname )[0].title,
+  subTitle: projectData.filter( ( a ) => a.url === Astro.request.url.pathname )[0].subTitle,
+  publishDate: projectData.filter( ( a ) => a.url === Astro.request.url.pathname )[0].publishDate,
 }}>
   <Markdown>
     # 🚀 website to moon .
