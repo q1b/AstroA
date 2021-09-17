@@ -32,7 +32,7 @@ function generateSvg(items,priColor,secColor){
   return(
     <svg viewBox="0 0 12 12" style={`overflow: visible; width: 0.75rem;color:${priColor}`}>
       <path id="main-line" stroke-linecap="round" d="M 20 0 V 20" fill="none" stroke-width="4" stroke="currentColor" />
-      {generateCircle(42,30,'double')}
+      {generateCircle(42,30,'double',priColor)}
       {generateText(60,34,firstItem,priColor)}
       {generateBlocks(otherItems,secColor)}
       <path id="curve-line-1" d='M 20,20 Q 20,30 30,30' stroke="currentColor" stroke-width="4" fill="none"/>

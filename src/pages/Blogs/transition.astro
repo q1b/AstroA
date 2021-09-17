@@ -13,206 +13,104 @@ import Tr from '../../components/FUN/Tr.astro';
   publishDate: blogData.filter(( a )=> a.url === Astro.request.url.pathname)[0].publishDate,
   imageSrc:''
 }}>
-  <section class="relative w-full h-screen flex flex-col space-y-10  justify-center ">
-    <div class="flex place-content-around">
-      <button id="OPACITY" class="focus:ring-cyan-500 ring-2 px-3 py-1 rounded-lg bg-blue-500/10 text-cyan-500">play Animation</button>
-      <div class="flex space-x-2">
-        <button id="CODE1" class="focus:ring-indigo-500 ring-2 px-3 py-1 rounded-lg bg-violet-500/10 text-indigo-500">Code</button>
-        <h6>OPACITY</h6>
-      </div>
+<section>
+  <Markdown>
+    # What you can create,
+    hover over each to see the transition
+  </Markdown>
+  <section class="grid grid-cols-3 grid-rows-2 w-full h-96">
+    <div class="h-auto w-full relative flex items-center justify-center">
+      <Tr uid="first" toId="first" enterEvent="mouseover" leaveEvent="mouseleave"
+      enter="duration-500" enterFrom="scale-50" enterTo="scale-100" 
+      leave="duration-500" leaveFrom="scale-100" leaveTo="scale-50" 
+      $class="w-1/2 h-1/2 block bg-white" />
     </div>
-    <Tr 
-      uid="AS" 
-      toId="OPACITY" 
-      event="click"
-      enter="duration-400" 
-      enterFrom="opacity-0" 
-      enterTo="opacity-1"
-      $class="absolute w-64 h-64 opacity-0 rounded-lg bg-blueGray-300"
-    >
-    </Tr>
-    <Tr uid="Code1" toId="CODE1" event="click"
-    enter="duration-400" 
-    enterFrom="opacity-0"
-    enterTo="opacity-1"
-    $class="opacity-0 p-4 rounded-lg bg-blueGray-300">
-      <Markdown>
-        ```html
-        <Tr 
-          uid="AS"
-          toId="OPACITY" 
-          event="click" 
-          enter="duration-400"  
-          enterFrom="opacity-0"  
-          enterTo="opacity-1" 
-          $class="absolute w-64 h-64 opacity-0 rounded-lg bg-blueGray-300"
-        ></Tr>
-        ```
-      </Markdown>
-    </Tr>
+    <div class="h-auto w-full relative flex items-center justify-center">
+      <Tr uid="second" toId="second" enterEvent="mouseover" leaveEvent="mouseleave"
+      enter="duration-500" enterFrom="bg-white" enterTo="bg-indigo-600"
+      leave="duration-300" leaveFrom="bg-indigo-600" leaveTo="bg-white"
+      $class="w-1/2 h-1/2 block bg-white" />
+    </div>
+    <div class="h-auto w-full relative flex items-center justify-center">
+      <Tr uid="third" toId="third" enterEvent="mouseover" leaveEvent="mouseleave"
+      enter="duration-500" enterFrom="borderRadius-10px" enterTo="borderRadius-24px"
+      leave="duration-300" leaveFrom="borderRadius-24px" leaveTo="borderRadius-10px"
+      $class="w-1/2 h-1/2 block bg-white" $style="border-radius:10px;" />
+    </div>
+    <div class="h-auto w-full relative flex items-center justify-center">
+      <Tr uid="forth" toId="forth" enterEvent="mouseover" leaveEvent="mouseleave"
+      enter="duration-500" enterFrom="shadow-0px-1px-20px-1px-#FFFFFF33 bg-[#FFF]" enterTo="shadow-0px-1px-20px-3px-#667842FF bg-[#FF0]"
+      leave="duration-300" leaveFrom="shadow-0px-1px-20px-3px-#667842FF bg-[#FF0]" leaveTo="shadow-0px-1px-20px-1px-#FFFFFF33 bg-[#FFF]"
+      $class="w-1/2 h-1/2 block bg-white" $style="boxShadow:0px,0px,10,20,#FFF"/>
+    </div>
+    <div class="h-auto w-full relative flex items-center justify-center">
+      <Tr uid="fifth" toId="fifth" enterEvent="mouseover" leaveEvent="mouseleave"
+      enter="duration-500" enterFrom="rotate-90" enterTo="rotate-0"
+      leave="duration-300" leaveFrom="rotate-0" leaveTo="rotate-90"
+      $class="w-1/2 h-1/2 block bg-white" />
+    </div>
+    <div class="h-auto w-full relative flex items-center justify-center">
+      <Tr uid="sixth" toId="sixth" enterEvent="mouseover" leaveEvent="mouseleave"
+      enter="duration-500" enterFrom="translate-x-0" enterTo="translate-x-16"
+      leave="duration-300" leaveFrom="translate-x-16" leaveTo="translate-x-0"
+      $class="w-1/2 h-1/2 block bg-white" />
+    </div>
   </section>
-  <section class="relative w-full h-screen flex flex-col space-y-10  justify-center ">
-    <div class="flex place-content-around">
-      <button id="SCALE1" class="focus:ring-cyan-500 ring-2 px-3 py-1 rounded-lg bg-blue-500/10 text-cyan-500">play Animation</button>
-      <div class="flex space-x-2">
-        <button id="CODE2" class="focus:ring-indigo-500 ring-2 px-3 py-1 rounded-lg bg-violet-500/10 text-indigo-500">Code</button>
-        <h6>OPACITY</h6>
-        <h6>SCALE</h6>
-      </div>
+  <Markdown>
+    # Try More complex
+  </Markdown>
+  <section id="Item" class="grid grid-cols-2 grid-rows-2 w-full h-auto" style="aspect-ratio:1/1;">
+    <div class="h-auto w-full relative flex items-center justify-center">
+      <Tr uid="Item1" toId="Item" enterEvent="mouseenter" leaveEvent="mouseleave"
+      enter="duration-500" enterFrom="scale-100 borderRadius-0px borderTopLeftRadius-44px" enterTo="scale-50 borderRadius-24px" 
+      leave="duration-500" leaveFrom="scale-50 borderRadius-24px" leaveTo="scale-100 borderTopLeftRadius-44px borderRadius-0px"
+      $class="w-full h-full block bg-white" />
     </div>
-    <div class="flex pt-10 items-center justify-center">
-      <Tr uid="Scale" toId="SCALE1" event="click"
-        enter="duration-400" 
-        enterFrom="opacity-0 scale-0.6" 
-        enterTo="opacity-1 scale-1"
-        leave="duration-500"
-        leaveFrom="opacity-1 scale-1"
-        leaveTo="opacity-0 scale-0.6"
-        easing="ease-in"
-        $class="w-64 h-64 opacity-0 rounded-lg bg-blueGray-300"></Tr>
+    <div class="h-auto w-full relative flex items-center justify-center">
+      <Tr uid="Item2" toId="Item" enterEvent="mouseenter" leaveEvent="mouseleave"
+      enter="duration-500" enterFrom="scale-100 borderRadius-0px borderTopRightRadius-44px" enterTo="scale-50 borderRadius-24px" 
+      leave="duration-500" leaveFrom="scale-50 borderRadius-24px" leaveTo="scale-100 borderTopRightRadius-44px borderRadius-0px" 
+      $class="w-full h-full block bg-white" />
     </div>
-    <Tr uid="Code2" toId="CODE2" event="click"
-    enter="duration-400"
-    enterFrom="opacity-0"
-    enterTo="opacity-1"
-    $class="absolute -bottom-4 opacity-0 p-4 rounded-lg bg-blueGray-300">
-      <Markdown>
-        ```html
-        <Tr 
-          uid="AS"
-          toId="OPACITY" 
-          event="click" 
-          enter="duration-400"  
-          enterFrom="opacity-0"  
-          enterTo="opacity-1" 
-          $class="absolute w-64 h-64 opacity-0 rounded-lg bg-blueGray-300"
-        ></Tr>
-        ```
-      </Markdown>
-    </Tr>
+    <div class="h-auto w-full relative flex items-center justify-center">
+      <Tr uid="Item3" toId="Item" enterEvent="mouseenter" leaveEvent="mouseleave"
+      enter="duration-500" enterFrom="scale-100 borderRadius-0px borderBottomLeftRadius-44px" enterTo="scale-50 borderRadius-24px" 
+      leave="duration-500" leaveFrom="scale-50 borderRadius-24px" leaveTo="scale-100 borderBottomLeftRadius-44px borderRadius-0px"
+      $class="w-full h-full block bg-white" />
+    </div>
+    <div class="h-auto w-full relative flex items-center justify-center">
+      <Tr uid="Item4" toId="Item" enterEvent="mouseenter" leaveEvent="mouseleave"
+      enter="duration-500" enterFrom="scale-100 borderRadius-0px borderBottomRightRadius-44px" enterTo="scale-50 borderRadius-24px" 
+      leave="duration-500" leaveFrom="scale-50 borderRadius-24px" leaveTo="scale-100 borderBottomRightRadius-44px borderRadius-0px"  
+      $class="w-full h-full block bg-white" />
+    </div>
   </section>
-  <section class="relative w-full h-full flex flex-col space-y-10  justify-center ">
-    <div class="flex place-content-around">
-      <button id="ROTATE1" class="focus:ring-cyan-500 ring-2 px-3 py-1 rounded-lg bg-blue-500/10 text-cyan-500">play Animation</button>
-      <div class="flex space-x-2">
-        <button id="CODE3" class="focus:ring-indigo-500 ring-2 px-3 py-1 rounded-lg bg-violet-500/10 text-indigo-500">Code</button>
-        <h6>OPACITY</h6>
-        <h6>SCALE</h6>
-        <h6>ROTATE</h6>
-      </div>
+  <Markdown>
+    ## Want to create a Dropdown
+  </Markdown>
+  <section class="pb-64">
+  <div class="flex items-center flex-col relative w-max">
+    <Tr uid="AccordionHeader" toId="AccordionHeader" enterEvent="mouseenter" leaveEvent="mouseleave"
+    enter="duration-200" enterFrom="shadow-0px-0px-4px-0px-#6366f1" enterTo="shadow-0px-0px-16px-4px-#6366f1" 
+    leave="duration-200" leaveFrom="shadow-0px-0px-16px-4px-#6366f1" leaveTo="shadow-0px-0px-4px-0px-#6366f1" 
+    $class="cursor-pointer relative w-full items-center flex justify-center space-x-2 px-2 bg-indigo-500/10 text-indigo-600 w-max rounded-lg">
+        <span>Hello World</span>
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-auto inline w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+        </svg>
+      </Tr>
+      <Tr uid="AccordionItems" toId="AccordionHeader" event="click"
+      enter="duration-200" enterFrom="shadow-0px-0px-4px-0px-#6366f1" enterTo="shadow-0px-0px-16px-4px-#6366f1"
+      leave="duration-200" leaveFrom="shadow-0px-0px-16px-4px-#6366f1" leaveTo="shadow-0px-0px-4px-0px-#6366f1"
+      $class="absolute w-[calc(100%+20px)] left-0 top-14 hidden bg-indigo-500/10 text-indigo-600 rounded-lg" hiddenFlag={true} >
+        <div class="flex flex-col justify-center p-2 space-y-3">
+          <div class="px-2 bg-indigo-500/10 py-0.5 hover:bg-indigo-500/60 hover:text-white rounded-md">Item -1</div>
+          <div class="px-2 bg-indigo-500/10 py-0.5 hover:bg-indigo-500/60 hover:text-white rounded-md">Item -2</div>
+          <div class="px-2 bg-indigo-500/10 py-0.5 hover:bg-indigo-500/60 hover:text-white rounded-md">Item -3</div>
+          <div class="px-2 bg-indigo-500/10 py-0.5 hover:bg-indigo-500/60 hover:text-white rounded-md">Item -4</div>
+        </div>
+      </Tr>
     </div>
-    <div class="flex pt-10 items-center justify-center">
-      <Tr uid="Rotate" toId="ROTATE1" event="click"
-        enter="duration-400" 
-        enterFrom="opacity-0.5 scale-0.6 rotate-90deg" 
-        enterTo="opacity-1 scale-1 rotate-0deg"
-        leave="duration-500"
-        leaveFrom="opacity-1 scale-1 rotate-0deg"
-        leaveTo="opacity-0.5 scale-0.6 rotate-90deg"
-        easing="ease-in"
-        $class="w-64 h-64 opacity-0 rounded-lg bg-blueGray-300"></Tr>
-    </div>
-    <Tr uid="Code3" toId="CODE3" event="click"
-    enter="duration-400"
-    enterFrom="opacity-0"
-    enterTo="opacity-1"
-    $class="absolute top-10 w-full opacity-0 p-4 rounded-lg bg-blueGray-300">
-      <Markdown>
-        ```html
-        <Tr 
-          uid="Rotate"
-          toId="ROTATE1" 
-          event="click"
-          enter="duration-400" 
-          enterFrom="opacity-0.5 scale-0.6 rotate-90deg" 
-          enterTo="opacity-1 scale-1 rotate-0deg"
-          leave="duration-500"
-          leaveFrom="opacity-1 scale-1 rotate-0deg"
-          leaveTo="opacity-0.5 scale-0.6 rotate-90deg"
-          easing="ease-in"
-          $class="w-64 h-64 opacity-0 rounded-lg bg-blueGray-300">
-        </Tr>
-        ```
-      </Markdown>
-    </Tr>
   </section>
-  <section class="top-56 relative w-full h-screen flex flex-col space-y-10  justify-center ">
-    <div class="flex place-content-around">
-      <button id="TRANSLATE1" class="focus:ring-cyan-500 ring-2 px-3 py-1 rounded-lg bg-blue-500/10 text-cyan-500">play Animation</button>
-      <div class="flex space-x-2">
-        <button id="CODE4" class="focus:ring-indigo-500 ring-2 px-3 py-1 rounded-lg bg-violet-500/10 text-indigo-500">Code</button>
-        <h6>Complex</h6>
-        <h6>Opacity</h6>
-        <h6>Scale</h6>
-      </div>
-    </div>
-    <div class="flex pt-10 items-center justify-center">
-      <Tr uid="Translate" toId="TRANSLATE1" event="click"
-        enter="duration-400"
-        enterFrom="opacity-0.4 scale-1 borderRadius-20px" 
-        enterTo="opacity-1 scale-1.4 borderRadius-40px"
-        easing="ease-in"
-        $class="w-96 h-72 scale-50 flex-wrap opacity-40 flex relative rounded-3xl bg-blueGray-300">
-          <Tr uid="Translate1" toId="TRANSLATE1" event="click"
-          enter="duration-400"
-          enterFrom="opacity-0.1 scale-1 borderRadius-20px" 
-          enterTo="opacity-1 scale-1.4 borderRadius-40px"
-          easing="ease-in"
-          $class="w-48 h-48 flex-shrink-0 scale-50 opacity-10 rounded-lg bg-blueGray-100" >
-          </Tr>
-          <Tr uid="Translate2" toId="TRANSLATE1" event="click"
-          enter="duration-400"
-          enterFrom="opacity-0.1 scale-1 borderRadius-20px" 
-          enterTo="opacity-1 scale-1.4 borderRadius-40px"
-          easing="ease-in"
-          $class="w-48 h-48 flex-shrink-0 scale-50 opacity-10 rounded-lg bg-blueGray-100" >
-          </Tr>
-          <Tr uid="Translate4" toId="TRANSLATE1" event="click"
-          enter="duration-400"
-          enterFrom="opacity-0.1 backgroundColor-#FFF width-0 borderRadius-10px" 
-          enterTo="opacity-0.9 backgroundColor-#FF0060 width-90% borderRadius-20px"
-          easing="ease-in"
-          $class="absolute -bottom-5 ml-5 h-20 mb-10 opacity-10 rounded-lg bg-blueGray-100" >
-          </Tr>
-        </Tr>
-    </div>
-    <Tr uid="Code4" toId="CODE4" event="click"
-    enter="duration-400"
-    enterFrom="opacity-0"
-    enterTo="opacity-1"
-    $class="absolute top-36 w-full opacity-0 p-4 rounded-lg bg-blueGray-300">
-      <Markdown>
-        ```html
-      <Tr uid="Translate" toId="TRANSLATE1" event="click"
-        enter="duration-400"
-        enterFrom="opacity-0.4 scale-1 borderRadius-20px" 
-        enterTo="opacity-1 scale-1.4 borderRadius-40px"
-        easing="ease-in"
-        $class="w-96 h-72 scale-50 flex-wrap opacity-40 flex relative rounded-3xl bg-blueGray-300">
-          <Tr uid="Translate1" toId="TRANSLATE1" event="click"
-          enter="duration-400"
-          enterFrom="opacity-0.1 scale-1 borderRadius-20px" 
-          enterTo="opacity-1 scale-1.4 borderRadius-40px"
-          easing="ease-in"
-          $class="w-48 h-48 flex-shrink-0 scale-50 opacity-10 rounded-lg bg-blueGray-100" >
-          </Tr>
-          <Tr uid="Translate2" toId="TRANSLATE1" event="click"
-          enter="duration-400"
-          enterFrom="opacity-0.1 scale-1 borderRadius-20px" 
-          enterTo="opacity-1 scale-1.4 borderRadius-40px"
-          easing="ease-in"
-          $class="w-48 h-48 flex-shrink-0 scale-50 opacity-10 rounded-lg bg-blueGray-100" >
-          </Tr>
-          <Tr uid="Translate4" toId="TRANSLATE1" event="click"
-          enter="duration-400"
-          enterFrom="opacity-0.1 backgroundColor-#FFF width-0 borderRadius-10px" 
-          enterTo="opacity-0.9 backgroundColor-#FF0060 width-90% borderRadius-20px"
-          easing="ease-in"
-          $class="absolute -bottom-5 ml-5 h-20 mb-10 opacity-10 rounded-lg bg-blueGray-100" >
-          </Tr>
-        </Tr>
-        ```
-      </Markdown>
-    </Tr>
-  </section>
+</section>
 </BaseLayout>

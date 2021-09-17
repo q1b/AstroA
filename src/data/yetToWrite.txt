@@ -1,3 +1,8 @@
+Rough
+function splitWithSeparator(input, separator) {
+  return input.split(new RegExp(`\\${separator}(?![^[]*\\])`, 'g'))
+}
+
 Projects
 {
   "title": "Flutter App",
